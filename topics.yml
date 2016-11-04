@@ -1,0 +1,23 @@
+--- # Topics
+311:
+crime:
+cycling:
+  aliases:
+    - bicycling
+  description: Bicycling
+education:
+  aliases:
+    - teaching
+gis:
+  description: Tools and analysis of geospatial information
+  related:
+    - mapping
+health
+mapping:
+  aliases:
+    - maps
+  description: The display and manipulation of geographic data on a map interface
+  related:
+    - gis
+transportation:
+voting:
