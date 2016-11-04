@@ -12,7 +12,7 @@ gis:
   description: Tools and analysis of geospatial information
   related:
     - mapping
-health
+health:
 mapping:
   aliases:
     - maps
