@@ -1,0 +1,499 @@
+--- # Technologies
+.net:
+  title: .NET
+adobe_cs:
+  title: Adobe CS
+after_effects:
+  title: After Effects
+ajax:
+  title: ajax
+akka:
+  title: Akka
+alteryx:
+  title: Alteryx
+amazon_web_services:
+  title: amazon web services
+android:
+  title: Android
+android_phones_and_apps_for_good_of_we_the_people.:
+  title: Android phones and apps for good of we the people.
+android_wear:
+  title: Android Wear
+angular:
+  title: angular
+angularjs:
+  title: AngularJS
+ansible:
+  title: Ansible
+any_language:
+  title: Any Language
+apache:
+  title: Apache
+api:
+  title: API
+apostrophe:
+  title: apostrophe
+appery.io:
+  title: Appery.io
+arcgis:
+  title: ArcGIS
+arduino:
+  title: Arduino
+asp.net:
+  title: ASP.NET
+assembly:
+  title: Assembly
+axure:
+  title: Axure
+backbone:
+  title: Backbone
+backbonejs:
+  title: BackboneJS
+bash:
+  title: bash
+bash_python_css3_unix:
+  title: Bash python css3 unix
+basic:
+  title: basic
+beginner_not_sure:
+  title: beginner not sure
+blockchain:
+  title: Blockchain
+boo:
+  title: boo
+bootstap:
+  title: Bootstap
+bootstrap:
+  title: Bootstrap
+business_intelligence:
+  title: Business Intelligence
+c:
+  title: c
+c-.net:
+  title: C#/.NET
+c-2:
+  title: c\#
+c-angularjs:
+  title: C# AngularJS
+cartodb:
+  title: CartoDB
+chef:
+  title: Chef
+cinema_4d:
+  title: Cinema 4D
+clojure:
+  title: Clojure
+cloud:
+  title: cloud
+coffeescript:
+  title: CoffeeScript
+content_strategy:
+  title: content strategy
+copywriting:
+  title: Copywriting
+cordova:
+  title: cordova
+cpp:
+  title: C++
+cs:
+  title: C#
+cs5:
+  title: CS5
+csharp:
+  title: csharp
+css:
+  title: CSS
+css3:
+  title: css3
+cypher:
+  title: Cypher
+d3:
+  title: D3
+databases:
+  title: databases
+data_warehousing:
+  title: Data Warehousing
+django:
+  title: Django
+docker:
+  title: Docker
+drupal:
+  title: drupal
+elasticsearch:
+  title: Elasticsearch
+elixir:
+  title: Elixir
+email_marketing:
+  title: email marketing
+embedded:
+  title: embedded
+ember.js:
+  title: Ember.js
+emergence:
+  title: Emergence
+erlang:
+  title: Erlang
+erp:
+  title: ERP
+esri:
+  title: ESRI
+everything:
+  title: Everything
+excel:
+  title: Excel
+express.js:
+  title: express.js
+extjs:
+  title: ExtJS
+fabric:
+  title: Fabric
+firebase:
+  title: Firebase
+flash:
+  title: Flash
+flask:
+  title: Flask
+foundation:
+  title: Foundation
+fpga:
+  title: FPGA
+front_end_web_dev:
+  title: Front End Web Dev
+geographic-information-systems:
+  title: Geographic-Information-Systems
+git:
+  title: git
+github:
+  title: github
+go:
+  title: Go
+go-lang:
+  title: Go-lang
+google:
+  title: google
+google_analytics:
+  title: Google Analytics
+google_app_engine:
+  title: Google App Engine
+google_glass:
+  title: Google Glass
+google_maps:
+  title: Google Maps
+gps:
+  title: GPS
+hadoop:
+  title: Hadoop
+haskell:
+  title: Haskell
+heroku:
+  title: Heroku
+hosting:
+  title: hosting
+ht:
+  title: Ht
+htm:
+  title: HTM
+html:
+  title: HTML
+html5:
+  title: html5
+https--www.squadup.com-events-apps-for-sustainability-unconference-and-hackathon:
+  title: https://www.squadup.com/events/apps-for-sustainability-unconference-and-hackathon
+hybris:
+  title: hybris
+illustrator:
+  title: Illustrator
+information_architecture:
+  title: information architecture
+intel_xdk:
+  title: Intel XDK
+interactivedesign:
+  title: interactivedesign
+ios:
+  title: iOS
+ios-swift:
+  title: iOS/Swift
+ipfs:
+  title: IPFS
+irobot:
+  title: iRobot
+j2ee:
+  title: J2EE
+jav:
+  title: Jav
+java:
+  title: java
+javascriopt:
+  title: JavaScriopt
+javascript:
+  title: JavaScript
+javascript_bootstrap:
+  title: javascript bootstrap
+javascript_tech.php:
+  title: JavaScript tech.PHP
+jq:
+  title: jq
+jquery:
+  title: jquery
+json:
+  title: JSON
+julia:
+  title: Julia
+knockout:
+  title: Knockout
+lambda:
+  title: Lambda
+lamp-mamp:
+  title: LAMP/MAMP
+laravel:
+  title: laravel
+leaflet.js:
+  title: Leaflet.js
+less:
+  title: LESS
+linux:
+  title: Linux
+lisps:
+  title: lisps'
+load_testing:
+  title: load testing
+localwiki:
+  title: LocalWiki
+location_services:
+  title: Location Services
+lua:
+  title: Lua
+magento:
+  title: MAGENTO
+mapbox:
+  title: MapBox
+matlab:
+  title: MATLAB
+mdx:
+  title: MDX
+mean:
+  title: MEAN
+meteor:
+  title: Meteor
+mobile_web_applications:
+  title: Mobile web applications
+mobility:
+  title: Mobility
+model_development:
+  title: model development
+mongodb:
+  title: mongodb
+mysql:
+  title: MySQL
+neo4j:
+  title: neo4j
+nginx:
+  title: nginx
+nlp:
+  title: NLP
+node:
+  title: node
+nodejs:
+  title: Node.js
+nodejs-2:
+  title: NodeJs
+nosql:
+  title: nosql
+not_sure:
+  title: Not Sure
+objective-c:
+  title: Objective-C
+objective_c:
+  title: objective c
+office:
+  title: Office
+opencv:
+  title: OpenCV
+openstack:
+  title: OpenStack
+openstreetmap:
+  title: OpenStreetMap
+optimization:
+  title: optimization
+original_nes:
+  title: Original NES
+osx:
+  title: OSX
+p:
+  title: P
+pandas:
+  title: pandas
+parse:
+  title: Parse
+pebble:
+  title: Pebble
+perl:
+  title: Perl
+personlization:
+  title: Personlization
+phalcon:
+  title: phalcon
+phoenix:
+  title: Phoenix
+phonegap:
+  title: PhoneGap
+photo:
+  title: Photo
+photoshop:
+  title: Photoshop
+php:
+  title: PHP
+polymer.js:
+  title: Polymer.js
+postgis:
+  title: PostGIS
+postgresql:
+  title: PostgreSQL
+pretentious_technology_choices:
+  title: Pretentious Technology Choices
+processing:
+  title: processing
+programming_language:
+  title: Programming language
+project_management:
+  title: Project Management
+pyth:
+  title: pyth
+python:
+  title: Python
+qa:
+  title: QA
+qgis:
+  title: QGIS
+qliksense:
+  title: QlikSense
+r:
+  title: R
+rails:
+  title: Rails
+react:
+  title: React
+reactnative:
+  title: ReactNative
+react_native:
+  title: React Native
+realtime:
+  title: realtime
+redis:
+  title: redis
+responsivedesign:
+  title: responsivedesign
+responsive_design:
+  title: Responsive Design
+rfid:
+  title: RFID
+ruby:
+  title: Ruby
+ruby_on_rails:
+  title: Ruby on Rails
+rust:
+  title: Rust
+sails.js:
+  title: Sails.js
+salesforce:
+  title: Salesforce
+sandstorm:
+  title: sandstorm
+sap:
+  title: sap
+sass:
+  title: sass
+sass_less:
+  title: sass less
+senchatouch:
+  title: Sencha Touch
+seo:
+  title: SEO
+sequalize:
+  title: Sequalize
+sh:
+  title: sh
+shopify:
+  title: SHOPIFY
+sina:
+  title: Sina
+sinatra:
+  title: Sinatra
+sketch:
+  title: Sketch
+sleeping:
+  title: Sleeping
+smartwatch:
+  title: Smartwatch
+splunk:
+  title: Splunk
+sql:
+  title: SQL
+sqlite:
+  title: SQLite
+sql_msbi_cosmos:
+  title: SQL MSBI Cosmos
+stata:
+  title: Stata
+sw:
+  title: Sw
+swift:
+  title: swift
+tableau:
+  title: Tableau
+tdd:
+  title: TDD
+terminator:
+  title: Terminator
+twilio:
+  title: Twilio
+typescript:
+  title: Typescript
+ubuntu:
+  title: Ubuntu
+uml:
+  title: UML
+unity:
+  title: Unity
+unit_testing:
+  title: Unit Testing
+unix:
+  title: Unix
+userexperience:
+  title: userexperience
+vba:
+  title: VBA
+virtual_personal_assistants:
+  title: Virtual personal assistants
+visual_basic.net:
+  title: Visual Basic.net
+vuejs:
+  title: Vuejs
+web.py:
+  title: web.py
+webdesign:
+  title: webdesign
+webrtc:
+  title: Webrtc
+webservices:
+  title: webservices
+web_app:
+  title: Web App
+web_apps:
+  title: Web Apps
+web_audio:
+  title: Web Audio
+windows:
+  title: Windows
+winrt:
+  title: WinRT
+wireless_technology:
+  title: Wireless Technology
+word:
+  title: word
+wordpress:
+  title: WordPress
+xhtml5:
+  title: xHTML5
+xml:
+  title: XML
