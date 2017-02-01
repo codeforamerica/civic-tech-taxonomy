@@ -1,18 +1,8 @@
 --- # Topics
--helpfulness-crowdhelping:
-  title: #helpfulness #crowdhelping
-2015:
-  title: 2015
-311_dashbaord_mapping:
-  title: 311 dashbaord mapping
-311_data:
-  title: 311 data
-311_widget:
-  title: 311 widget
+311:
+  title: 311
 accessibility:
   title: Accessibility
-accessiblilty:
-  title: Accessiblilty
 acting:
   title: Acting
 advocacy:
@@ -41,44 +31,26 @@ anti-corporate:
   title: Anti-corporate
 anti-prisons:
   title: Anti-Prisons
-any:
-  title: any
-anything:
-  title: anything
 architecture:
   title: Architecture
 art:
   title: Art
 artificial_intelligence:
   title: Artificial Intelligence
+  aliases:
+    - ai
 arts_and_culture:
   title: arts and culture
 automation:
   title: Automation
-b:
-  title: b
 bees:
   title: Bees
-bicyc:
-  title: bicyc
-bicycle:
-  title: Bicycle
-bicycles:
-  title: Bicycles
-bicycling:
-  title: Bicycling
 big_data:
   title: big data
-bike:
-  title: Bike
 bike_coalition:
   title: Bike Coalition
 bike_sharing:
   title: bike sharing
-bikes:
-  title: bikes
-biking:
-  title: Biking
 biomedical:
   title: Biomedical
 biostatistics:
@@ -95,10 +67,6 @@ brands:
   title: Brands
 brewing:
   title: Brewing
-bs:
-  title: BS
-budget:
-  title: budget
 budgets:
   title: Budgets
 building_systems:
@@ -115,14 +83,8 @@ cancer:
   title: Cancer
 cars:
   title: Cars
-check-in:
-  title: check-in
 children:
   title: Children
-chrime:
-  title: Chrime
-cissp:
-  title: CISSP
 civic_education:
   title: Civic Education
 civic_hacking:
@@ -190,9 +152,9 @@ culture:
 cyber_security:
   title: Cyber security
 cycling:
-  title: Cycling
-d:
-  title: d
+  aliases:
+    - bicycling
+    - biking
 dashboard:
   title: dashboard
 data:
@@ -245,12 +207,8 @@ economic_development:
   title: economic development
 economics:
   title: economics
-ed:
-  title: ed
 edtech:
   title: Edtech
-edu:
-  title: edu
 education:
   title: Education
 elected_positions:
@@ -285,8 +243,6 @@ equality:
   title: Equality
 event_coordination:
   title: Event Coordination
-everyday_people:
-  title: Everyday People
 feminism:
   title: feminism
 fighting_poverty:
@@ -323,14 +279,15 @@ genomics:
   title: Genomics
 gentrification:
   title: Gentrification
-geographic_information_systems:
-  title: geographic information systems
 geometry:
   title: Geometry
 geotagging:
   title: Geotagging
 gis:
   title: GIS
+  description: Tools and analysis of geospatial information
+  related:
+    - mapping
 globalization:
   title: globalization
 government_interation:
@@ -341,8 +298,6 @@ hackthons:
   title: hackthons
 hardware:
   title: Hardware
-hardware-software_systems:
-  title: hardware/software systems
 hcm:
   title: HCM
 health:
@@ -353,14 +308,10 @@ healthcare:
   title: Healthcare
 heating_system:
   title: heating system
-help:
-  title: Help
 history:
   title: history
 hiv-aids:
   title: HIV/AIDS
-home_area_networks_and_iptv:
-  title: Home Area Networks and IPTV
 home_improvements:
   title: home improvements
 homelessness:
@@ -377,22 +328,12 @@ hunger:
   title: Hunger
 immersion:
   title: Immersion
-indego:
-  title: indego
 inequality:
   title: Inequality
-inequality_anti-corporation:
-  title: Inequality Anti-corporation
 injustice:
   title: Injustice
-inventing:
-  title: Inventing
-ios_apps:
-  title: iOS Apps
 iot:
   title: IoT
-ip_development:
-  title: IP development
 journalism:
   title: Journalism
 juvenile_justice:
@@ -431,16 +372,10 @@ literature:
   title: Literature
 local_economy:
   title: local economy
-lowering_voting_age_to_16:
-  title: Lowering Voting Age to 16
 machine_learning:
   title: Machine Learning
-making_shit_better:
-  title: making shit better
 mapping:
   title: Mapping
-mappingbig_data:
-  title: mappingbig data
 maps:
   title: Maps
 marketing:
@@ -449,8 +384,6 @@ mathematics:
   title: mathematics
 media:
   title: Media
-media_playback:
-  title: media playback
 medical_informatics:
   title: medical informatics
 medical_taxonomy:
@@ -459,8 +392,6 @@ medicine:
   title: Medicine
 meditation:
   title: Meditation
-megalithic:
-  title: Megalithic
 mentorship:
   title: Mentorship
 mesh:
@@ -469,18 +400,12 @@ mindfulness:
   title: Mindfulness
 mobile:
   title: Mobile
-mobile_app:
-  title: mobile app
-mobile_web_app:
-  title: Mobile Web App
 motorcycles:
   title: Motorcycles
 multimedia:
   title: Multimedia
 music:
   title: Music
-native_mobile_apps:
-  title: native mobile apps
 natural_ui:
   title: Natural UI
 navigation:
@@ -489,12 +414,8 @@ neuroimaging:
   title: Neuroimaging
 neurology:
   title: neurology
-new_technologies:
-  title: new technologies
 news:
   title: news
-nextmayorphl:
-  title: nextmayorphl
 nighttime_economy_development:
   title: Nighttime economy development
 non-profits:
@@ -505,18 +426,12 @@ oceanography:
   title: oceanography
 ontology:
   title: ontology
-open_d:
-  title: Open D
 open_data:
   title: Open Data
 open_source:
   title: Open Source
-open_to_all:
-  title: open to all
 opengov:
   title: opengov
-opentripplanner:
-  title: OpenTripPlanner
 operations:
   title: Operations
 organizations:
@@ -529,38 +444,22 @@ parenting:
   title: parenting
 parking:
   title: Parking
-parking_apps:
-  title: Parking apps
 parksandrecreation:
   title: Parksandrecreation
 party_politics:
   title: Party Politics
-patios:
-  title: patios
-paver:
-  title: paver
 paving_stones:
   title: paving stones
 peace:
   title: Peace
 people:
   title: People
-pergola_designs:
-  title: pergola designs
-pergola_roof_designs:
-  title: pergola roof designs
-pergolas:
-  title: pergolas
 permaculture:
   title: Permaculture
 permits:
   title: permits
 philadelphia:
   title: Philadelphia
-philly:
-  title: Philly
-phillyasap:
-  title: PhillyASAP
 photography:
   title: Photography
 physical_computing:
@@ -587,10 +486,6 @@ product_development:
   title: Product Development
 programming:
   title: programming
-programming_raspberry_pii:
-  title: programming raspberry pii
-programs:
-  title: programs
 projects:
   title: Projects
 property:
@@ -599,10 +494,6 @@ Prototyping:
   title: Prototyping
 psychology:
   title: Psychology
-public:
-  title: public
-public_and_private_cloud:
-  title: Public and Private cloud
 public_awareness:
   title: Public Awareness
 public_benefits:
@@ -615,22 +506,18 @@ public_policy:
   title: Public Policy
 public_relations:
   title: Public Relations
-quaker:
-  title: Quaker
 quality_of_life:
   title: quality of life
 recidivism:
   title: Recidivism
 recreation:
   title: recreation
-reentry-network:
-  title: Reentry-Network
+reentry:
+  title: Reentry
 renewable_energy:
   title: renewable energy
 republican_party:
   title: Republican Party
-returning-citizens:
-  title: Returning-Citizens
 reverse_engineering:
   title: Reverse Engineering
 ridership:
@@ -643,24 +530,16 @@ safety:
   title: Safety
 sanitation:
   title: Sanitation
-sas:
-  title: SAS
 science:
   title: science
 science_education:
   title: Science Education
-search:
-  title: Search
 seeds:
   title: Seeds
 semantic_web:
   title: Semantic Web
 sensors:
   title: sensors
-septa:
-  title: SEPTA
-serendipity:
-  title: Serendipity
 service-learning:
   title: Service-Learning
 services:
@@ -683,26 +562,16 @@ social_projects:
   title: Social projects
 software_development:
   title: Software Development
-software_engineering:
-  title: Software Engineering
-sp:
-  title: sp
-space:
-  title: Space
 species_and_land_preservation:
   title: species and land preservation
 sports:
   title: Sports
 statistics:
   title: statistics
-statistics_spatial:
-  title: statistics spatial
 supply_chain:
   title: supply chain
 survey:
   title: Survey
-sustai:
-  title: Sustai
 sustainability:
   title: sustainability
 swapping:
@@ -715,14 +584,10 @@ taxes:
   title: taxes
 teaching:
   title: teaching
-tec:
-  title: Tec
 term_limits:
   title: Term Limits
 theater:
   title: theater
-timeline:
-  title: Timeline
 tools:
   title: Tools
 tourism:
@@ -743,8 +608,6 @@ troubleshooting:
   title: Troubleshooting
 ui:
   title: UI
-unicorns:
-  title: unicorns
 urban_design:
   title: Urban Design
 urban_development:
@@ -795,8 +658,6 @@ web_development:
   title: Web Development
 women-s_rights:
   title: Women's Rights
-wonder:
-  title: wonder
 wood_working:
   title: Wood Working
 youth_development:
