@@ -9,6 +9,7 @@ education:
   aliases:
     - teaching
 gis:
+  title: GIS
   description: Tools and analysis of geospatial information
   related:
     - mapping
