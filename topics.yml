@@ -9,13 +9,13 @@ advocacy:
   title: Advocacy
 africa:
   title: Africa
-after-school_programs:
+after-school-programs:
   title: After-school Programs
-agile_practices:
+agile-practices:
   title: Agile Practices
 ai:
   title: AI
-air_quality:
+air-quality:
   title: Air Quality
 algorithms:
   title: Algorithms
@@ -23,7 +23,7 @@ alphago:
   title: AlphaGo
 analytics:
   title: analytics
-animal_shelters-pet_adoption:
+animal-shelters-pet-adoption:
   title: Animal Shelters/Pet Adoption
 animation:
   title: animation
@@ -35,21 +35,21 @@ architecture:
   title: Architecture
 art:
   title: Art
-artificial_intelligence:
-  title: Artificial Intelligence
+artificial-intelligence:
   aliases:
     - ai
-arts_and_culture:
+  title: Artificial Intelligence
+arts-and-culture:
   title: arts and culture
 automation:
   title: Automation
 bees:
   title: Bees
-big_data:
+big-data:
   title: big data
-bike_coalition:
+bike-coalition:
   title: Bike Coalition
-bike_sharing:
+bike-sharing:
   title: bike sharing
 biomedical:
   title: Biomedical
@@ -59,8 +59,6 @@ biotech:
   title: Biotech
 bitcoin:
   title: Bitcoin
-biz_dev:
-  title: Business Development
 botany:
   title: Botany
 brands:
@@ -69,13 +67,15 @@ brewing:
   title: Brewing
 budgets:
   title: Budgets
-building_systems:
+building-systems:
   title: Building Systems
 bulbs:
   title: Bulbs
 business:
   title: Business
-campaign_finance_reform:
+business-development:
+  title: Business Development
+campaign-finance-reform:
   title: Campaign Finance Reform
 campaings:
   title: Campaings
@@ -85,31 +85,31 @@ cars:
   title: Cars
 children:
   title: Children
-civic_education:
+civic-education:
   title: Civic Education
-civic_hacking:
+civic-hacking:
   title: Civic Hacking
-civic_involvement:
+civic-involvement:
   title: Civic involvement
 civicengagement:
   title: CivicEngagement
-civil_rights:
+civil-rights:
   title: civil rights
-climate_change:
+climate-change:
   title: climate change
 climbing:
   title: Climbing
-cloud_programming:
+cloud-programming:
   title: cloud programming
 clouds:
   title: clouds
-code_quality:
+code-quality:
   title: Code Quality
-code_review:
+code-review:
   title: Code Review
 coding:
   title: Coding
-coding_projects:
+coding-projects:
   title: Coding projects
 comedy:
   title: Comedy
@@ -119,13 +119,13 @@ communities:
   title: Communities
 community:
   title: Community
-computational_linguistics:
+computational-linguistics:
   title: Computational Linguistics
-computer_labs:
+computer-labs:
   title: computer labs
-computer_science:
+computer-science:
   title: Computer Science
-computer_vision:
+computer-vision:
   title: Computer Vision
 computers:
   title: Computers
@@ -133,15 +133,15 @@ conceptual-artist:
   title: Conceptual-Artist
 configuration:
   title: configuration
-content_development:
+content-development:
   title: content development
 cooking:
   title: Cooking
 crime:
   title: Crime
-crime_mapping:
+crime-mapping:
   title: Crime Mapping
-crisis_informatics:
+crisis-informatics:
   title: Crisis Informatics
 crowdsourcing:
   title: Crowdsourcing
@@ -149,7 +149,7 @@ cryptocurrency:
   title: CryptoCurrency
 culture:
   title: Culture
-cyber_security:
+cyber-security:
   title: Cyber security
 cycling:
   aliases:
@@ -159,23 +159,23 @@ dashboard:
   title: dashboard
 data:
   title: Data
-data_analysis:
+data-analysis:
   title: data analysis
-data_management:
+data-management:
   title: data management
-data_mining:
+data-mining:
   title: data mining
-data_science:
+data-science:
   title: Data Science
-data_visualization:
+data-visualization:
   title: data visualization
-deep_learning:
+deep-learning:
   title: deep learning
 democracy:
   title: Democracy
-democratic_party:
+democratic-party:
   title: Democratic Party
-descriptive_statistics:
+descriptive-statistics:
   title: descriptive statistics
 design:
   title: Design
@@ -183,17 +183,17 @@ development:
   title: Development
 devops:
   title: DevOps
-digital_divide:
+digital-divide:
   title: Digital Divide
-digital_recruiting:
+digital-recruiting:
   title: Digital Recruiting
-digital_signal_processing:
+digital-signal-processing:
   title: digital signal processing
 discovery:
   title: Discovery
 donation:
   title: Donation
-double_rainbows:
+double-rainbows:
   title: double rainbows
 drones:
   title: Drones
@@ -203,7 +203,7 @@ e-commerce:
   title: e-commerce
 econometrics:
   title: econometrics
-economic_development:
+economic-development:
   title: economic development
 economics:
   title: economics
@@ -211,7 +211,7 @@ edtech:
   title: Edtech
 education:
   title: Education
-elected_positions:
+elected-positions:
   title: Elected Positions
 elections:
   title: Elections
@@ -219,7 +219,7 @@ employment:
   title: employment
 energy:
   title: Energy
-energy_efficiency:
+energy-efficiency:
   title: Energy Efficiency
 engineering:
   title: Engineering
@@ -237,15 +237,15 @@ environmentalism:
   title: Environmentalism
 epidemiology:
   title: Epidemiology
-equal_opportunity:
+equal-opportunity:
   title: Equal Opportunity
 equality:
   title: Equality
-event_coordination:
+event-coordination:
   title: Event Coordination
 feminism:
   title: feminism
-fighting_poverty:
+fighting-poverty:
   title: fighting poverty
 finance:
   title: Finance
@@ -255,17 +255,17 @@ fitness:
   title: fitness
 food:
   title: Food
-food_and_beverage:
+food-and-beverage:
   title: Food and Beverage
-food_donation:
+food-donation:
   title: food donation
-food_insecurity:
+food-insecurity:
   title: Food Insecurity
-foreign_language:
+foreign-language:
   title: foreign language
 frameworks:
   title: frameworks
-funky_music:
+funky-music:
   title: Funky Music
 gamification:
   title: Gamification
@@ -284,13 +284,13 @@ geometry:
 geotagging:
   title: Geotagging
 gis:
-  title: GIS
   description: Tools and analysis of geospatial information
   related:
     - mapping
+  title: GIS
 globalization:
   title: globalization
-government_interation:
+government-interation:
   title: Government Interation
 hacking:
   title: Hacking
@@ -302,17 +302,17 @@ hcm:
   title: HCM
 health:
   title: Health
-health_and_employee_benefits:
+health-and-employee-benefits:
   title: Health and Employee Benefits
 healthcare:
   title: Healthcare
-heating_system:
+heating-system:
   title: heating system
 history:
   title: history
 hiv-aids:
   title: HIV/AIDS
-home_improvements:
+home-improvements:
   title: home improvements
 homelessness:
   title: Homelessness
@@ -320,9 +320,9 @@ horticulture:
   title: Horticulture
 hpc:
   title: HPC
-human_resource_management:
+human-resource-management:
   title: Human Resource Management
-human_rights:
+human-rights:
   title: human rights
 hunger:
   title: Hunger
@@ -336,7 +336,7 @@ iot:
   title: IoT
 journalism:
   title: Journalism
-juvenile_justice:
+juvenile-justice:
   title: juvenile justice
 kids:
   title: kids
@@ -348,15 +348,15 @@ landscape:
   title: landscape
 language:
   title: Language
-language_access:
+language-access:
   title: Language Access
 leadership:
   title: Leadership
 learning:
   title: Learning
-learning_environment:
+learning-environment:
   title: learning Environment
-learning_to_code:
+learning-to-code:
   title: Learning  to Code!
 legislation:
   title: legislation
@@ -366,13 +366,13 @@ library:
   title: library
 lighting:
   title: lighting
-linked_data:
+linked-data:
   title: Linked Data
 literature:
   title: Literature
-local_economy:
+local-economy:
   title: local economy
-machine_learning:
+machine-learning:
   title: Machine Learning
 mapping:
   title: Mapping
@@ -384,9 +384,9 @@ mathematics:
   title: mathematics
 media:
   title: Media
-medical_informatics:
+medical-informatics:
   title: medical informatics
-medical_taxonomy:
+medical-taxonomy:
   title: medical taxonomy
 medicine:
   title: Medicine
@@ -406,7 +406,7 @@ multimedia:
   title: Multimedia
 music:
   title: Music
-natural_ui:
+natural-ui:
   title: Natural UI
 navigation:
   title: navigation
@@ -416,7 +416,7 @@ neurology:
   title: neurology
 news:
   title: news
-nighttime_economy_development:
+nighttime-economy-development:
   title: Nighttime economy development
 non-profits:
   title: non-profits
@@ -426,9 +426,9 @@ oceanography:
   title: oceanography
 ontology:
   title: ontology
-open_data:
+open-data:
   title: Open Data
-open_source:
+open-source:
   title: Open Source
 opengov:
   title: opengov
@@ -446,9 +446,9 @@ parking:
   title: Parking
 parksandrecreation:
   title: Parksandrecreation
-party_politics:
+party-politics:
   title: Party Politics
-paving_stones:
+paving-stones:
   title: paving stones
 peace:
   title: Peace
@@ -462,7 +462,7 @@ philadelphia:
   title: Philadelphia
 photography:
   title: Photography
-physical_computing:
+physical-computing:
   title: physical computing
 physics:
   title: Physics
@@ -472,7 +472,7 @@ plants:
   title: Plants
 politics:
   title: Politics
-polling_locations:
+polling-locations:
   title: polling locations
 poverty:
   title: Poverty
@@ -482,7 +482,7 @@ privacy:
   title: privacy
 process:
   title: Process
-product_development:
+product-development:
   title: Product Development
 programming:
   title: programming
@@ -494,19 +494,19 @@ Prototyping:
   title: Prototyping
 psychology:
   title: Psychology
-public_awareness:
+public-awareness:
   title: Public Awareness
-public_benefits:
+public-benefits:
   title: Public Benefits
-public_health:
+public-health:
   title: Public Heath
-public_health-2:
+public-health-2:
   title: Public Health
-public_policy:
+public-policy:
   title: Public Policy
-public_relations:
+public-relations:
   title: Public Relations
-quality_of_life:
+quality-of-life:
   title: quality of life
 recidivism:
   title: Recidivism
@@ -514,11 +514,11 @@ recreation:
   title: recreation
 reentry:
   title: Reentry
-renewable_energy:
+renewable-energy:
   title: renewable energy
-republican_party:
+republican-party:
   title: Republican Party
-reverse_engineering:
+reverse-engineering:
   title: Reverse Engineering
 ridership:
   title: ridership
@@ -532,11 +532,11 @@ sanitation:
   title: Sanitation
 science:
   title: science
-science_education:
+science-education:
   title: Science Education
 seeds:
   title: Seeds
-semantic_web:
+semantic-web:
   title: Semantic Web
 sensors:
   title: sensors
@@ -544,31 +544,31 @@ service-learning:
   title: Service-Learning
 services:
   title: services
-sexual_assault_prevention:
+sexual-assault-prevention:
   title: Sexual Assault Prevention
 sharing:
   title: Sharing
-social_good:
+social-good:
   title: Social Good
-social_impact:
+social-impact:
   title: social impact
-social_impact_brands:
+social-impact-brands:
   title: Social Impact Brands
-social_justice:
+social-justice:
   title: Social Justice
-social_networking:
+social-networking:
   title: social networking
-social_projects:
+social-projects:
   title: Social projects
-software_development:
+software-development:
   title: Software Development
-species_and_land_preservation:
+species-and-land-preservation:
   title: species and land preservation
 sports:
   title: Sports
 statistics:
   title: statistics
-supply_chain:
+supply-chain:
   title: supply chain
 survey:
   title: Survey
@@ -578,13 +578,13 @@ swapping:
   title: Swapping
 systems:
   title: Systems
-systems_programing:
+systems-programing:
   title: Systems programing
 taxes:
   title: taxes
 teaching:
   title: teaching
-term_limits:
+term-limits:
   title: Term Limits
 theater:
   title: theater
@@ -608,15 +608,15 @@ troubleshooting:
   title: Troubleshooting
 ui:
   title: UI
-urban_design:
+urban-design:
   title: Urban Design
-urban_development:
+urban-development:
   title: Urban Development
-urban_housing:
+urban-housing:
   title: Urban housing
-urban_planning:
+urban-planning:
   title: Urban Planning
-urban_violence:
+urban-violence:
   title: Urban violence
 urbanism:
   title: urbanism
@@ -626,9 +626,9 @@ ux:
   title: UX
 vacantland:
   title: vacantland
-veterinary_medicine:
+veterinary-medicine:
   title: Veterinary Medicine
-video_games:
+video-games:
   title: Video Games
 videogames:
   title: videogames
@@ -638,29 +638,29 @@ visualization:
   title: Visualization
 voice:
   title: Voice
-voter_registration:
+voter-registration:
   title: voter registration
 voting:
   title: Voting
-voting_rights:
+voting-rights:
   title: Voting Rights
 walkability:
   title: walkability
 water:
   title: water
-water_resources:
+water-resources:
   title: water resources
 watershed:
   title: Watershed
 web:
   title: Web
-web_development:
+web-development:
   title: Web Development
-women-s_rights:
+women-s-rights:
   title: Women's Rights
-wood_working:
+wood-working:
   title: Wood Working
-youth_development:
+youth-development:
   title: youth development
 zoning:
   title: Zoning

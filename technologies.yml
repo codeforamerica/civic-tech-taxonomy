@@ -1,9 +1,7 @@
 --- # Technologies
-.net:
-  title: .NET
-adobe_cs:
+adobe-cs:
   title: Adobe CS
-after_effects:
+after-effects:
   title: After Effects
 ajax:
   title: ajax
@@ -11,11 +9,13 @@ akka:
   title: Akka
 alteryx:
   title: Alteryx
-amazon_web_services:
+amazon-web-services:
+  aliases:
+    - aws
   title: amazon web services
 android:
   title: Android
-android_wear:
+android-wear:
   title: Android Wear
 angular:
   title: angular
@@ -28,14 +28,14 @@ apache:
 api:
   title: API
 apostrophe:
+  title: Appery.io
   title: apostrophe
 appery.io:
-  title: Appery.io
 arcgis:
   title: ArcGIS
 arduino:
   title: Arduino
-asp.net:
+asp-dot-net:
   title: ASP.NET
 assembly:
   title: Assembly
@@ -53,17 +53,13 @@ bootstrap:
   title: Bootstrap
 c:
   title: c
-c-.net:
-  title: C#/.NET
-c-2:
-  title: c\#
-c-angularjs:
-  title: C# AngularJS
+c-sharp:
+  title: C#
 cartodb:
   title: CartoDB
 chef:
   title: Chef
-cinema_4d:
+cinema-4d:
   title: Cinema 4D
 clojure:
   title: Clojure
@@ -93,6 +89,8 @@ django:
   title: Django
 docker:
   title: Docker
+dot-net:
+  title: .NET
 drupal:
   title: drupal
 elasticsearch:
@@ -100,9 +98,9 @@ elasticsearch:
 elixir:
   title: Elixir
 embedded:
+  title: Ember.js
   title: embedded
 ember.js:
-  title: Ember.js
 emergence:
   title: Emergence
 erlang:
@@ -134,18 +132,18 @@ git:
 github:
   title: github
 go:
+  aliases:
+    - go-lang
   title: Go
-go-lang:
-  title: Go-lang
 google:
   title: google
-google_analytics:
+google-analytics:
   title: Google Analytics
-google_app_engine:
+google-app-engine:
   title: Google App Engine
-google_glass:
+google-glass:
   title: Google Glass
-google_maps:
+google-maps:
   title: Google Maps
 gps:
   title: GPS
@@ -165,7 +163,7 @@ hybris:
   title: hybris
 illustrator:
   title: Illustrator
-intel_xdk:
+intel-xdk:
   title: Intel XDK
 ios:
   title: iOS
@@ -197,7 +195,7 @@ lambda:
   title: Lambda
 laravel:
   title: laravel
-leaflet.js:
+leaflet-js:
   title: Leaflet.js
 less:
   title: LESS
@@ -205,7 +203,7 @@ linux:
   title: Linux
 lisps:
   title: lisps
-load_testing:
+load-testing:
   title: load testing
 localwiki:
   title: LocalWiki
@@ -299,7 +297,7 @@ rfid:
   title: RFID
 ruby:
   title: Ruby
-ruby_on_rails:
+ruby-on-rails:
   title: Ruby on Rails
 rust:
   title: Rust
@@ -355,16 +353,16 @@ unix:
   title: Unix
 vba:
   title: VBA
-visual_basic.net:
+visual-basic-dot-net:
   title: Visual Basic.net
 vuejs:
   title: Vuejs
 web.py:
   title: web.py
+web-audio:
+  title: Web Audio
 webrtc:
   title: Webrtc
-web_audio:
-  title: Web Audio
 windows:
   title: Windows
 winrt:
