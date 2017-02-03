@@ -1,0 +1,8 @@
+language: ruby
+rvm:
+ - 2.2
+deploy:
+  provider: script
+  script: script.sh
+  on:
+    branch: master
