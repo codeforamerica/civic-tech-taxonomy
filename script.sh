@@ -1,4 +1,5 @@
 #!/bin/sh
+set -e
 FILES=*.yml
 gem install yaml-lint
 gem install i18n_yaml_sorter
