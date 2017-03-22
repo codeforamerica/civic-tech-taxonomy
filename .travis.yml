@@ -1,7 +1,4 @@
 language: ruby
 rvm:
  - 2.2
-before-deploy:
- script: script.sh
-deploy:
- script: script.sh
+script: script.sh
