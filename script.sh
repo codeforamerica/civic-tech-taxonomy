@@ -1,5 +1,6 @@
 #!/bin/sh
-set -e
+set -e errexit
+set -o pipefail
 FILES=*.yml
 gem install yaml-lint
 gem install i18n_yaml_sorter
