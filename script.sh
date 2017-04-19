@@ -12,8 +12,10 @@ do
   newvalue=`cat $f`
   if [ $newvalue == $oldvalue ]
   then 
-    echo "Done"
+    echo "Done."
+    exit 0
   else
+    echo "Build Failed."
     exit 1
   fi
 done
