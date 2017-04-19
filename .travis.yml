@@ -1,4 +1,4 @@
 language: ruby
 rvm:
  - 2.2
-install: ./script.sh
+script: ./script.sh
