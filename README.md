@@ -1,5 +1,7 @@
 # civic-tech-taxonomy
 
+[![Build Status](https://travis-ci.org/CosmicWebServices/civic-tech-taxonomy.svg?branch=master)](https://travis-ci.org/CosmicWebServices/civic-tech-taxonomy)
+
 Standardized identifiers for categorizing civic technology projects
 
 ## Format
