@@ -1,4 +1,4 @@
 language: ruby
 rvm:
  - 2.2
-script: ./script.sh
+script: chmod a+x ./script.sh
