@@ -1,6 +1,8 @@
 # civic-tech-taxonomy
 
-Standardized identifiers for categorizing civic technology projects
+Standardized identifiers for categorizing civic technology projects and interests so we can better help people who want to work together find each other across the network
+
+[Why is a topic taxonomy important?](https://insidegovuk.blog.gov.uk/2015/11/02/developing-a-subject-based-taxonomy-for-gov-uk/)
 
 ## Format
 
