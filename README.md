@@ -4,6 +4,21 @@ Standardized identifiers for categorizing civic technology projects and interest
 
 [Why is a topic taxonomy important?](https://insidegovuk.blog.gov.uk/2015/11/02/developing-a-subject-based-taxonomy-for-gov-uk/)
 
+## Project goals
+
+- Publish via this repository several lists of terms that describe the tools, topics, and techniques of civic technology
+- Establish community standards for the data format, language conventions, and organizational strategies of these taxonomies
+- Provide a user-friendly way to generate a pull request for adding a term
+- Automate as much of the review for pull requests as possible to help things move quickly
+- Automatically publish merged changes in a variety of formats for easy consumptions: plaintext, CSV, YAML, JSON
+- Provide hosted search endpoints with CORS enabled and example implementations of integrated inputs in a variety of html/javascript frameworks
+
+## Use cases
+
+- Brigades use various CMS tools for keeping track of their projects. The taxonomy could be imported into such a system or a dynamic input field embedded that suggests official topics for end users and moderators categorizing projects
+- A network-wide site could index local projects and take advantage of the official taxonomy to provide a better browsing/search experience
+- Brigade members could set up a profile indicating what topics they're interested in, and be alerted in the future when projects in their interest area(s) are started or have updates 
+
 ## Format
 
 Data files are structured with YAML and sorted alphabetically for consistent versioning and comparison.
