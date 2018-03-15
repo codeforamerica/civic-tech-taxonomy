@@ -26,3 +26,8 @@ Data files are structured with YAML and sorted alphabetically for consistent ver
 [i18n_yaml_sorter](https://github.com/redealumni/i18n_yaml_sorter) may be used to sort data files correctly:
 
     sort_yaml < topics.yml > topics.sorted.yml && mv topics.sorted.yml topics.yml
+
+## Related work
+
+- https://github.com/designforsf/brigade-matchmaker/blob/master/docs/taxonomy.md
+- https://blogs.microsoft.com/on-the-issues/2016/04/27/towards-taxonomy-civic-technology/
