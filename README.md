@@ -4,6 +4,13 @@ Standardized identifiers for categorizing civic technology projects and interest
 
 [Discuss on Discourse: Common projects taxonomy](https://discourse.codeforamerica.org/t/common-projects-taxonomy/308)
 
+## Taxonomy sets needed
+
+- Technologies
+- Topics/Interests
+- Skills
+- Project Roles
+
 ## Project goals
 
 - Publish via this repository several lists of terms that describe the tools, topics, and techniques of civic technology
@@ -12,6 +19,11 @@ Standardized identifiers for categorizing civic technology projects and interest
 - Automate as much of the review for pull requests as possible to help things move quickly
 - Automatically publish merged changes in a variety of formats for easy consumptions: plaintext, CSV, YAML, JSON
 - Provide hosted search endpoints with CORS enabled and example implementations of integrated inputs in a variety of html/javascript frameworks
+
+## Open questions
+
+- What sort of hierarchy is needed? Should the taxonomy lists be flat, organized within a single level of categories, or support any level of nesting?
+  - Concensus _seems_ to 
 
 ## Use cases
 
