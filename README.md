@@ -2,7 +2,7 @@
 
 Standardized identifiers for categorizing civic technology projects and interests so we can better help people who want to work together find each other across the network
 
-[Why is a topic taxonomy important?](https://insidegovuk.blog.gov.uk/2015/11/02/developing-a-subject-based-taxonomy-for-gov-uk/)
+[Discuss on Discourse: Common projects taxonomy](https://discourse.codeforamerica.org/t/common-projects-taxonomy/308)
 
 ## Project goals
 
@@ -27,7 +27,8 @@ Data files are structured with YAML and sorted alphabetically for consistent ver
 
     sort_yaml < topics.yml > topics.sorted.yml && mv topics.sorted.yml topics.yml
 
-## Related work
+## Related work and reading
 
 - https://github.com/designforsf/brigade-matchmaker/blob/master/docs/taxonomy.md
 - https://blogs.microsoft.com/on-the-issues/2016/04/27/towards-taxonomy-civic-technology/
+- [Why is a topic taxonomy important?](https://insidegovuk.blog.gov.uk/2015/11/02/developing-a-subject-based-taxonomy-for-gov-uk/)
