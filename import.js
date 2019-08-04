@@ -130,11 +130,11 @@ async function importLaddr(tree, { source }) {
         const tags = tagsByPrefix[prefix];
 
         for (const tag in tags) {
-            const data = {
+            const tagData = {
                 ...tags[tag],
                 handle: null
             };
-            const toml = TOML.stringify(sortKeys(data, { deep: true }));
+            const toml = TOML.stringify(sortKeys(tagData, { deep: true }));
             const blob = await tree.writeChild(`${prefix}/${tag}.toml`, toml);
 
             progressBar.tick();
