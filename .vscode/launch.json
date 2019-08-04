@@ -12,7 +12,7 @@
             "args": [
                 "laddr",
                 "codeforphilly.org",
-                "--commit-to=codeforphilly"
+                "--commit-to=imports/codeforphilly"
             ]
         }
     ]
