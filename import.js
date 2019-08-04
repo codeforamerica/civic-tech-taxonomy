@@ -8,12 +8,12 @@ const { Repo } = require('hologit/lib');
 
 require('yargs')
     .command({
-        command: '$0 <source-type> <source>',
+        command: '$0 <source-type> [source]',
         desc: 'Import taxonomy data from a source',
         builder: {
             sourceType: {
                 describe: 'Type of source being imported',
-                choices: ['laddr']
+                choices: ['laddr', 'matchmaker']
             },
             source: {
                 describe: 'Host/URL for source. Format varies by source_type'
@@ -85,6 +85,8 @@ require('yargs')
 async function importTaxonomy(tree, argv) {
     if (argv.sourceType == 'laddr') {
         return importLaddr(tree, argv);
+    } else if (argv.sourceType == 'matchmaker') {
+        return importMatchmaker(tree, argv);
     } else {
         throw new Error('Unsupported source type');
     }
@@ -139,6 +141,35 @@ async function importLaddr(tree, { source }) {
 
             progressBar.tick();
         }
+    }
+
+    // write tree
+    return await tree.write();
+}
+
+async function importMatchmaker(tree, { source=null }) {
+
+    // load tags
+    if (!source) {
+        source = 'https://github.com/designforsf/brigade-matchmaker/files/2563599/all_json.txt';
+    }
+
+    const { data } = await axios.get(source);
+    const tags = Object.keys(data);
+
+
+    // build tree
+    const progressBar = new ProgressBar('building tree :percent [:bar] :rate/s :etas', { total: tags.length });
+
+    for (const tag of tags) {
+        const tagData = {
+            ...data[tag],
+            class_name: null
+        };
+        const toml = TOML.stringify(sortKeys(tagData, { deep: true }));
+        const blob = await tree.writeChild(`${tag}.toml`, toml);
+
+        progressBar.tick();
     }
 
     // write tree
