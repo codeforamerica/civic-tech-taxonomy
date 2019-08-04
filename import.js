@@ -33,10 +33,15 @@ require('yargs')
             },
         },
         handler: async argv => {
-            const { commitTo, commitMessage, sourceType, source } = argv;
+            const { commitTo, commitMessage, sourceType, source, append } = argv;
 
             const repo = await Repo.getFromEnvironment();
             const tree = repo.createTree();
+
+            if (append) {
+                // TODO: load an existing tree instead
+                throw new Error('append is not yet implemented');
+            }
 
             let outputHash;
             try {
@@ -85,7 +90,7 @@ async function importTaxonomy(tree, argv) {
     }
 }
 
-async function importLaddr(tree, { source, append }) {
+async function importLaddr(tree, { source }) {
     const { data: { data } } = await axios.get(`http://${source}/tags`, { params: { format: 'json' } });
     const tagsByPrefix = {};
 
