@@ -12,7 +12,7 @@
             "args": [
                 "laddr",
                 "codeforphilly.org",
-                "--commit-to=imports/codeforphilly"
+                "--commit-to=sites/codeforphilly.org"
             ]
         },
         {
@@ -22,7 +22,7 @@
             "program": "${workspaceFolder}/import.js",
             "args": [
                 "matchmaker",
-                "--commit-to=imports/matchmaker"
+                "--commit-to=sites/codeforsanfrancisco.org"
             ]
         }
     ]
