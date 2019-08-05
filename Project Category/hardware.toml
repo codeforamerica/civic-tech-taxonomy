@@ -1,0 +1,3 @@
+display_name = "Hardware"
+parent = "infrastructure"
+subcategory = "Project Subcategory"
