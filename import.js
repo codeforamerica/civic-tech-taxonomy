@@ -66,7 +66,7 @@ require('yargs')
                 outputHash = await git.commitTree(
                     {
                         p: parents,
-                        m: commitMessage || `🔁 imported ${sourceType} from ${source}`
+                        m: commitMessage || `🔁 imported ${sourceType}${source ? ' from '+source : ''}`
                     },
                     outputHash
                 );
