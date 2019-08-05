@@ -216,6 +216,11 @@ async function importDemocracyLab(tree, { source=null }) {
                 const progressBar = new ProgressBar('building tree :percent [:bar] :rate/s :etas', { total: tags.length });
 
                 for (const tagData of tags) {
+                    const category = tagData.category
+                        .replace(/\s+/, '-')
+                        .replace(/\(s\)/, 's')
+                        .toLowerCase();
+
                     const toml = TOML.stringify(sortKeys({
                         ...tagData,
                         category: null,
@@ -225,7 +230,7 @@ async function importDemocracyLab(tree, { source=null }) {
                         caption: tagData.caption || null
                     }, { deep: true }));
 
-                    const blob = await tree.writeChild(`${tagData.category}/${tagData.canonical_name}.toml`, toml);
+                    const blob = await tree.writeChild(`${category}/${tagData.canonical_name}.toml`, toml);
 
                     progressBar.tick();
                 }
