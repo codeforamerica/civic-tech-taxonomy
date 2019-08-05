@@ -24,6 +24,16 @@
                 "matchmaker",
                 "--commit-to=sites/codeforsanfrancisco.org"
             ]
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Import DemocracyLab",
+            "program": "${workspaceFolder}/import.js",
+            "args": [
+                "democracylab",
+                "--commit-to=sites/democracylab.org"
+            ]
         }
     ]
 }

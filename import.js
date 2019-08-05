@@ -3,6 +3,7 @@
 const sortKeys = require('sort-keys');
 const TOML = require('@iarna/toml');
 const axios = require('axios');
+const csvParser = require('csv-parser');
 const ProgressBar = require('progress');
 const { Repo } = require('hologit/lib');
 
@@ -13,7 +14,7 @@ require('yargs')
         builder: {
             sourceType: {
                 describe: 'Type of source being imported',
-                choices: ['laddr', 'matchmaker']
+                choices: ['laddr', 'matchmaker', 'democracylab']
             },
             source: {
                 describe: 'Host/URL for source. Format varies by source_type'
@@ -88,6 +89,8 @@ async function importTaxonomy(tree, argv) {
         return importLaddr(tree, argv);
     } else if (argv.sourceType == 'matchmaker') {
         return importMatchmaker(tree, argv);
+    } else if (argv.sourceType == 'democracylab') {
+        return importDemocracyLab(tree, argv);
     } else {
         throw new Error('Unsupported source type');
     }
@@ -175,4 +178,62 @@ async function importMatchmaker(tree, { source=null }) {
 
     // write tree
     return await tree.write();
+}
+
+async function importDemocracyLab(tree, { source=null }) {
+
+    // load tags
+    if (!source) {
+        source = 'https://raw.githubusercontent.com/DemocracyLab/CivicTechExchange/master/common/models/Tag_definitions.csv';
+    }
+
+    console.warn(`downloading ${source}`);
+    const response = await axios.get(source, { responseType: 'stream' });
+
+    return new Promise ((resolve, reject) => {
+        const tags = [];
+
+        // read all tags
+        response.data
+            .pipe(csvParser())
+            .on('data', async (row) => {
+                const tagData = {};
+
+                for (const columnName in row) {
+                    const fieldName = columnName
+                        .replace(/\s*\(.*$/, '')
+                        .replace(/\s+/, '_')
+                        .toLowerCase();
+
+                    tagData[fieldName] = row[columnName];
+                }
+
+                tags.push(tagData);
+            })
+            .on('end', async () => {
+
+                // build tree
+                const progressBar = new ProgressBar('building tree :percent [:bar] :rate/s :etas', { total: tags.length });
+
+                for (const tagData of tags) {
+                    const toml = TOML.stringify(sortKeys({
+                        ...tagData,
+                        category: null,
+                        canonical_name: null,
+                        parent: tagData.parent || null,
+                        subcategory: tagData.subcategory || null,
+                        caption: tagData.caption || null
+                    }, { deep: true }));
+
+                    const blob = await tree.writeChild(`${tagData.category}/${tagData.canonical_name}.toml`, toml);
+
+                    progressBar.tick();
+                }
+
+                tree.write()
+                    .then(resolve)
+                    .catch(reject);
+            })
+            .on('error', reject)
+    });
 }
