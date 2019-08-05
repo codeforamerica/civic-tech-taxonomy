@@ -58,7 +58,8 @@ require('yargs')
                     : `refs/heads/${commitTo}`;
 
                 const parents = [
-                    await repo.resolveRef(commitRef)
+                    await repo.resolveRef(commitRef),
+                    await repo.resolveRef()
                 ];
 
                 const git = await repo.getGit();
