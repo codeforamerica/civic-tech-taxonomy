@@ -6,7 +6,7 @@ Standardized identifiers for categorizing civic technology projects and interest
 
 ## Taxonomy sets needed
 
-- Technologies
+- Technologies Used
 - Topics/Interests
 - Skills
 - Project Roles
