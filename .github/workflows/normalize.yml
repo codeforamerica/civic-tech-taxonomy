@@ -1,0 +1,27 @@
+
+name: Normalize TOML
+
+on: pull_request
+
+jobs:
+  normalize-toml:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        ref: ${{ github.event.pull_request.head.ref }}
+    - name: Cache node modules
+      uses: actions/cache@v1
+      with:
+        path: ~/.npm
+        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+    - run: npm install
+    - run: node normalize.js './*'
+    - name: Commit and push any changes
+      run: |
+        if [[ -n $(git status -s) ]]; then
+          git config user.email "github-bot@brigade.cloud"
+          git config user.name "Brigade Bot"
+          git commit --all -m "style: normalize TOML"
+          git push
+        fi
