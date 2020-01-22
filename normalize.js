@@ -14,30 +14,38 @@ require('yargs')
                 describe: 'Path of directory to scan'
             },
         },
-        handler: async argv => {
-            const { directory } = argv;
-            const files = await glob(`${directory}/**/*.toml`);
-
-            await Promise.all(files.map(
-                filePath =>
-                    fs.readFile(filePath, 'utf8')
-                    .then(toml => TOML.parse(toml))
-                    .then(data => {
-                        for (const key in data) {
-                            // delete empty arrays
-                            if (Array.isArray(data[key]) && data[key].length == 0) {
-                                delete data[key];
-                            }
-                        }
-
-                        return data;
-                    })
-                    .then(data => TOML.stringify(sortKeys(data, { deep: true })))
-                    .then(toml => fs.writeFile(filePath, toml, 'utf8'))
-                    .then(console.log(`Formatted ${filePath}`))
-            ));
+        handler: async ({ directory }) => {
+            try {
+                await normalizeToml(directory);
+            } catch (err) {
+                console.error(err);
+                process.exit(1);
+            }
         }
     })
     .demandCommand()
     .help()
     .argv;
+
+async function normalizeToml(directory) {
+    const files = await glob(`${directory}/**/*.toml`);
+
+    await Promise.all(files.map(
+        filePath =>
+            fs.readFile(filePath, 'utf8')
+            .then(toml => TOML.parse(toml))
+            .then(data => {
+                for (const key in data) {
+                    // delete empty arrays
+                    if (Array.isArray(data[key]) && data[key].length == 0) {
+                        delete data[key];
+                    }
+                }
+
+                return data;
+            })
+            .then(data => TOML.stringify(sortKeys(data, { deep: true })))
+            .then(toml => fs.writeFile(filePath, toml, 'utf8'))
+            .then(console.log(`Formatted ${filePath}`))
+    ));
+}
