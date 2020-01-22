@@ -8,7 +8,7 @@ Standardized identifiers for categorizing civic technology projects and interest
 
 - Technologies Used
 - Topics/Interests
-- Skills
+- Skills Needed
 - Project Roles
 
 ## Project goals
