@@ -1,4 +1,2 @@
 display_name = "Transportation"
-synonyms = [
-	"Transit"
-]
+synonyms = [ "Transit" ]
