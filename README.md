@@ -23,21 +23,17 @@ Standardized identifiers for categorizing civic technology projects and interest
 ## Open questions
 
 - What sort of hierarchy is needed? Should the taxonomy lists be flat, organized within a single level of categories, or support any level of nesting?
-  - Concensus _seems_ to 
+  - Concensus _seems_ to
 
 ## Use cases
 
 - Brigades use various CMS tools for keeping track of their projects. The taxonomy could be imported into such a system or a dynamic input field embedded that suggests official topics for end users and moderators categorizing projects
 - A network-wide site could index local projects and take advantage of the official taxonomy to provide a better browsing/search experience
-- Brigade members could set up a profile indicating what topics they're interested in, and be alerted in the future when projects in their interest area(s) are started or have updates 
+- Brigade members could set up a profile indicating what topics they're interested in, and be alerted in the future when projects in their interest area(s) are started or have updates
 
 ## Format
 
-Data files are structured with YAML and sorted alphabetically for consistent versioning and comparison.
-
-[i18n_yaml_sorter](https://github.com/redealumni/i18n_yaml_sorter) may be used to sort data files correctly:
-
-    sort_yaml < topics.yml > topics.sorted.yml && mv topics.sorted.yml topics.yml
+Data files are sorted TOML. The included `normalize.js` script can be used to normalize any created/edited TOML files, but will also run automatically against any submitted Pull Request and commit any needed changes for you.
 
 ## Related work and reading
 
