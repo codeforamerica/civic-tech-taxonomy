@@ -1,1 +1,5 @@
 display_name = "COVID-19"
+synonyms = [
+    "COVID",
+    "Coronavirus"
+    ]
