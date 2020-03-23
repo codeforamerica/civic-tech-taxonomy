@@ -44,6 +44,18 @@ async function normalizeToml(directory) {
 
                 return data;
             })
+            .then(data => {
+                // sort synonyms
+                if (data.synonyms && Array.isArray(data.synonyms)) {
+                    data.synonyms.sort((a, b) => a.localeCompare(b, undefined, {
+                        sensitivity: 'base',
+                        ignorePunctuation: true,
+                        numeric: true
+                    }));
+                }
+
+                return data;
+            })
             .then(data => TOML.stringify(sortKeys(data, { deep: true })))
             .then(toml => fs.writeFile(filePath, toml, 'utf8'))
             .then(console.log(`Formatted ${filePath}`))
