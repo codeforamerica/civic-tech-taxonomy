@@ -1,0 +1,157 @@
+{
+    "technologies-used": {
+        "CMS": {
+            "Drupal",
+            "Joomla",
+            "Keystone.js",
+            "Lutece",
+            "Wordpress"
+        },
+        "Database": {
+            "Amazon Aurora",
+            "Amazon DynamoDB",
+            "Cassandra",
+            "IBM Db2",
+            "MariaDB",
+            "Memcached",
+            "MongoDB",
+            "MySQL",
+            "Neo4j",
+            "Oracle",
+            "PostgreSQL",
+            "Redis",
+            "SQL Server",
+            "SQLite"
+        },
+        "Design"
+            "Adobe Creative Suite",
+            "Adobe Illustrator",
+            "Adobe InDesign",
+            "Adobe Photoshop",
+            "Adobe XD",
+            "Axure",
+            "Balsamiq",
+            "Figma",
+            "Framer",
+            "InVision",
+            "Marvel",
+            "OmniGraffle",
+            "Origami",
+            "Sketch",
+            "Zeplin"
+        },
+        "Platform"
+            "Android",
+            "Arduino",
+            "CUDA",
+            "Web",
+            "iOS"
+        },
+        "Programming Language"
+            "Assembly",
+            "C",
+            "C#",
+            "C++",
+            "Go",
+            "HTML",
+            "Haskell",
+            "Java",
+            "JavaScript",
+            "Lua",
+            "Matlab",
+            "PHP",
+            "Perl",
+            "Processing",
+            "Python",
+            "R",
+            "Ruby",
+            "Rust",
+            "SQL",
+            "Scala",
+            "Shell",
+            "Swift",
+            "TypeScript",
+            "Visual Basic"
+        },
+        "Web Framework"
+            "ASP.NET MVC",
+            "ASP.NET",
+            "Angular",
+            "AngularJS",
+            "CodeIgniter",
+            "Django",
+            "Ember.js",
+            "Express",
+            "Flask",
+            "Laravel",
+            "Meteor",
+            "Node.js",
+            "React",
+            "Ruby on Rails",
+            "Spring MVC",
+            "Symfony",
+            "Vue.js"
+        }
+    },
+    "issues-addressed": {
+        "Civic Infrastructure",
+        "Cultural Issues",
+        "Economy",
+        "Education",
+        "Environment",
+        "Health Care",
+        "Homelessness",
+        "Housing Policies",
+        "Immigration",
+        "International Issues",
+        "National Security",
+        "No Specific Issue",
+        "Other Issue",
+        "Political Reform",
+        "Public Safety",
+        "Social Justice",
+        "Taxes",
+        [ "COVID-19", "Coronavirus", "COVID" ],
+        [ "1st Amendment", "First Amendment", "Free Speech" ],
+        [ "2nd Amendment", "Gun Control" ],
+        [ "Transportation", "Transit" ]
+    },
+    "project-status": {
+        "Beta",
+        "Concept",
+        "Development",
+        "Obsolete",
+        "Stable"
+    },
+    "skills-needed": {
+        "Business": {
+            "Fundraising",
+            "Legal",
+            "Market Research",
+            "Marketing",
+            "Product Manager",
+            "Project Manager",
+            "Techncal Writing"
+        },
+        "Data": {
+            "Data Analyst",
+            "Data Architect",
+            "Security",
+            "Visualization"
+        },
+        "Design": {
+            "Creative Director",
+            "Graphic Designer",
+            "UX Designer",
+            "User Researcher"
+        },
+        "Other",
+        "Software Development": {
+            "Back-End Developer",
+            "Dev Ops",
+            "Front-End Developer",
+            "Full-Stack Developer",
+            "Test Engineer"
+        }
+    }
+}
