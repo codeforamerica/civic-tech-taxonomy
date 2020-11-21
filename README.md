@@ -35,6 +35,18 @@ Standardized identifiers for categorizing civic technology projects and interest
 
 Data files are sorted TOML. The included `normalize.js` script can be used to normalize any created/edited TOML files, but will also run automatically against any submitted Pull Request and commit any needed changes for you.
 
+## Running
+
+```
+% npm install # (relies on package.json)
+% sh -vx update-all.sh
+% node normalize.js issues-addressed
+% node normalize.js project-status
+% node normalize.js project-status
+% node normalize.js technologies-used
+```
+(verified with npm (version 6.14.7) on MacOS X (10.15.4 (19E287)))
+
 ## Related work and reading
 
 - https://github.com/designforsf/brigade-matchmaker/blob/master/docs/taxonomy.md
