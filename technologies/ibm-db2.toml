@@ -1,2 +1,3 @@
 display_name = "IBM Db2"
+id = "ibm-db2"
 subcategory = "Database"

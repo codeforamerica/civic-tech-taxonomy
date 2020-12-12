@@ -1,2 +1,3 @@
 display_name = "Memcached"
+id = "memcached"
 subcategory = "Database"

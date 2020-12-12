@@ -1,2 +1,3 @@
 display_name = "Shell"
+id = "shell"
 subcategory = "Programming Language"

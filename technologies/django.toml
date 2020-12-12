@@ -1,2 +1,3 @@
 display_name = "Django"
+id = "django"
 subcategory = "Web Framework"

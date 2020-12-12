@@ -1,2 +1,3 @@
 display_name = "Flask"
+id = "flask"
 subcategory = "Web Framework"

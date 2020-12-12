@@ -1,2 +1,3 @@
 display_name = "COVID-19"
+id = "covid-19"
 synonyms = [ "Coronavirus", "COVID" ]

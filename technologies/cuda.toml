@@ -1,2 +1,3 @@
 display_name = "CUDA"
+id = "cuda"
 subcategory = "Platform"

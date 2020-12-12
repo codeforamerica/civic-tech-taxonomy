@@ -1,2 +1,3 @@
 display_name = "Amazon DynamoDB"
+id = "amazon-dynamodb"
 subcategory = "Database"

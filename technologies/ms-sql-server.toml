@@ -1,2 +1,3 @@
 display_name = "SQL Server"
+id = "ms-sql-server"
 subcategory = "Database"

@@ -1,2 +1,3 @@
 display_name = "Arduino"
+id = "arduino"
 subcategory = "Platform"

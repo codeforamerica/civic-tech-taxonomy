@@ -1,2 +1,3 @@
 display_name = "MySQL"
+id = "my-sql"
 subcategory = "Database"

@@ -1,2 +1,3 @@
 display_name = "Transportation"
+id = "transportation"
 synonyms = [ "Transit" ]

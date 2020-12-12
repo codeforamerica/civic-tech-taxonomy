@@ -1,2 +1,3 @@
 display_name = "Oracle"
+id = "oracle-db"
 subcategory = "Database"
