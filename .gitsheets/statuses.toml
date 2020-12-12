@@ -1,0 +1,3 @@
+[gitsheet]
+root = "statuses"
+path = "${{ id }}"
