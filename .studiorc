@@ -1,0 +1,32 @@
+#!/bin/bash
+
+
+# install studio packages
+hab pkg install \
+    jarvus/mkdocs-studio \
+    jarvus/studio-toolkit
+
+
+# load studio toolkit
+source "$(hab pkg path jarvus/studio-toolkit)/studio.sh"
+
+
+# load MkDocs studio
+export DOCS_HOLOBRANCH="docs-site"
+source "$(hab pkg path jarvus/mkdocs-studio)/studio.sh"
+
+
+# start docs
+docs-start
+
+
+# final init and output
+studio-help
+
+
+# disable supervisor
+export HAB_STUDIO_SUP=false
+
+
+# final blank line
+echo
