@@ -1,11 +1,12 @@
 #!/usr/bin/env node
 
-const sortKeys = require('sort-keys');
-const TOML = require('@iarna/toml');
+const Repository = require('gitsheets/lib/Repository');
+const { TreeObject } = require('gitsheets/lib/hologit');
 const axios = require('axios');
 const csvParser = require('csv-parser');
 const ProgressBar = require('progress');
-const { Repo } = require('hologit/lib');
+
+const EMPTY_TREE_HASH = TreeObject.getEmptyTreeHash();
 
 require('yargs')
     .command({
@@ -19,11 +20,6 @@ require('yargs')
             source: {
                 describe: 'Host/URL for source. Format varies by source_type'
             },
-            append: {
-                describe: 'Whether to layer imported data on top of current',
-                boolean: true,
-                default: false
-            },
             'commit-to': {
                 describe: 'A target branch/ref to commit the imported tree to',
                 type: 'string'
@@ -34,69 +30,74 @@ require('yargs')
             },
         },
         handler: async argv => {
-            const { commitTo, commitMessage, sourceType, source, append } = argv;
+            const { commitTo, commitMessage, sourceType, source } = argv;
 
-            const repo = await Repo.getFromEnvironment();
-            const tree = repo.createTree();
+            // open target repo
+            let repo = await Repository.getFromEnvironment({ ref: commitTo });
+            let git = await repo.getGit();
+            let ancestorCommit = await repo.resolveRef();
 
-            if (append) {
-                // TODO: load an existing tree instead
-                throw new Error('append is not yet implemented');
+            if (!ancestorCommit) {
+                // initialize ref
+                ancestorCommit = await git.commitTree(EMPTY_TREE_HASH, {
+                    m: `↥ initialize gitsheets workspace ${commitTo}`
+                });
+                repo = await Repository.getFromEnvironment({ ref: ancestorCommit });
+                git = await repo.getGit();
             }
 
-            let outputHash;
+            // run importer against provided repo
             try {
-                outputHash = await importTaxonomy(tree, argv);
-                console.error('tree ready');
+                await importTaxonomy(repo, argv);
+                console.error('sheets imported');
             } catch (err) {
                 console.error('failed to import taxonomy:', err);
                 process.exit(1);
             }
 
+            // write tree
+            const workspace = await repo.getWorkspace();
+            const treeHash = await workspace.root.write();
+
+            // commit results
             if (commitTo) {
                 const commitRef = commitTo == 'HEAD' || commitTo.startsWith('refs/')
                     ? commitTo
                     : `refs/heads/${commitTo}`;
 
-                const parents = [
-                    await repo.resolveRef(commitRef),
-                    await repo.resolveRef()
-                ];
-
-                const git = await repo.getGit();
-
-                outputHash = await git.commitTree(
-                    {
-                        p: parents,
+                if (treeHash !== await git.getTreeHash(ancestorCommit)) {
+                    const commitHash = await git.commitTree(treeHash, {
+                        p: ancestorCommit,
                         m: commitMessage || `🔁 imported ${sourceType}${source ? ' from '+source : ''}`
-                    },
-                    outputHash
-                );
-
-                await git.updateRef(commitRef, outputHash);
-                console.warn(`committed new tree to "${commitRef}": ${parents.join('+')}->${outputHash}`);
+                    });
+                    await git.updateRef(commitRef, commitHash);
+                    console.log(`committed new tree to "${commitRef}": ${ancestorCommit}->${commitHash}`);
+                    console.log(commitHash);
+                } else {
+                    console.log('tree unchanged');
+                }
+            } else {
+                console.log(treeHash);
             }
-
-            console.log(outputHash);
         }
     })
     .demandCommand()
     .help()
     .argv;
 
-async function importTaxonomy(tree, argv) {
+async function importTaxonomy(repo, argv) {
     if (argv.sourceType == 'laddr') {
-        return importLaddr(tree, argv);
+        await importLaddr(repo, argv);
     } else if (argv.sourceType == 'matchmaker') {
-        return importMatchmaker(tree, argv);
+        await importMatchmaker(repo, argv);
     } else if (argv.sourceType == 'democracylab') {
-        return importDemocracyLab(tree, argv);
+        await importDemocracyLab(repo, argv);
     } else {
         throw new Error('Unsupported source type');
     }
 }
 
-async function importLaddr(tree, { source }) {
+async function importLaddr(repo, { source }) {
     const { data: { data } } = await axios.get(`http://${source}/tags`, { params: { format: 'json' } });
     const tagsByPrefix = {};
 
@@ -122,36 +123,53 @@ async function importLaddr(tree, { source }) {
         }
 
         tagsByPrefix[prefix][tag] = {
-            handle: Handle,
-            title: Title
+            id: tag,
+            display_name: Title
         };
         tagsCount++;
     }
 
 
-    // build tree
+    // load into sheets
+    const sheets = await repo.openSheets();
     const progressBar = new ProgressBar('building tree :percent [:bar] :rate/s :etas', { total: tagsCount });
 
     for (const prefix in tagsByPrefix) {
+        // define sheet if needed
+        if (!sheets[prefix]) {
+            sheets[prefix] = await repo.openSheet(prefix, {
+              config: {
+                  root: prefix,
+                  path: '${{ id }}'
+              }
+            });
+            await sheets[prefix].writeConfig();
+        }
+
+        // upsert each tag
         const tags = tagsByPrefix[prefix];
 
         for (const tag in tags) {
-            const tagData = {
-                ...tags[tag],
-                handle: null
-            };
-            const toml = TOML.stringify(sortKeys(tagData, { deep: true }));
-            const blob = await tree.writeChild(`${prefix}/${tag}.toml`, toml);
-
+            await sheets[prefix].upsert(tags[tag]);
             progressBar.tick();
         }
     }
-
-    // write tree
-    return await tree.write();
 }
 
-async function importMatchmaker(tree, { source=null }) {
+async function importMatchmaker(repo, { source=null }) {
+
+    // open sheet
+    const sheets = await repo.openSheets();
+
+    if (!sheets.tags) {
+        sheets.tags = await repo.openSheet('tags', {
+          config: {
+              root: '.',
+              path: '${{ tag/** }}'
+          }
+        })
+        await sheets.tags.writeConfig()
+    }
 
     // load tags
     if (!source) {
@@ -159,28 +177,34 @@ async function importMatchmaker(tree, { source=null }) {
     }
 
     const { data } = await axios.get(source);
-    const tags = Object.keys(data);
 
+    // load tags into sheets
+    const progressBar = new ProgressBar('building tree :percent [:bar] :rate/s :etas', { total: Object.keys(data).length });
 
-    // build tree
-    const progressBar = new ProgressBar('building tree :percent [:bar] :rate/s :etas', { total: tags.length });
-
-    for (const tag of tags) {
-        const tagData = {
+    for (const tag in data) {
+        await sheets.tags.upsert({
             ...data[tag],
+            tag,
             class_name: null
-        };
-        const toml = TOML.stringify(sortKeys(tagData, { deep: true }));
-        const blob = await tree.writeChild(`${tag}.toml`, toml);
-
+        });
         progressBar.tick();
     }
-
-    // write tree
-    return await tree.write();
 }
 
-async function importDemocracyLab(tree, { source=null }) {
+async function importDemocracyLab(repo, { source=null }) {
+
+    // open sheet
+    const sheets = await repo.openSheets();
+
+    if (!sheets.tags) {
+        sheets.tags = await repo.openSheet('tags', {
+          config: {
+              root: '.',
+              path: '${{ category }}/${{ canonical_name }}'
+          }
+        })
+        await sheets.tags.writeConfig()
+    }
 
     // load tags
     if (!source) {
@@ -221,23 +245,19 @@ async function importDemocracyLab(tree, { source=null }) {
                         .replace(/\(s\)/, 's')
                         .toLowerCase();
 
-                    const toml = TOML.stringify(sortKeys({
+                    await sheets.tags.upsert({
                         ...tagData,
-                        category: null,
-                        canonical_name: null,
+                        category,
                         parent: tagData.parent || null,
                         subcategory: tagData.subcategory || null,
                         caption: tagData.caption || null
-                    }, { deep: true }));
-
-                    const blob = await tree.writeChild(`${category}/${tagData.canonical_name}.toml`, toml);
+                    });
 
                     progressBar.tick();
                 }
 
-                tree.write()
-                    .then(resolve)
-                    .catch(reject);
+                resolve();
+
             })
             .on('error', reject)
     });
