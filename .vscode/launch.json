@@ -8,7 +8,7 @@
             "type": "node",
             "request": "launch",
             "name": "Import CodeForPhilly.org",
-            "program": "${workspaceFolder}/import.js",
+            "program": "${workspaceFolder}/script/import",
             "args": [
                 "laddr",
                 "codeforphilly.org",
@@ -19,7 +19,7 @@
             "type": "node",
             "request": "launch",
             "name": "Import Brigade Matchmaker Dump",
-            "program": "${workspaceFolder}/import.js",
+            "program": "${workspaceFolder}/script/import",
             "args": [
                 "matchmaker",
                 "--commit-to=sites/codeforsanfrancisco.org"
@@ -29,7 +29,7 @@
             "type": "node",
             "request": "launch",
             "name": "Import DemocracyLab",
-            "program": "${workspaceFolder}/import.js",
+            "program": "${workspaceFolder}/script/import",
             "args": [
                 "democracylab",
                 "--commit-to=sites/democracylab.org"

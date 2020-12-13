@@ -1,0 +1,14 @@
+#!/bin/sh
+
+# script/import-all: Import all reference taxonomies to their own branches
+
+set -e
+cd "$(dirname "$0")/.."
+
+
+script/import laddr codeforphilly.org --commit-to=sites/codeforphilly.org
+script/import laddr codeforcroatia.org --commit-to=sites/codeforcroatia.org
+#script/import laddr brigade.opencharlotte.org --commit-to=sites/opencharlotte.org
+script/import laddr www.codeforcary.org --commit-to=sites/codeforcary.org
+script/import matchmaker --commit-to=sites/codeforsanfrancisco.org
+script/import democracylab --commit-to=sites/democracylab.org
