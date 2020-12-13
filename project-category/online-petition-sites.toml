@@ -1,3 +1,5 @@
+canonical_name = "online-petition-sites"
+category = "project-category"
 display_name = "Online Petition Sites"
 parent = "civic-engagement"
 subcategory = "Product Subcategory"

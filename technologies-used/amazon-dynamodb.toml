@@ -1,2 +1,4 @@
+canonical_name = "amazon-dynamodb"
+category = "technologies-used"
 display_name = "Amazon DynamoDB"
 subcategory = "Database"

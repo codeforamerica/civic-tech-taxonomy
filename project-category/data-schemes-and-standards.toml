@@ -1,3 +1,5 @@
+canonical_name = "data-schemes-and-standards"
+category = "project-category"
 display_name = "Data Schemes And Standards"
 parent = "infrastructure"
 subcategory = "Project Subcategory"

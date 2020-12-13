@@ -1,3 +1,5 @@
+canonical_name = "sensors"
+category = "project-category"
 display_name = "Sensors"
 parent = "government-efficiency"
 subcategory = "Product Subcategory"

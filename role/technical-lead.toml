@@ -1,2 +1,4 @@
-display_name = "Technical Lead"
+canonical_name = "technical-lead"
+category = "role"
+display_name = "Lead Engineer"
 subcategory = "Software Development"

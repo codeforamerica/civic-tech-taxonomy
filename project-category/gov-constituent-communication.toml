@@ -1,3 +1,5 @@
+canonical_name = "gov-constituent-communication"
+category = "project-category"
 display_name = "Government to Constituent Communication"
 parent = "government-efficiency"
 subcategory = "Product Subcategory"

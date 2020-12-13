@@ -1,3 +1,5 @@
+canonical_name = "data-visualization-tools"
+category = "project-category"
 display_name = "Data Visualization"
 parent = "government-efficiency"
 subcategory = "Product Subcategory"

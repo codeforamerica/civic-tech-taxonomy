@@ -1,2 +1,4 @@
+canonical_name = "data-security"
+category = "role"
 display_name = "Data Security"
 subcategory = "Data"

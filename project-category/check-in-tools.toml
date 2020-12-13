@@ -1,3 +1,5 @@
+canonical_name = "check-in-tools"
+category = "project-category"
 display_name = "Check-In Tools"
 parent = "civic-engagement"
 subcategory = "Product Subcategory"

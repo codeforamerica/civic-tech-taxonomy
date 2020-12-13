@@ -1,3 +1,5 @@
+canonical_name = "group-communication"
+category = "project-category"
 display_name = "Group Communication"
 parent = "community-organizing"
 subcategory = "Project Subcategory"

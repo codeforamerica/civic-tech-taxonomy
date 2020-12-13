@@ -1,2 +1,4 @@
+canonical_name = "abandoned"
 caption = "Project has not posted an update within past year"
+category = "status"
 display_name = "Abandoned"

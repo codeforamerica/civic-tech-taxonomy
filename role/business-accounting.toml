@@ -1,2 +1,4 @@
+canonical_name = "business-accounting"
+category = "role"
 display_name = "Accounting"
 subcategory = "Business"

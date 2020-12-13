@@ -1,3 +1,5 @@
+canonical_name = "activism-aggregation"
+category = "project-category"
 display_name = "Activism Aggregation"
 parent = "community-organizing"
 subcategory = "Project Subcategory"

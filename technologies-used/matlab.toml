@@ -1,2 +1,4 @@
+canonical_name = "matlab"
+category = "technologies-used"
 display_name = "Matlab"
 subcategory = "Programming Language"

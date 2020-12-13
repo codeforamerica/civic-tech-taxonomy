@@ -1,2 +1,4 @@
+canonical_name = "sme-economy"
+category = "role"
 display_name = "Economy"
 subcategory = "Subject Matter Expert"

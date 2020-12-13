@@ -1,2 +1,4 @@
+canonical_name = "flask"
+category = "technologies-used"
 display_name = "Flask"
 subcategory = "Web Framework"

@@ -1,3 +1,5 @@
+canonical_name = "voting-reg-election-info"
+category = "project-category"
 display_name = "Voting, Registration and Election Info"
 parent = "civic-engagement"
 subcategory = "Product Subcategory"

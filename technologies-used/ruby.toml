@@ -1,2 +1,4 @@
+canonical_name = "ruby"
+category = "technologies-used"
 display_name = "Ruby"
 subcategory = "Programming Language"

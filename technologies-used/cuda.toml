@@ -1,2 +1,4 @@
+canonical_name = "cuda"
+category = "technologies-used"
 display_name = "CUDA"
 subcategory = "Platform"

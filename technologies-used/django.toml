@@ -1,2 +1,4 @@
+canonical_name = "django"
+category = "technologies-used"
 display_name = "Django"
 subcategory = "Web Framework"

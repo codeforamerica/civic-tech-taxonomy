@@ -1,2 +1,4 @@
+canonical_name = "sme-no-specific-issue"
+category = "role"
 display_name = "No Specific Issue"
 subcategory = "Subject Matter Expert"

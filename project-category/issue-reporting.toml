@@ -1,3 +1,5 @@
+canonical_name = "issue-reporting"
+category = "project-category"
 display_name = "Issue Reporting"
 parent = "government-efficiency"
 subcategory = "Product Subcategory"

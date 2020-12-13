@@ -1,3 +1,5 @@
+canonical_name = "other-open-source-license"
+category = "software-license"
 display_name = "Other Open Source License"
 parent = "open-source"
 subcategory = "Open Source License"

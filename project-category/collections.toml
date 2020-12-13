@@ -1,3 +1,5 @@
+canonical_name = "collections"
+category = "project-category"
 display_name = "Collections"
 parent = "community-organizing"
 subcategory = "Project Subcategory"

@@ -1,2 +1,4 @@
+canonical_name = "test-engineer"
+category = "role"
 display_name = "Test Engineer"
 subcategory = "Testing"

@@ -1,3 +1,5 @@
+canonical_name = "isc"
+category = "software-license"
 display_name = "ISC"
 parent = "open-source"
 subcategory = "Open Source License"

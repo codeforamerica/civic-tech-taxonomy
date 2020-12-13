@@ -1,2 +1,4 @@
+canonical_name = "wordpress"
+category = "technologies-used"
 display_name = "Wordpress"
 subcategory = "CMS"

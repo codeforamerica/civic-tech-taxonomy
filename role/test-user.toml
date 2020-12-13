@@ -1,2 +1,4 @@
+canonical_name = "test-user"
+category = "role"
 display_name = "Test User"
 subcategory = "Testing"

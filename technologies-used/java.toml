@@ -1,2 +1,4 @@
+canonical_name = "java"
+category = "technologies-used"
 display_name = "Java"
 subcategory = "Programming Language"

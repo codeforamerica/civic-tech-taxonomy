@@ -1,2 +1,4 @@
+canonical_name = "sme-transportation"
+category = "role"
 display_name = "Transportation"
 subcategory = "Subject Matter Expert"

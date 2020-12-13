@@ -1,2 +1,4 @@
+canonical_name = "active"
 caption = "Project has posted an update within last 30 days"
+category = "status"
 display_name = "Active"

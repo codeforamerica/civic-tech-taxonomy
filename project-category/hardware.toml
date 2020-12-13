@@ -1,3 +1,5 @@
+canonical_name = "hardware"
+category = "project-category"
 display_name = "Hardware"
 parent = "infrastructure"
 subcategory = "Project Subcategory"

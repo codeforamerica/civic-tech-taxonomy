@@ -1,2 +1,4 @@
+canonical_name = "ms-sql-server"
+category = "technologies-used"
 display_name = "SQL Server"
 subcategory = "Database"

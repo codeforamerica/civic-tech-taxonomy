@@ -1,2 +1,4 @@
+canonical_name = "business-general"
+category = "role"
 display_name = "General"
 subcategory = "Business"

@@ -1,2 +1,4 @@
+canonical_name = "dormant"
 caption = "Project has posted an update within last 365 days"
+category = "status"
 display_name = "Dormant"

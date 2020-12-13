@@ -1,3 +1,5 @@
+canonical_name = "resource-matching"
+category = "project-category"
 display_name = "Resource Matching"
 parent = "community-organizing"
 subcategory = "Project Subcategory"

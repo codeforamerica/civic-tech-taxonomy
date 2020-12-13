@@ -1,3 +1,5 @@
+canonical_name = "artificial-intelligence"
+category = "project-category"
 display_name = "Artificial Intelligence"
 parent = "infrastructure"
 subcategory = "Project Subcategory"

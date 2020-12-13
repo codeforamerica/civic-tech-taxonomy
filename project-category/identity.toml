@@ -1,3 +1,5 @@
+canonical_name = "identity"
+category = "project-category"
 display_name = "Identity"
 parent = "infrastructure"
 subcategory = "Project Subcategory"

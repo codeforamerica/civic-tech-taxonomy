@@ -1,3 +1,5 @@
+canonical_name = "crowdfunding"
+category = "project-category"
 display_name = "Crowdfunding"
 parent = "community-organizing"
 subcategory = "Project Subcategory"

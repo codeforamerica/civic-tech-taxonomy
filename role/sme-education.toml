@@ -1,2 +1,4 @@
+canonical_name = "sme-education"
+category = "role"
 display_name = "Education"
 subcategory = "Subject Matter Expert"

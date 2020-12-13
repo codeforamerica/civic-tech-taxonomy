@@ -1,2 +1,4 @@
+canonical_name = "less-active"
 caption = "Project has posted an update within last 90 days"
+category = "status"
 display_name = "Less Active"

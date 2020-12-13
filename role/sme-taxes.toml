@@ -1,2 +1,4 @@
+canonical_name = "sme-taxes"
+category = "role"
 display_name = "Taxes"
 subcategory = "Subject Matter Expert"

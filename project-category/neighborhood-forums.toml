@@ -1,3 +1,5 @@
+canonical_name = "neighborhood-forums"
+category = "project-category"
 display_name = "Neighborhood Forums"
 parent = "community-organizing"
 subcategory = "Project Subcategory"

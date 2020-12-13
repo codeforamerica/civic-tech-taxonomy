@@ -1,2 +1,4 @@
+canonical_name = "mongo-db"
+category = "technologies-used"
 display_name = "MongoDB"
 subcategory = "Database"

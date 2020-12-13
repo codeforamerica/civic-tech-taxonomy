@@ -1,3 +1,5 @@
+canonical_name = "watchdogging-and-transparency"
+category = "project-category"
 display_name = "Watchdogging and Transparency"
 parent = "government-efficiency"
 subcategory = "Product Subcategory"

@@ -1,2 +1,4 @@
+canonical_name = "haskell"
+category = "technologies-used"
 display_name = "Haskell"
 subcategory = "Programming Language"

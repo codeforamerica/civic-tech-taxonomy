@@ -1,2 +1,4 @@
+canonical_name = "sme-environment"
+category = "role"
 display_name = "Environment"
 subcategory = "Subject Matter Expert"

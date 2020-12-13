@@ -1,2 +1,4 @@
+canonical_name = "rust"
+category = "technologies-used"
 display_name = "Rust"
 subcategory = "Programming Language"

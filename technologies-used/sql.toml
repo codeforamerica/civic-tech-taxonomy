@@ -1,2 +1,4 @@
+canonical_name = "sql"
+category = "technologies-used"
 display_name = "SQL"
 subcategory = "Programming Language"

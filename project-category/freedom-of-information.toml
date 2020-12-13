@@ -1,3 +1,5 @@
+canonical_name = "freedom-of-information"
+category = "project-category"
 display_name = "Freedom of Information"
 parent = "government-efficiency"
 subcategory = "Product Subcategory"

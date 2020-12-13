@@ -1,2 +1,4 @@
+canonical_name = "business-analyst"
+category = "role"
 display_name = "Analyst"
 subcategory = "Business"

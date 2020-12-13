@@ -1,2 +1,4 @@
+canonical_name = "oracle-db"
+category = "technologies-used"
 display_name = "Oracle"
 subcategory = "Database"

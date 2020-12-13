@@ -1,2 +1,4 @@
+canonical_name = "my-sql"
+category = "technologies-used"
 display_name = "MySQL"
 subcategory = "Database"

@@ -1,3 +1,5 @@
+canonical_name = "marketplaces"
+category = "project-category"
 display_name = "Marketplaces"
 parent = "community-organizing"
 subcategory = "Project Subcategory"

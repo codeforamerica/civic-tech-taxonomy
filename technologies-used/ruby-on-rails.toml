@@ -1,2 +1,4 @@
+canonical_name = "ruby-on-rails"
+category = "technologies-used"
 display_name = "Ruby on Rails"
 subcategory = "Web Framework"

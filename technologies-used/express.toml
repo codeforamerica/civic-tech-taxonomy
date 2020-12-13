@@ -1,2 +1,4 @@
+canonical_name = "express"
+category = "technologies-used"
 display_name = "Express"
 subcategory = "Web Framework"

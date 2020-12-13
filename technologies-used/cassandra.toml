@@ -1,2 +1,4 @@
+canonical_name = "cassandra"
+category = "technologies-used"
 display_name = "Cassandra"
 subcategory = "Database"

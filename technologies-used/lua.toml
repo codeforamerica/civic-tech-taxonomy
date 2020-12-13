@@ -1,2 +1,4 @@
+canonical_name = "lua"
+category = "technologies-used"
 display_name = "Lua"
 subcategory = "Programming Language"

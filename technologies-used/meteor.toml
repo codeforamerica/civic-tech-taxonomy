@@ -1,2 +1,4 @@
+canonical_name = "meteor"
+category = "technologies-used"
 display_name = "Meteor"
 subcategory = "Web Framework"

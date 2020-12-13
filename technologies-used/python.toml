@@ -1,2 +1,4 @@
+canonical_name = "python"
+category = "technologies-used"
 display_name = "Python"
 subcategory = "Programming Language"

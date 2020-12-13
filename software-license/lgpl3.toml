@@ -1,3 +1,5 @@
+canonical_name = "lgpl3"
+category = "software-license"
 display_name = "LGPL 3.0"
 parent = "open-source"
 subcategory = "Open Source License"

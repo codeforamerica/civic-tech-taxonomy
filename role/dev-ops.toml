@@ -1,2 +1,4 @@
+canonical_name = "dev-ops"
+category = "role"
 display_name = "DevOps"
 subcategory = "Software Development"

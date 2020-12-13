@@ -1,2 +1,4 @@
+canonical_name = "project-manager"
+category = "role"
 display_name = "Project Manager"
-subcategory = "Software Development"
+subcategory = "Business"

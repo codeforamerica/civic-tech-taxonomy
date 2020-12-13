@@ -1,3 +1,5 @@
+canonical_name = "mapping"
+category = "project-category"
 display_name = "Mapping"
 parent = "government-efficiency"
 subcategory = "Product Subcategory"

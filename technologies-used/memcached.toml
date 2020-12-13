@@ -1,2 +1,4 @@
+canonical_name = "memcached"
+category = "technologies-used"
 display_name = "Memcached"
 subcategory = "Database"

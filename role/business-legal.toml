@@ -1,2 +1,4 @@
+canonical_name = "business-legal"
+category = "role"
 display_name = "Legal"
 subcategory = "Business"

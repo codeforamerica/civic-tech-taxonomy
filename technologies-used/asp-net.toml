@@ -1,2 +1,4 @@
+canonical_name = "asp-net"
+category = "technologies-used"
 display_name = "ASP.NET"
 subcategory = "Web Framework"

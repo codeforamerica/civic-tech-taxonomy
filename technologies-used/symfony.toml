@@ -1,2 +1,4 @@
+canonical_name = "symfony"
+category = "technologies-used"
 display_name = "Symfony"
 subcategory = "Web Framework"

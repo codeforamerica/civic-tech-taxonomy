@@ -1,3 +1,5 @@
+canonical_name = "service-alerts"
+category = "project-category"
 display_name = "Service Alerts"
 parent = "government-efficiency"
 subcategory = "Product Subcategory"

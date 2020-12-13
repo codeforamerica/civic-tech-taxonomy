@@ -1,2 +1,4 @@
+canonical_name = "sme-immigration"
+category = "role"
 display_name = "Immigration"
 subcategory = "Subject Matter Expert"

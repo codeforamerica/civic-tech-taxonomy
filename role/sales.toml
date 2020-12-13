@@ -1,2 +1,4 @@
+canonical_name = "sales"
+category = "role"
 display_name = "Sales"
 subcategory = "Business"

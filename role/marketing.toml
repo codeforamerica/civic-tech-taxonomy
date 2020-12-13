@@ -1,2 +1,4 @@
+canonical_name = "marketing"
+category = "role"
 display_name = "Marketing"
-subcategory = "Business"
+subcategory = "Marketing"

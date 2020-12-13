@@ -1,3 +1,5 @@
+canonical_name = "artistic"
+category = "software-license"
 display_name = "Artistic"
 parent = "open-source"
 subcategory = "Open Source License"

@@ -1,2 +1,4 @@
+canonical_name = "swift"
+category = "technologies-used"
 display_name = "Swift"
 subcategory = "Programming Language"

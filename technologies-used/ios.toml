@@ -1,2 +1,4 @@
+canonical_name = "ios"
+category = "technologies-used"
 display_name = "iOS"
 subcategory = "Platform"

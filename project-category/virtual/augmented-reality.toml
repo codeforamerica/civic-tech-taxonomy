@@ -1,3 +1,5 @@
+canonical_name = "virtual/augmented-reality"
+category = "project-category"
 display_name = "Virtual/Augmented Reality"
 parent = "infrastructure"
 subcategory = "Project Subcategory"

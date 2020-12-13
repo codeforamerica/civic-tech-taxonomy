@@ -1,3 +1,5 @@
+canonical_name = "open-data-publishing"
+category = "project-category"
 display_name = "Open Data Publishing"
 parent = "government-efficiency"
 subcategory = "Product Subcategory"

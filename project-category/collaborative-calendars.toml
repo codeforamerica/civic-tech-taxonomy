@@ -1,3 +1,5 @@
+canonical_name = "collaborative-calendars"
+category = "project-category"
 display_name = "Collaborative Calendars"
 parent = "community-organizing"
 subcategory = "Project Subcategory"

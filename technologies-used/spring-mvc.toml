@@ -1,2 +1,4 @@
+canonical_name = "spring-mvc"
+category = "technologies-used"
 display_name = "Spring MVC"
 subcategory = "Web Framework"

@@ -1,2 +1,4 @@
+canonical_name = "redis"
+category = "technologies-used"
 display_name = "Redis"
 subcategory = "Database"

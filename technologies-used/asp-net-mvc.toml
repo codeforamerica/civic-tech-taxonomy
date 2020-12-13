@@ -1,2 +1,4 @@
+canonical_name = "asp-net-mvc"
+category = "technologies-used"
 display_name = "ASP.NET MVC"
 subcategory = "Web Framework"

@@ -1,3 +1,5 @@
+canonical_name = "opinion matching"
+category = "project-category"
 display_name = "Opinion Matching"
 parent = "civic-engagement"
 subcategory = "Product Subcategory"

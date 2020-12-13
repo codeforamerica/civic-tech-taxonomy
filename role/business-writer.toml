@@ -1,2 +1,4 @@
+canonical_name = "business-writer"
+category = "role"
 display_name = "Writer"
-subcategory = "Business"
+subcategory = "Marketing"

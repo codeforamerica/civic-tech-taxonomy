@@ -1,2 +1,4 @@
+canonical_name = "business-operations"
+category = "role"
 display_name = "Operations"
-subcategory = "Business"
+subcategory = "Operations"
