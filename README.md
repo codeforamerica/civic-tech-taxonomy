@@ -2,7 +2,8 @@
 
 Standardized identifiers for categorizing civic technology projects and interests so we can better help people who want to work together find each other across the network
 
-[Discuss on Discourse: Common projects taxonomy](https://discourse.codeforamerica.org/t/common-projects-taxonomy/308)
+- [Project documentation](https://codeforamerica.github.io/civic-tech-taxonomy/)
+- [Discuss on Discourse: Common projects taxonomy](https://discourse.codeforamerica.org/t/common-projects-taxonomy/308)
 
 ## Taxonomy sets needed
 
@@ -33,7 +34,9 @@ Standardized identifiers for categorizing civic technology projects and interest
 
 ## Format
 
-Data files are sorted TOML. The included `normalize.js` script can be used to normalize any created/edited TOML files, but will also run automatically against any submitted Pull Request and commit any needed changes for you.
+Tags defined within the repository are stored in the [gitsheets format](https://docs.gitsheets.com/), and can be read with any [TOML](https://toml.io/en/) parser or higher-level gitsheets interface.
+
+See [project documentation](https://codeforamerica.github.io/civic-tech-taxonomy/) for more information
 
 ## Related work and reading
 
