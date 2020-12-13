@@ -1,1 +1,2 @@
-title = "Linux ARM Boards"
+display_name = "Linux ARM Boards"
+id = "linux_arm_boards"

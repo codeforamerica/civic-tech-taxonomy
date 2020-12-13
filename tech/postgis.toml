@@ -1,1 +1,2 @@
-title = "PostGIS"
+display_name = "PostGIS"
+id = "postgis"

@@ -1,1 +1,2 @@
-title = "PostgreSQL"
+display_name = "PostgreSQL"
+id = "postgresql"

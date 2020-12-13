@@ -1,1 +1,2 @@
-title = "LoraWAN"
+display_name = "LoraWAN"
+id = "lorawan"

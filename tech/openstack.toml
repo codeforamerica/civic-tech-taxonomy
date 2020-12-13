@@ -1,1 +1,2 @@
-title = "OpenStack"
+display_name = "OpenStack"
+id = "openstack"

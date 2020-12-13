@@ -1,1 +1,2 @@
-title = "SQLite"
+display_name = "SQLite"
+id = "sqlite"

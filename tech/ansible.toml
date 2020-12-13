@@ -1,1 +1,2 @@
-title = "Ansible"
+display_name = "Ansible"
+id = "ansible"

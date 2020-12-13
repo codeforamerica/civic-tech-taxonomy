@@ -1,1 +1,2 @@
-title = "FPGA"
+display_name = "FPGA"
+id = "fpga"
