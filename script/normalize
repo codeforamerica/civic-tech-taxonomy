@@ -1,63 +1,9 @@
-#!/usr/bin/env node
+#!/bin/bash
 
-const sortKeys = require('sort-keys');
-const TOML = require('@iarna/toml');
-const glob = require('mz-modules/glob');
-const fs = require('mz/fs');
+# script/normalize: Ensure all record files have standard formatting
 
-require('yargs')
-    .command({
-        command: '$0 <directory>',
-        desc: 'Process all .toml files within directory and auto-format them',
-        builder: {
-            directory: {
-                describe: 'Path of directory to scan'
-            },
-        },
-        handler: async ({ directory }) => {
-            try {
-                await normalizeToml(directory);
-            } catch (err) {
-                console.error(err);
-                process.exit(1);
-            }
-        }
-    })
-    .demandCommand()
-    .help()
-    .argv;
+set -e
+cd "$(dirname "$0")/.."
 
-async function normalizeToml(directory) {
-    const files = await glob(`${directory}/**/*.toml`);
 
-    await Promise.all(files.map(
-        filePath =>
-            fs.readFile(filePath, 'utf8')
-            .then(toml => TOML.parse(toml))
-            .then(data => {
-                for (const key in data) {
-                    // delete empty arrays
-                    if (Array.isArray(data[key]) && data[key].length == 0) {
-                        delete data[key];
-                    }
-                }
-
-                return data;
-            })
-            .then(data => {
-                // sort synonyms
-                if (data.synonyms && Array.isArray(data.synonyms)) {
-                    data.synonyms.sort((a, b) => a.localeCompare(b, undefined, {
-                        sensitivity: 'base',
-                        ignorePunctuation: true,
-                        numeric: true
-                    }));
-                }
-
-                return data;
-            })
-            .then(data => TOML.stringify(sortKeys(data, { deep: true })))
-            .then(toml => fs.writeFile(filePath, toml, 'utf8'))
-            .then(console.log(`Formatted ${filePath}`))
-    ));
-}
+npx git-sheet normalize

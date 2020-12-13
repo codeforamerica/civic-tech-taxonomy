@@ -16,7 +16,7 @@ jobs:
         path: ~/.npm
         key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
     - run: npm install
-    - run: node normalize.js './*'
+    - run: npx git-sheet normalize
     - name: Commit and push any changes
       run: |
         if [[ -n $(git status -s) ]]; then
