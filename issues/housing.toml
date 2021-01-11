@@ -1,2 +1,3 @@
-display_name = "Housing Policies"
+display_name = "Housing & Urban Planning"
 id = "housing"
+synonyms = ["help for homes", "housing", "housing-affordability", "housing-policies", "housing-policy", "renters", "shared-housing", "Urban housing"]

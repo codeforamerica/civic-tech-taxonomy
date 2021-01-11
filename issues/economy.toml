@@ -1,2 +1,3 @@
-display_name = "Economy"
+display_name = "Economy & Finance"
 id = "economy"
+synonyms = ["budget", "budget-app","budgets","checkbook-nyc", "expenses", "Finance", "fiscaldata","money","property-taxes", "national-budget", "open-spending", "openbudget", "openbudgets", "participatory-budget", "public-budget", "Anti-Corporate", "economic development", "Economic Inequality", "local economy", "labor", "labour", "living-wage", "assessor-scaper", "assessors-website", "tax", "tax-rate", "taxclock", "taxes", "equal-pay", "fighting poverty"]
