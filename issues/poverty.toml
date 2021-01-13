@@ -1,0 +1,3 @@
+display_name = "Poverty" # or should be part of Economy?
+id = "poverty"
+synonyms = ["food donation", "Food Insecurity", "food-access", "food-deserts", "food-insecure", "food-pantry", "food-resources", "food-security", "free-food", "free-meals", "hunger", "homeless", "Homelessness", "poverty", "fighting poverty", "living-wage"]

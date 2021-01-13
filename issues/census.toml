@@ -1,0 +1,3 @@
+display_name = "Census"
+id = "census"
+synonyms = ["census", "census-2020", "census-academy", "census-bureau", "census-data", "census-events", "census-reporter", "censusreporter"]

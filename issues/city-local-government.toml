@@ -1,0 +1,3 @@
+display_name = "City & Local Government"
+id = "city-local-government"
+synonyms = ["311", "311 data", "311 widget", "311-data", "city", "city planning", "city statistics", "city-budget", "city-chat", "city-council", "city-council-data", "city-government", "city-press", "city-zoning", "councils", "counties", "county", "complete-count-committee", "comptroller-nyc-gov", "dataphilly", "fixmystreet", "local-government", "municipal-agendas", "municipalities", "municipality", "neighborhood", "neighborhood-councils", "neighborhood-map", "neighborhoods", "open311", "puerto-rico-municipalities", "open-budgets", "open-contracting", "open-government", "opengov", "opengovernment", "smart-cities", "smart-city"]

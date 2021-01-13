@@ -1,0 +1,3 @@
+display_name = "Government"
+id = "government"
+synonyms = ["federal-websites", "gov", "governance", "government", "government-data", "government-procurement", "government-spending", "govtech", "parliament", "parliamentary-monitoring", "open-budgets", "open-contracting", "open-government", "opengov", "opengovernment"]
