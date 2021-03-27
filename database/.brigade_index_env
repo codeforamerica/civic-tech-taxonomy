@@ -1,4 +1,0 @@
-export DB_HOST="ao9moanwus0rjiex.cbetxkdyhwsb.us-east-1.rds.amazonaws.com"
-export DB_USER="tpgro2zyvo7yz90p"
-export DB_PWD="bavrknhlgk07bven"
-export DB_DB="y7u191w20zzjxg31;project_index"
