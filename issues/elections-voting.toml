@@ -1,3 +1,27 @@
 display_name = "Elections & Voting"
 id = "elections-voting"
-synonyms = ["ballot", "ballots", "ballots democracy", "california-elections", "candidates", "dominion", "election", "election-data", "election-monitoring", "elections", "elections-toolkit", "georgia-election", "gottovote", "monitoring-elections", "monitorizare-vot", "okcandidate", "openelections", "openelections-data", "polling-locations", "vote", "voter-registration", "voter-engagement", "voting"]
+synonyms = [
+  "ballot",
+  "ballots",
+  "ballots democracy",
+  "california-elections",
+  "candidates",
+  "dominion",
+  "election",
+  "election-data",
+  "election-monitoring",
+  "elections",
+  "elections-toolkit",
+  "georgia-election",
+  "gottovote",
+  "monitoring-elections",
+  "monitorizare-vot",
+  "okcandidate",
+  "openelections",
+  "openelections-data",
+  "polling-locations",
+  "vote",
+  "voter-engagement",
+  "voter-registration",
+  "voting"
+]
