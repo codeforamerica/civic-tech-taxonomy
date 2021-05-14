@@ -1,3 +1,20 @@
-display_name = "Poverty" # or should be part of Economy?
+display_name = "Poverty"
 id = "poverty"
-synonyms = ["food donation", "Food Insecurity", "food-access", "food-deserts", "food-insecure", "food-pantry", "food-resources", "food-security", "free-food", "free-meals", "hunger", "homeless", "Homelessness", "poverty", "fighting poverty", "living-wage"]
+synonyms = [
+  "fighting poverty",
+  "food-access",
+  "food-deserts",
+  "food donation",
+  "food-insecure",
+  "Food Insecurity",
+  "food-pantry",
+  "food-resources",
+  "food-security",
+  "free-food",
+  "free-meals",
+  "homeless",
+  "Homelessness",
+  "hunger",
+  "living-wage",
+  "poverty"
+]
