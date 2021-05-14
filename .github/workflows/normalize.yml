@@ -17,6 +17,7 @@ jobs:
         key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
     - run: npm install
     - run: npx git-sheet normalize
+    - uses: mxschmitt/action-tmate@v3
     - name: Commit and push any changes
       run: |
         if [[ -n $(git status -s) ]]; then
