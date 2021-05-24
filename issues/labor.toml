@@ -1,3 +1,17 @@
 display_name = "Labor"
 id = "labor"
-synonyms = ["workforce-development", "social-workers", "labor", "labour", "equal-pay", "fighting poverty", "living-wage", "ancir", "domestic-workers", "employment", "unemployment", "jobs", "jobsearch"]
+synonyms = [
+  "ancir",
+  "domestic-workers",
+  "employment",
+  "equal-pay",
+  "fighting poverty",
+  "jobs",
+  "jobsearch",
+  "labor",
+  "labour",
+  "living-wage",
+  "social-workers",
+  "unemployment",
+  "workforce-development"
+]

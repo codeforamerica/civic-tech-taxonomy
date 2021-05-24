@@ -1,3 +1,15 @@
 display_name = "Civic Tech"
 id = "civic-tech"
-synonyms = ["civic-apps", "civic-apps-team","civic-data", "civic-hacking", "civic-infrastructure", "civic-innovation", "civic-tech", "civic-tech-puerto-rico", "civictech", "civictechindex", "govtech"]
+synonyms = [
+  "civic-apps",
+  "civic-apps-team",
+  "civic-data",
+  "civic-hacking",
+  "civic-infrastructure",
+  "civic-innovation",
+  "civic-tech",
+  "civictech",
+  "civictechindex",
+  "civic-tech-puerto-rico",
+  "govtech"
+]
