@@ -22,7 +22,7 @@ ziprep = urlopen(zipurl)
 zfile = ZipFile(BytesIO(ziprep.read()))
 zfile.extractall('/tmp') #extract in local dir instead?
 
-logging.basicConfig(format='%(asctime)s - %(message)s', filename="cfa_index_2_sql.log", level=logging.DEBUG)
+logging.basicConfig(format='%(asctime)s - %(message)s', filename="cfa_index_sql.log", level=logging.DEBUG)
 
 connection = MySQLdb.connect(host=db_host,
                              user=db_user,
@@ -31,7 +31,6 @@ connection = MySQLdb.connect(host=db_host,
                              use_unicode=True,
                              charset='utf8')
 
-print("Connected to DB ", db_db)
 logging.info("Connected to DB %s", db_db)
 							 
 cursor = connection.cursor()
@@ -89,10 +88,10 @@ with os.scandir(directory) as directories:
               cursor.execute(sql, ([topic]))
               topic_id = cursor.fetchone()
               if(topic_id == None):
-                sql = "INSERT INTO `topics_2` (`topic`) VALUES (%s)" 
+                sql = "INSERT INTO `topics` (`topic`) VALUES (%s)" 
                 cursor.execute(sql, ([topic]))
                 topic_id = cursor.lastrowid
-              sql = "INSERT INTO `projects_topics_2` (`project_id`,`topic_id`) VALUES (%s, %s)" 
+              sql = "INSERT INTO `projects_topics` (`project_id`,`topic_id`) VALUES (%s, %s)" 
               cursor.execute(sql, (project_id, topic_id))
 		  
       logging.info("Processed %i Projects for Organization %s", i, dir.name)

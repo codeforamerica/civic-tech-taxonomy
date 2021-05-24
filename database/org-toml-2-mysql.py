@@ -28,7 +28,7 @@ directory = "/tmp/brigade-project-index-index-v1/organizations"
 
 connection = MySQLdb.connect(host=db_host, user=db_user, password=db_pwd, db=db_db)
 
-logging.basicConfig(format='%(asctime)s - %(message)s', filename="cfa_index_2_sql.log", level=logging.DEBUG)
+logging.basicConfig(format='%(asctime)s - %(message)s', filename="cfa_index_sql.log", level=logging.DEBUG)
 
 logging.info("Connected to DB %s", db_db)
 
@@ -79,12 +79,13 @@ for entry in os.scandir(directory):
   sql = "select id from locations where city = %s and state= %s and country = %s and continent = %s"
   cursor.execute(sql, (location_values))
   location_id = cursor.fetchone()
-  logging.debug("location_id retrieved %", location_id)
   if(location_id == None):
     sql = "INSERT INTO `locations` (`city`,`state`,`country`,`continent`) VALUES (%s,%s,%s,%s )"
     logging.debug(sql)
     cursor.execute(sql, (location[location_columns[0]], location[location_columns[1]], location[location_columns[2]], location[location_columns[3]]))
     location_id = cursor.lastrowid
+  
+  logging.debug("location_id %s", location_id)
 
   sql = "INSERT INTO `organizations_locations` (`organization_id`,`location_id`) VALUES (%s,%s)"
   cursor.execute(sql, (org_id, location_id))
