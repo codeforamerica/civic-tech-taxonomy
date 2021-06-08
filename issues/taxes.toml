@@ -1,3 +1,3 @@
 display_name = "Taxes"
 id = "taxes"
-synonyms = ["assessor-scraper", "assessors-website"]
+synonyms = [ "assessor-scraper", "assessors-website" ]

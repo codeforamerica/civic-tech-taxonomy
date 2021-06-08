@@ -1,3 +1,3 @@
 display_name = "Immigration"
 id = "immigration"
-synonyms = ["Immigration", "migrants", "refugees", "refugees-welcome"]
+synonyms = [ "Immigration", "migrants", "refugees", "refugees-welcome" ]

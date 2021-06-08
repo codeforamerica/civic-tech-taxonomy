@@ -1,3 +1,34 @@
 display_name = "Democracy & Politics"
 id = "democracy-politics"
-synonyms = ["campaign", "Campaign Finance Reform", "campaign-finance", "campaign-finance-data", "democracy", "Democratic Party", "democracy", "democratic-discourse", "digital-democracy", "edemocracy", "Elected Positions", "participatory-democracy", "Gerrymandering", "representatives", "access-to-information", "freedom-of-information", "legislation", "legislative-bill-analysis", "legislators", "lobbying-filings", "lobbyist-lookup", "policing", "policy", "Democratic Party", "everypolitician", "Party Politics", "politicians", "Politics", "Republican Party", "track-politicians"]
+synonyms = [
+  "access-to-information",
+  "campaign",
+  "campaign-finance",
+  "campaign-finance-data",
+  "Campaign Finance Reform",
+  "democracy",
+  "democracy",
+  "democratic-discourse",
+  "Democratic Party",
+  "Democratic Party",
+  "digital-democracy",
+  "edemocracy",
+  "Elected Positions",
+  "everypolitician",
+  "freedom-of-information",
+  "Gerrymandering",
+  "legislation",
+  "legislative-bill-analysis",
+  "legislators",
+  "lobbying-filings",
+  "lobbyist-lookup",
+  "participatory-democracy",
+  "Party Politics",
+  "policing",
+  "policy",
+  "politicians",
+  "Politics",
+  "representatives",
+  "Republican Party",
+  "track-politicians"
+]

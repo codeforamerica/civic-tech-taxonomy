@@ -1,3 +1,13 @@
 display_name = "Transportation"
 id = "transportation"
-synonyms = [ "Transit", "bicyc", "Bicycles", "Bike", "Bike Coalition", "bike sharing", "bike-routes", "bikes", "Biking"]
+synonyms = [
+  "bicyc",
+  "Bicycles",
+  "Bike",
+  "Bike Coalition",
+  "bike-routes",
+  "bikes",
+  "bike sharing",
+  "Biking",
+  "Transit"
+]

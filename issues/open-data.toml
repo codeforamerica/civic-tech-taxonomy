@@ -1,3 +1,24 @@
 display_name = "Open Data"
 id = "open-data"
-synonyms = ["open-budgets", "open-contracting", "open-data", "open-data-day", "open-data-day-2019", "open-data-portal", "open-datasets", "open-disclosure", "open-elegibility", "open-eligibility", "open-government", "open-records", "open-science", "opendata", "opendata-api", "opengov", "opengovernment", "opengrid", "openreferral", "public-data"]
+synonyms = [
+  "open-budgets",
+  "open-contracting",
+  "open-data",
+  "opendata",
+  "opendata-api",
+  "open-data-day",
+  "open-data-day-2019",
+  "open-data-portal",
+  "open-datasets",
+  "open-disclosure",
+  "open-elegibility",
+  "open-eligibility",
+  "opengov",
+  "open-government",
+  "opengovernment",
+  "opengrid",
+  "open-records",
+  "openreferral",
+  "open-science",
+  "public-data"
+]

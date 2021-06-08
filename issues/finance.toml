@@ -1,3 +1,13 @@
 display_name = "Finance"
 id = "finance"
-synonyms = ["budget", "budget-app","budgets","checkbook-nyc","expenses","Finance","fiscaldata","money","property-taxes"]
+synonyms = [
+  "budget",
+  "budget-app",
+  "budgets",
+  "checkbook-nyc",
+  "expenses",
+  "Finance",
+  "fiscaldata",
+  "money",
+  "property-taxes"
+]
