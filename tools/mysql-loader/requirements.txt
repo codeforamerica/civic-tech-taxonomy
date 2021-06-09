@@ -1,3 +1,0 @@
-django
-gunicorn
-django-heroku
