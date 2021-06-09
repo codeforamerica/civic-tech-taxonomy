@@ -1,0 +1,9 @@
+#!/bin/bash
+
+${PYTHON:-python} -m venv ".venv"
+source .venv/bin/activate
+pip install --upgrade pip
+pip install -r requirements.txt
+
+python proj-toml-2-mysql.py
+python org-toml-2-mysql.py
