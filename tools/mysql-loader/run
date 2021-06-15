@@ -1,9 +1,20 @@
 #!/bin/bash
 
+# might need to be changed for your system
+export LD_LIBRARY_PATH=/usr/lib/x86_64-linux-gnu
+
+# defaults for connecting to shared DB per https://codeforamerica.github.io/nac-sandbox-cluster/civic-tech-taxonomy/mysql/
+export DB_HOST="${DB_HOST:-127.0.0.1}"
+export DB_USER="${DB_USER:-root}"
+export DB_PWD="${DB_PWD:-JNVdnoK8PvWG6qrjh1UAnMClMsQrJSIk}"
+export DB_DB="${DB_DB:-cfa_project_index}"
+
+# set up virtual env
 ${PYTHON:-python} -m venv ".venv"
 source .venv/bin/activate
 pip install --upgrade pip
 pip install -r requirements.txt
 
-python proj-toml-2-mysql.py
+# run both importers
 python org-toml-2-mysql.py
+python proj-toml-2-mysql.py
