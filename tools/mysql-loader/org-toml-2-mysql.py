@@ -6,6 +6,10 @@ from io import BytesIO
 from urllib.request import urlopen
 from zipfile import ZipFile
 
+from dotenv import load_dotenv
+
+load_dotenv()  # take environment variables from .env.
+
 # Read the database credentials from environmental variables
 db_host = os.environ.get('DB_HOST')
 db_user = os.environ.get('DB_USER')
@@ -28,7 +32,12 @@ directory = "/tmp/brigade-project-index-index-v1/organizations"
 
 connection = MySQLdb.connect(host=db_host, user=db_user, password=db_pwd, db=db_db)
 
-logging.basicConfig(format='%(asctime)s - %(message)s', filename="cfa_index_sql.log", level=logging.DEBUG)
+logging.basicConfig(format='%(asctime)s - %(message)s', 
+                    handlers=[
+                      logging.FileHandler("db_loader.log"),
+                      logging.StreamHandler()
+                    ],					
+                    level=logging.DEBUG)
 
 logging.info("Connected to DB %s", db_db)
 

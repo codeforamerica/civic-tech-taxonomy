@@ -7,6 +7,10 @@ from io import BytesIO
 from urllib.request import urlopen
 from zipfile import ZipFile
 
+from dotenv import load_dotenv
+
+load_dotenv()  # take environment variables from .env.
+
 # Read the database credentials from environmental variables
 db_host = os.environ.get('DB_HOST')
 db_user = os.environ.get('DB_USER')
@@ -22,7 +26,12 @@ ziprep = urlopen(zipurl)
 zfile = ZipFile(BytesIO(ziprep.read()))
 zfile.extractall('/tmp') #extract in local dir instead?
 
-logging.basicConfig(format='%(asctime)s - %(message)s', filename="cfa_index_sql.log", level=logging.DEBUG)
+logging.basicConfig(format='%(asctime)s - %(message)s', 
+                    handlers=[
+                      logging.FileHandler("db_loader.log"),
+                      logging.StreamHandler()
+                    ],					
+                    level=logging.DEBUG)
 
 connection = MySQLdb.connect(host=db_host,
                              user=db_user,
@@ -51,7 +60,7 @@ with os.scandir(directory) as directories:
     cursor.execute(sql_get_org, ([dir.name]))
     row = cursor.fetchone()
     if(row == None):
-      logging.debug("Empty directory ", dir.name)
+      logging.debug("Empty directory %s", dir.name)
       continue;
 	  
     org_id = row[0]

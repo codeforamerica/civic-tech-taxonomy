@@ -2,3 +2,4 @@ toml
 wheel
 mysqlclient
 urllib3
+dotenv
