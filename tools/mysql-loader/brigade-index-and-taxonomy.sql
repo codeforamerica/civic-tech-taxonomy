@@ -17,12 +17,12 @@ USE `cfa_project_index`;
 
 CREATE TABLE IF NOT EXISTS `locations` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `city` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `state` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `country` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `continent` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `latitude` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `longitude` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `city` varchar(128) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `state` varchar(128) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `country` varchar(128) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `continent` varchar(128) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `latitude` varchar(128) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `longitude` varchar(128) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   KEY `id` (`id`),
   KEY `city` (`city`),
   KEY `state` (`state`),
@@ -32,9 +32,9 @@ CREATE TABLE IF NOT EXISTS `locations` (
 
 CREATE TABLE IF NOT EXISTS `organizations` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(70) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `type` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `website` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `name` varchar(128) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `type` varchar(128) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `website` varchar(256) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   KEY `id` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -57,7 +57,7 @@ CREATE TABLE IF NOT EXISTS `organizations_tags` (
 
 CREATE TABLE IF NOT EXISTS `periods` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `last_pushed_within` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `last_pushed_within` varchar(128) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `last_pushed_within_num` int(11) DEFAULT NULL,
   KEY `id` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='Map the last_pushed_within periods to ordered numbers so we can filter by "age"';
@@ -65,14 +65,14 @@ CREATE TABLE IF NOT EXISTS `periods` (
 
 CREATE TABLE IF NOT EXISTS `projects` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `name` varchar(128) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `description` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `link_url` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `code_url` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `last_pushed_within` varchar(30) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `status` varchar(30) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `link_url` varchar(256) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `code_url` varchar(256) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `last_pushed_within` varchar(128) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `status` varchar(128) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `organization_id` int(11) DEFAULT NULL,
-  `toml` varchar(200) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT 'link to toml file for verification',
+  `toml` varchar(256) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT 'link to toml file for verification',
   `update_timestamp` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   KEY `id` (`id`),
   KEY `organization_id` (`organization_id`),
@@ -91,37 +91,52 @@ CREATE TABLE IF NOT EXISTS `projects_topics` (
 
 CREATE TABLE IF NOT EXISTS `states_regions` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `state_name` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `state_name` varchar(128) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `state` char(2) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `region` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT 'like North East',
+  `region` varchar(128) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT 'like North East',
   KEY `id` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='To hold state abbreviations and their region (like North East, North West, etc.)';
 
 
 CREATE TABLE IF NOT EXISTS `tags` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `tag` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `tag` varchar(128) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   KEY `id` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='Organization tags';
 
 
 CREATE TABLE IF NOT EXISTS `topics` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `topic` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `topic` varchar(128) COLLATE utf8mb4_unicode_ci NOT NULL,
   KEY `id` (`id`,`topic`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci ROW_FORMAT=DYNAMIC COMMENT='Project topics';
 
 
 CREATE TABLE IF NOT EXISTS `topics_synonyms` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `topic` varchar(70) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `synonym` varchar(70) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `synonym_2` varchar(70) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `type` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT 'geo, technology',
+  `topic` varchar(128) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `synonym` varchar(128) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `synonym_2` varchar(128) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `type` varchar(128) COLLATE utf8mb4_unicode_ci DEFAULT NULL COMMENT 'geo, technology',
   KEY `id` (`id`),
   KEY `topic` (`topic`,`synonym`,`synonym_2`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+
+CREATE TABLE `taxonomy_synonyms` (
+	`tag_id` VARCHAR(256) NOT NULL COLLATE 'utf8mb4_unicode_ci',
+	`synonym` VARCHAR(256) NOT NULL COLLATE 'utf8mb4_unicode_ci',
+	PRIMARY KEY (`tag_id`, `synonym`),
+	CONSTRAINT `FK_taxonomy_synonyms_taxonomy_tags` FOREIGN KEY (`tag_id`) REFERENCES `taxonomy_tags` (`id`)
+)
+COLLATE='utf8mb4_unicode_ci' ENGINE=InnoDB;
+
+CREATE TABLE `taxonomy_tags` (
+	`id` VARCHAR(256) NOT NULL COLLATE 'utf8mb4_unicode_ci',
+	`display_name` VARCHAR(256) NOT NULL COLLATE 'utf8mb4_unicode_ci',
+	INDEX `id` (`id`)
+)
+COLLATE='utf8mb4_unicode_ci' ENGINE=InnoDB;
 
 
 CREATE VIEW IF NOT EXISTS `brigades_topics` AS select `a`.`id` AS `id`,`a`.`name` AS `name`,`a`.`type` AS `type`,`a`.`website` AS `website`,`d`.`topic` AS `topic`,`b`.`name` AS `project_name` from (((`organizations` `a` join `projects` `b`) join `projects_topics` `c`) join `topics` `d`) where `a`.`id` = `b`.`organization_id` and `c`.`project_id` = `b`.`id` and `d`.`id` = `c`.`topic_id`;
