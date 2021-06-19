@@ -1,4 +1,4 @@
-name: 'Publish: MySQL database'
+name: 'Publish: Taxonomy MySQL database'
 
 on:
   push:
@@ -41,23 +41,17 @@ jobs:
         pip install --upgrade pip
         pip install -r requirements.txt
 
-    - name: Drop existing database
-      run: mysqladmin -h "${DB_HOST}" -u "${DB_USER}" -p"${DB_PWD}" --force drop "${DB_DB}"
+    - name: Drop tables
+      run: mysql -h "${DB_HOST}" -u "${DB_USER}" -p"${DB_PWD}" < tools/mysql-loader/drop-schema.sql
 
-    - name: Initialize new database schema
-      run: mysql -h "${DB_HOST}" -u "${DB_USER}" -p"${DB_PWD}" < tools/mysql-loader/brigade-index-and-taxonomy.sql
+    - name: Create tables
+      run: mysql -h "${DB_HOST}" -u "${DB_USER}" -p"${DB_PWD}" < tools/mysql-loader/create-schema.sql
 
-    - name: Load organizations
+    - name: Load tags and synonyms
       run: |
         cd tools/mysql-loader
         source .venv/bin/activate
-        python org-toml-2-mysql.py
-
-    - name: Load projects
-      run: |
-        cd tools/mysql-loader
-        source .venv/bin/activate
-        python proj-toml-2-mysql.py
+        python taxonomy-toml-2-mysql.py
 
     # - uses: mxschmitt/action-tmate@v3
     #   if: failure()

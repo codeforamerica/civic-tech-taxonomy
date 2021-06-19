@@ -17,17 +17,9 @@ logging.info("Connected to DB %s", db_db)
 
 cursor= connection.cursor()
 
-cursor.execute("DROP TABLE organizations_locations")
-cursor.execute("DROP TABLE organizations_tags")
-cursor.execute("DROP TABLE projects_topics")
+cursor.execute("DROP TABLE taxonomy_tags")
+cursor.execute("DROP TABLE taxonomy_synonyms")
 
-cursor.execute("DROP TABLE locations")
-cursor.execute("DROP TABLE organizations")
-cursor.execute("DROP TABLE projects")
-cursor.execute("DROP TABLE tags")
-cursor.execute("DROP TABLE topics")
-
-cursor.execute("DROP TABLE periods")
-cursor.execute("DROP TABLE states_regions")
+connection.commit()
 
 connection.close()
