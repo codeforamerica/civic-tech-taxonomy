@@ -3,6 +3,7 @@ name: 'Publish: Taxonomy MySQL database'
 on:
   push:
     branches: [ master ]
+  workflow_dispatch:
 
 env:
   DB_HOST: 127.0.0.1
