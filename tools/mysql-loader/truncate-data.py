@@ -17,14 +17,9 @@ logging.info("Connected to DB %s", db_db)
 
 cursor= connection.cursor()
 
-cursor.execute("TRUNCATE TABLE organizations_locations")
-cursor.execute("TRUNCATE TABLE organizations_tags")
-cursor.execute("TRUNCATE TABLE projects_topics")
+cursor.execute("TRUNCATE TABLE taxonomy_tags")
+cursor.execute("TRUNCATE TABLE taxonomy_synonyms")
 
-cursor.execute("TRUNCATE TABLE locations")
-cursor.execute("TRUNCATE TABLE organizations")
-cursor.execute("TRUNCATE TABLE projects")
-cursor.execute("TRUNCATE TABLE tags")
-cursor.execute("TRUNCATE TABLE topics")
+connection.commit()
 
 connection.close()
