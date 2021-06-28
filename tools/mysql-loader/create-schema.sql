@@ -26,10 +26,16 @@ COLLATE='utf8mb4_unicode_ci' ENGINE=InnoDB;
 CREATE TABLE `taxonomy_tags` (
 	`id` VARCHAR(256) NOT NULL COLLATE 'utf8mb4_unicode_ci',
 	`display_name` VARCHAR(256) NOT NULL COLLATE 'utf8mb4_unicode_ci',
-	INDEX `id` (`id`)
+	`category` VARCHAR(256) NOT NULL COLLATE 'utf8mb4_unicode_ci',
+	`subcategory` VARCHAR(256) NULL DEFAULT NULL COLLATE 'utf8mb4_unicode_ci',
+	INDEX `id` (`id`),
+	INDEX `category` (`category`),	
+	INDEX `subcategory` (`subcategory`)	
 )
 COLLATE='utf8mb4_unicode_ci' ENGINE=InnoDB;
 
+
+CREATE VIEW taxonomy_tags_synonyms AS select `a`.`id` AS `id`,`a`.`display_name` AS `display_name`,`a`.`category` AS `category`,`a`.`subcategory` AS `subcategory`,`b`.`tag_id` AS `tag_id`,`b`.`synonym` AS `synonym` from (`taxonomy_tags` `a` left join `taxonomy_synonyms` `b` on(`b`.`tag_id` = `a`.`id`))
 
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
