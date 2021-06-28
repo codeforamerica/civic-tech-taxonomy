@@ -13,11 +13,11 @@
 
 USE `cfa_project_index`;
 
-DROP TABLE `taxonomy_synonyms`;
+DROP IF EXISTS TABLE `taxonomy_synonyms`;
 
-DROP TABLE `taxonomy_tags`;
+DROP IF EXISTS TABLE `taxonomy_tags`;
 
-DROP VIEW `taxonomy_tags_synonyms`;
+DROP IF EXISTS VIEW `taxonomy_tags_synonyms`;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
 /*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;
