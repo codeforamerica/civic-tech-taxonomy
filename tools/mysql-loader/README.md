@@ -1,20 +1,22 @@
-This folder contains scripts to create and populate a mysql database with the toml files created by the brigade-project-index crawler process https://github.com/codeforamerica/brigade-project-index.
-- brigade-index-and-taxonomy.sql creates the database schema. Simply run it from any sql client. If it doesn't exist it creates the database first.
-- The scripts (below) to populate the data use 4 environment variables:
+This folder contains scripts to create and populate a mysql database with the toml files present in this repository.
+- The scripts use 4 environment variables:
  - DB_HOST
  - DB_USER
  - DB_PWD' // password
  - DB_DB // database
 
-- org-toml-2-mysql.py downloads the https://github.com/codeforamerica/brigade-project-index/archive/index/v1.zip data produced by the crawler.
-It extracts the organizations (brigades) data in /tmp folder and populate some database tables.
+This set of scripts share the database with similar scripts in the project-index repo (https://github.com/codeforamerica/brigade-project-index).
 
-- proj-toml-2-mysql.py downloads the https://github.com/codeforamerica/brigade-project-index/archive/index/v1.zip data produced by the crawler.
-It extracts the projects (again in /tmp folder, so it should be possible to skip this step if previously downloaded data) 
-information and populate some database tables.
+A github Action (.github/workflows) create a virtual environment and create the connection with the database (https://codeforamerica.github.io/nac-sandbox-cluster/civic-tech-taxonomy/mysql/). This action runs on commits to master branch.
+Then it runs the following scripts:
+- tools/mysql-loader/drop-schema.sql to drop the database tables and views
+- tools/mysql-loader/create-schema.sql to create the database tables and views
+- tools/mysql-loader/taxonomy-toml-2-mysql.py to populate the data from the repository (it downloads the repo content in /tmp in order to process it)
+
+The portion of the database used by these scripts is
+
+![image](https://user-images.githubusercontent.com/16311029/122997735-4b6f7a80-d37a-11eb-970b-053e3113b303.png)
 
 - ToDo/Improve
-  - Find a way to update the database with continuosly with the most recent data produced by the crawler.
-  Right now this could be done only deleting all data and run the org and proj loading scripts again.
-  - When extracting the toml data files in /tmp, first we should delete the previous extract otherwise older files will be processed again.
-  
+  - Perhaps there is no need to download the toml data files in /tmp (otherwise, first we should delete the previous extract otherwise older files will be processed again).
+  - To include other folders in the pushing to mysql (right now it only uses "issues" which may be renamed to "topics").
