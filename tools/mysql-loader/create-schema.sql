@@ -35,7 +35,7 @@ CREATE TABLE `taxonomy_tags` (
 COLLATE='utf8mb4_unicode_ci' ENGINE=InnoDB;
 
 
-CREATE VIEW taxonomy_tags_synonyms AS select `a`.`id` AS `id`,`a`.`display_name` AS `display_name`,`a`.`category` AS `category`,`a`.`subcategory` AS `subcategory`,`b`.`tag_id` AS `tag_id`,`b`.`synonym` AS `synonym` from (`taxonomy_tags` `a` left join `taxonomy_synonyms` `b` on(`b`.`tag_id` = `a`.`id`))
+CREATE VIEW taxonomy_tags_synonyms AS select `a`.`id` AS `id`,`a`.`display_name` AS `display_name`,`a`.`category` AS `category`,`a`.`subcategory` AS `subcategory`,`b`.`tag_id` AS `tag_id`,`b`.`synonym` AS `synonym` from (`taxonomy_tags` `a` left join `taxonomy_synonyms` `b` on(`b`.`tag_id` = `a`.`id`));
 
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
