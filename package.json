@@ -1,15 +1,12 @@
 {
-  "name": "civic-tech-taxonomy-tools",
+  "name": "civic-tech-taxonomy-api",
   "version": "1.0.0",
-  "description": "A collection of scripts/tools for maintaining the civic tech taxonomy",
-  "author": "Chris Alfano <chris@codeforphilly.org>",
+  "description": "The API to access the civic tech taxonomy",
+  "author": "Giovanni Sce <giosce@verizon.net>",
   "license": "MIT",
   "dependencies": {
-    "axios": "^0.19.0",
-    "csv-parser": "^2.3.0",
-    "gitsheets": "^0.19.0",
-    "mz": "^2.7.0",
-    "mz-modules": "^2.1.0",
+    "axios": "^0.21.1",
+    "express": "^4.17.1",
     "progress": "^2.0.3",
     "yargs": "^13.2.4"
   }
