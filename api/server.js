@@ -37,7 +37,7 @@ var pool = mysql.createPool({debug: true,
 })
 
 
-app.get('/topic_count', function (req, res) {
+app.get('/topics_count', function (req, res) {
 	query = 'select * from projects_topics_count';
 	
 	topic = req.query.topic;
@@ -58,13 +58,13 @@ app.get('/topic_count', function (req, res) {
 	})
 })
 
-app.get('/topic_projects', function (req, res) {
+app.get('/topics_projects', function (req, res) {
 	query = "select * from projects_topics_view";
 	
 	topic = req.query.topic;
 	console.log('topic: ' + topic);
 	if (topic != undefined) {
-		query += " and topic = '" + topic + "'";
+		query += " where topic = '" + topic + "'";
 	}
 	
 	query += " order by topic, name";
@@ -77,22 +77,56 @@ app.get('/topic_projects', function (req, res) {
 	})
 })
 
+
 app.get('/taxonomy', function (req, res) {
-	query = "select category, display_name, id"
-		  + " from taxonomy_tags";
+	query = "select category, display_name, id, synonym"
+		  + " from taxonomy_tags_synonyms";
 	
 	category = req.query.category;
 	if (category != undefined) {
-		query += " and category = '" + category + "'";
+		query += " where category = '" + category + "'";
 	}
 	
-	query += " order by category, display_name";
+	query += " order by category, display_name, synonym";
+	//query += " limit 10";
 	
 	console.log('query: ' + query);
 	pool.query(query, function (err, rows, fields) {
 	  if (err) throw err
 
-	  res.end(JSON.stringify(rows));	  
+	  var cat = "";
+	  var categories = new Array();
+	  var c = 0;
+	  var it = "";
+	  for(var row of rows) {
+		  //console.log("Row: " + row.display_name);
+		  if(cat != row.category) {
+			  cat = row.category;
+			  categ = new Object();
+			  categ.name = cat;
+			  categories[c] = categ;
+			  categ.items = new Array();
+			  c = c+1;
+			  it = "";
+		  }
+		  if(it != row.display_name) {
+			it = row.display_name;  
+			item = {display_name: row.display_name, id:row.id};
+			if(row.synonym != null) {
+				item.synonyms = new Array();
+				item.synonyms.push(row.synonym);
+			}
+			categ.items.push(item);
+		  } else { // same item so should be synonyms
+			item.synonyms.push(row.synonym);	  
+		  }
+	  }
+	  console.table(categories);
+	  
+	  taxonomy = new Object();
+	  taxonomy.categories = categories;
+	  
+	  res.end(JSON.stringify(taxonomy));	  
 	})
 })
 
@@ -107,6 +141,7 @@ app.get('/categories', function (req, res) {
 	  res.end(JSON.stringify(rows));	  
 	})
 })
+
 
 var server = app.listen(PORT, function () {
    var host = server.address().address
