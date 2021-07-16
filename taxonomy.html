@@ -1,0 +1,87 @@
+
+<html>
+<head>
+<title>CfA Taxonomy</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/themes/default/style.min.css" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/jstree.min.js"></script>
+<script src="https://requirejs.org/docs/release/2.3.5/minified/require.js"></script>	
+
+<style type="text/css">	
+li.jstree-leaf > a .jstree-icon { display: none; }
+</style>
+
+</head>
+
+<body style="font-family:Arial">
+
+<a href="organizations.php">Organizations</a>&nbsp;
+<a href="taxonomy.php">Taxonomy</a>&nbsp;
+<a href="taxonomy3.php">Taxonomy Tree DB</a>&nbsp;
+<a href="taxonomy2.html">Taxonomy Tree API</a>&nbsp;
+<a href="topics.php">Topics</a>&nbsp;
+<a href="projects.php">Projects</a>&nbsp;
+<a href="https://statusboard.brigade.cloud/api/taxonomy.json">API</a>
+
+<H2><center>Taxonomy</center></H2>
+These are all the topics retrieved by the CfA Index crawler and their manually associated synonyms.
+<br>
+This is how items are being classified in the codeforamerica github <a href="https://github.com/codeforamerica/civic-tech-taxonomy" target="new">Taxonomy</a> repo.
+<br>
+This tree is populated from the json returned by the Taxonomy API at https://statusboard.brigade.cloud/api/taxonomy.json
+<br>
+<i>Empty folders are because there is a file in the taxonomy project but I didn't find a good use of it.</i>
+<br>
+<br>
+
+<!-- Initialize jsTree -->
+<div id="folder_jstree"></div>
+
+<br>
+
+</body>
+
+<script type="text/javascript">
+
+/*
+var json = require('./issues.json');
+
+$(function () {
+	$('#folder_jstree').jstree({ 'core' : {
+		'data' : json
+	} });
+});
+*/
+// make it get it from API
+$.getJSON( "https://cfa-taxonomy.herokuapp.com/taxonomy", function( data ) {
+	//alert(data);
+	$('#folder_jstree').jstree({ 'core' : {
+		'data' : data
+	} });
+	
+	$("#folder_jstree").on('select_node.jstree', function(e, data){
+		   data.instance.toggle_node(data.selected);
+	 });
+ 
+});
+/*
+require(['issues.json?noext'], function(d){
+	alert(d);
+	$('#folder_jstree').jstree({ 'core' : {
+		'data' : d
+	} });
+});
+*/
+
+/*
+$.get('issues.json', function(d) {
+	console.log(d);
+	$('#folder_jstree').jstree({ 'core' : {
+		'data' : d
+	} });
+});
+*/
+</script>
+
+</html>
