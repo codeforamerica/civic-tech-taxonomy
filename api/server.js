@@ -37,7 +37,7 @@ var pool = mysql.createPool({debug: true,
 })
 
 
-app.get('/topics_count', function (req, res) {
+app.get('/topics_count', cors(), function (req, res) {
 	query = 'select * from projects_topics_count';
 	
 	topic = req.query.topic;
@@ -58,7 +58,7 @@ app.get('/topics_count', function (req, res) {
 	})
 })
 
-app.get('/topics_projects', function (req, res) {
+app.get('/topics_projects', cors(), function (req, res) {
 	query = "select * from projects_topics_view";
 	
 	topic = req.query.topic;
@@ -78,7 +78,7 @@ app.get('/topics_projects', function (req, res) {
 })
 
 
-app.get('/taxonomy', function (req, res) {
+app.get('/taxonomy', cors(), function (req, res) {
 	query = "select category, display_name, id, synonym"
 		  + " from taxonomy_tags_synonyms";
 	
@@ -130,7 +130,7 @@ app.get('/taxonomy', function (req, res) {
 	})
 })
 
-app.get('/categories', function (req, res) {
+app.get('/categories', cors(), function (req, res) {
 	query = "select category, count(*) as number_of_items from taxonomy_tags"
 		  + " group by category order by category";
 		
@@ -142,6 +142,61 @@ app.get('/categories', function (req, res) {
 	})
 })
 
+
+app.get('/not_assigned_topics', cors(), function (req, res) {
+	query = "select * from not_assigned_synonyms"
+		  + " order by name, topic";
+		
+	console.log('query: ' + query);
+	pool.query(query, function (err, rows, fields) {
+	  if (err) throw err
+
+	  var proj = "";
+	  var projects = new Array();
+	  for(var row of rows) {
+		  //console.log("Project: " + proj);
+		  //console.log("Row: " + row.name);
+		  if(proj != row.name) {
+			proj = ""+row.name;
+			project = {name: row.name, description: row.description, code_url: row.code_url, topics: new Array()};
+			projects.push(project);
+		  }
+		  project.topics.push(row.topic);
+	  }
+	  res.end(JSON.stringify(projects));
+	})
+})
+
+app.get('/not_assigned_topics2', cors(), function (req, res) {
+	query = "select * from not_assigned_synonyms"
+		  + " order by topic, name";
+		
+	console.log('query: ' + query);
+	pool.query(query, function (err, rows, fields) {
+	  if (err) throw err
+
+	  var t = "";
+	  var topics = new Array();
+	  var p = 0;
+	  for(var row of rows) {
+		  //console.log("Project: " + proj);
+		  //console.log("Row: " + row.name);
+		  if(t != row.topic) {
+			t = ""+row.topic;
+			p = 0;
+			topic = {topic: row.topic, num_of_projects: p, projects: new Array()};
+			topics.push(topic);
+		    //topic.num_of_projects = p;
+		  }
+		  // if doesn't exist in topic.projects {
+		  p = p+1;
+		  topic.num_of_projects = p;
+		  project = {project_id: row.project_id, name: row.name, description: row.description, code_url: row.code_url};
+		  topic.projects.push(project);
+	  }
+	  res.end(JSON.stringify(topics));
+	})
+})
 
 var server = app.listen(PORT, function () {
    var host = server.address().address
