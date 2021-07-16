@@ -185,15 +185,15 @@ app.get('/not_assigned_topics2', cors(), function (req, res) {
 		  if(t != row.topic) {
 			t = ""+row.topic;
 			p = 0;
-			topic = {topic: row.topic, num_of_projects: p, projects: new Array()};
+			topic = {text: row.topic, num_of_projects: p, children: new Array()};
 			topics.push(topic);
 		    //topic.num_of_projects = p;
 		  }
 		  // if doesn't exist in topic.projects {
 		  p = p+1;
 		  topic.num_of_projects = p;
-		  project = {project_id: row.project_id, name: row.name, description: row.description, code_url: row.code_url};
-		  topic.projects.push(project);
+		  project = {project_id: row.project_id, text: row.name, description: row.description, code_url: row.code_url};
+		  topic.children.push(project);
 	  }
 	  res.end(JSON.stringify(topics));
 	})
