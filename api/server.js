@@ -168,6 +168,7 @@ app.get('/not_assigned_topics', cors(), function (req, res) {
 	})
 })
 
+
 app.get('/not_assigned_topics2', cors(), function (req, res) {
 	query = "select * from not_assigned_synonyms"
 		  + " order by topic, name";
