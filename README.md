@@ -12,6 +12,9 @@ Standardized identifiers for categorizing civic technology projects and interest
 - Skills Needed
 - Project Roles
 
+## Draft User Interface
+[taxonomy](taxonomy.html)
+
 ## Project goals
 
 - Publish via this repository several lists of terms that describe the tools, topics, and techniques of civic technology
