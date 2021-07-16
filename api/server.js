@@ -103,22 +103,22 @@ app.get('/taxonomy', cors(), function (req, res) {
 		  if(cat != row.category) {
 			  cat = row.category;
 			  categ = new Object();
-			  categ.name = cat;
+			  categ.text = cat;
 			  categories[c] = categ;
-			  categ.items = new Array();
+			  categ.children = new Array();
 			  c = c+1;
 			  it = "";
 		  }
 		  if(it != row.display_name) {
 			it = row.display_name;  
-			item = {display_name: row.display_name, id:row.id};
+			item = {text: row.display_name, id:row.id};
 			if(row.synonym != null) {
-				item.synonyms = new Array();
-				item.synonyms.push(row.synonym);
+				item.children = new Array();
+				item.children.push(row.synonym);
 			}
-			categ.items.push(item);
+			categ.children.push(item);
 		  } else { // same item so should be synonyms
-			item.synonyms.push(row.synonym);	  
+			item.children.push(row.synonym);	  
 		  }
 	  }
 	  console.table(categories);
@@ -126,7 +126,8 @@ app.get('/taxonomy', cors(), function (req, res) {
 	  taxonomy = new Object();
 	  taxonomy.categories = categories;
 	  
-	  res.end(JSON.stringify(taxonomy));	  
+	  //res.end(JSON.stringify(taxonomy));
+	  res.end(JSON.stringify(categories));	  
 	})
 })
 
