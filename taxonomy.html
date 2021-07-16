@@ -15,7 +15,7 @@ li.jstree-leaf > a .jstree-icon { display: none; }
 </head>
 
 <body style="font-family:Arial">
-
+<!--
 <a href="organizations.php">Organizations</a>&nbsp;
 <a href="taxonomy.php">Taxonomy</a>&nbsp;
 <a href="taxonomy3.php">Taxonomy Tree DB</a>&nbsp;
@@ -23,20 +23,31 @@ li.jstree-leaf > a .jstree-icon { display: none; }
 <a href="topics.php">Topics</a>&nbsp;
 <a href="projects.php">Projects</a>&nbsp;
 <a href="https://statusboard.brigade.cloud/api/taxonomy.json">API</a>
+-->
 
 <H2><center>Taxonomy</center></H2>
 These are all the topics retrieved by the CfA Index crawler and their manually associated synonyms.
 <br>
-This is how items are being classified in the codeforamerica github <a href="https://github.com/codeforamerica/civic-tech-taxonomy" target="new">Taxonomy</a> repo.
-<br>
-This tree is populated from the json returned by the Taxonomy API at https://statusboard.brigade.cloud/api/taxonomy.json
-<br>
+
 <i>Empty folders are because there is a file in the taxonomy project but I didn't find a good use of it.</i>
 <br>
 <br>
 
 <!-- Initialize jsTree -->
+<table width="80%">
+<tr>
+<td width="50%">
+This is how items are being classified in the codeforamerica github <a href="https://github.com/codeforamerica/civic-tech-taxonomy" target="new">Taxonomy</a> repo.
+<br>
+This tree is populated from the json returned by the Taxonomy API at https://cfa-taxonomy.herokuapp.com/taxonomy
 <div id="folder_jstree"></div>
+</td>
+<td width="50%">
+These are the items retrieved from the Crawler that have not been classified in the Taxonomy yet.
+<div id="folder_jstree2"></div>
+</td>
+</tr>
+</table>
 
 <br>
 
@@ -44,16 +55,6 @@ This tree is populated from the json returned by the Taxonomy API at https://sta
 
 <script type="text/javascript">
 
-/*
-var json = require('./issues.json');
-
-$(function () {
-	$('#folder_jstree').jstree({ 'core' : {
-		'data' : json
-	} });
-});
-*/
-// make it get it from API
 $.getJSON( "https://cfa-taxonomy.herokuapp.com/taxonomy", function( data ) {
 	//alert(data);
 	$('#folder_jstree').jstree({ 'core' : {
@@ -65,23 +66,18 @@ $.getJSON( "https://cfa-taxonomy.herokuapp.com/taxonomy", function( data ) {
 	 });
  
 });
-/*
-require(['issues.json?noext'], function(d){
-	alert(d);
-	$('#folder_jstree').jstree({ 'core' : {
-		'data' : d
-	} });
-});
-*/
 
-/*
-$.get('issues.json', function(d) {
-	console.log(d);
-	$('#folder_jstree').jstree({ 'core' : {
-		'data' : d
+$.getJSON( "https://cfa-taxonomy.herokuapp.com/not_assigned_topics2", function( data ) {
+	//alert(data);
+	$('#folder_jstree2').jstree({ 'core' : {
+		'data' : data
 	} });
+	
+	$("#folder_jstree2").on('select_node.jstree', function(e, data){
+		   data.instance.toggle_node(data.selected);
+	 });
+ 
 });
-*/
 </script>
 
 </html>
