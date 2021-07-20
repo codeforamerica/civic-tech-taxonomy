@@ -76,8 +76,7 @@ $(document).ready(function () {
 $.getJSON( "https://cfa-taxonomy.herokuapp.com/taxonomy", function( data ) {
 	$('#taxonomy_jstree').jstree({ 'core' : {
 		'data' : data
-	} });
-	
+	},
 	"plugins": ["search", "dnd", "contextmenu"],
 	"search": {
 		"case_sensitive": false,
@@ -86,15 +85,13 @@ $.getJSON( "https://cfa-taxonomy.herokuapp.com/taxonomy", function( data ) {
 	
 	$("#folder_jstree").on('select_node.jstree', function(e, data){
 		   data.instance.toggle_node(data.selected);
-	 });
- 
+	})
 });
 
 $.getJSON( "https://cfa-taxonomy.herokuapp.com/not_assigned_topics2", function( data ) {
 	$('#orphans_jstree').jstree({ 'core' : {
 		'data' : data
-	} });
-	
+	},
 	"plugins": ["search", "dnd", "contextmenu"],
 	"search": {
 		"case_sensitive": false,
@@ -102,7 +99,7 @@ $.getJSON( "https://cfa-taxonomy.herokuapp.com/not_assigned_topics2", function( 
 	},
 	$("#folder_jstree2").on('select_node.jstree', function(e, data){
 		   data.instance.toggle_node(data.selected);
-	 });
+	 })
  
 });
 
