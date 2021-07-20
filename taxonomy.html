@@ -47,8 +47,8 @@ This tree is populated from the json returned by the Taxonomy API at <a href="ht
 </td>
 </tr>
 <tr>
-<td><hr><input id="search-taxonomy" class="search-input" /></td>
-<td><hr><input id="search-orphans" class="search-input" /></td>
+<td><hr><input id="search-input" class="search-input" /></td>
+<td><hr><input id="search-input2" class="search-input2" /> Some issue b/c volume of data</td>
 </tr>
 <tr>
 <td valign="top"><hr><div id="taxonomy_jstree"></div></td>
@@ -62,30 +62,21 @@ This tree is populated from the json returned by the Taxonomy API at <a href="ht
 
 <script type="text/javascript">
 
-$(document).ready(function () {
-	$(".search-taxonomy").keyup(function () {
-		var searchString = $(this).val();
-		$('#taxonomy_jstree').jstree('search', searchString);
-	});
-	$(".search-orphans").keyup(function () {
-		var searchString2 = $(this).val();
-		$('#orphans_jstree').jstree('search', searchString2);
-	});
-});
 
 $.getJSON( "https://cfa-taxonomy.herokuapp.com/taxonomy", function( data ) {
+	//alert(data);
 	$('#taxonomy_jstree').jstree({ 'core' : {
 		'data' : data
-	},
+	}, 
 	"plugins": ["search", "dnd", "contextmenu"],
 	"search": {
 		"case_sensitive": false,
 		"show_only_matches": true
-	},
+	}});
 	
-	$("#folder_jstree").on('select_node.jstree', function(e, data){
+	$("#taxonomy_jstree").on('select_node.jstree', function(e, data){
 		   data.instance.toggle_node(data.selected);
-	})
+	});
 });
 
 $.getJSON( "https://cfa-taxonomy.herokuapp.com/not_assigned_topics2", function( data ) {
@@ -96,12 +87,24 @@ $.getJSON( "https://cfa-taxonomy.herokuapp.com/not_assigned_topics2", function( 
 	"search": {
 		"case_sensitive": false,
 		"show_only_matches": true
-	},
-	$("#folder_jstree2").on('select_node.jstree', function(e, data){
+	}});
+	$("#orphans_jstree").on('select_node.jstree', function(e, data){
 		   data.instance.toggle_node(data.selected);
 	 })
- 
+
 });
+
+$(document).ready(function () {
+	$(".search-input").keyup(function () {
+		var searchString = $(this).val();
+		$('#taxonomy_jstree').jstree('search', searchString);
+	});
+	$(".search-input2").keyup(function () {
+		var searchString2 = $(this).val();
+		$('#orphans_jstree').jstree('search', searchString2);
+	});
+});
+
 
 </script>
 
