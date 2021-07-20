@@ -40,15 +40,19 @@ These are all the topics retrieved by the CfA Index crawler and their manually a
 This is how items are being classified in the codeforamerica github <a href="https://github.com/codeforamerica/civic-tech-taxonomy" target="new">Taxonomy</a> repo.
 <br>
 This tree is populated from the json returned by the Taxonomy API at <a href="https://cfa-taxonomy.herokuapp.com/taxonomy">https://cfa-taxonomy.herokuapp.com/taxonomy</a>
-<hr>
-<div id="folder_jstree"></div>
 </td>
 <td width="50%" valign="top">
 These are the items retrieved from the Crawler that have not been classified in the Taxonomy yet.
 This tree is populated from the json returned by the Taxonomy API at <a href="https://cfa-taxonomy.herokuapp.com/not_assigned_topics2">https://cfa-taxonomy.herokuapp.com/not_assigned_topics2</a>
-<hr>
-<div id="folder_jstree2"></div>
 </td>
+</tr>
+<tr>
+<td><hr><input id="search-taxonomy" class="search-input" /></td>
+<td><hr><input id="search-orphans" class="search-input" /></td>
+</tr>
+<tr>
+<td valign="top"><hr><div id="taxonomy_jstree"></div></td>
+<td valign="top"><hr><div id="orphans_jstree"></div></td>
 </tr>
 </table>
 
@@ -58,11 +62,27 @@ This tree is populated from the json returned by the Taxonomy API at <a href="ht
 
 <script type="text/javascript">
 
+$(document).ready(function () {
+	$(".search-taxonomy").keyup(function () {
+		var searchString = $(this).val();
+		$('#taxonomy_jstree').jstree('search', searchString);
+	});
+	$(".search-orphans").keyup(function () {
+		var searchString2 = $(this).val();
+		$('#orphans_jstree').jstree('search', searchString2);
+	});
+});
+
 $.getJSON( "https://cfa-taxonomy.herokuapp.com/taxonomy", function( data ) {
-	//alert(data);
-	$('#folder_jstree').jstree({ 'core' : {
+	$('#taxonomy_jstree').jstree({ 'core' : {
 		'data' : data
 	} });
+	
+	"plugins": ["search", "dnd", "contextmenu"],
+	"search": {
+		"case_sensitive": false,
+		"show_only_matches": true
+	},
 	
 	$("#folder_jstree").on('select_node.jstree', function(e, data){
 		   data.instance.toggle_node(data.selected);
@@ -71,16 +91,21 @@ $.getJSON( "https://cfa-taxonomy.herokuapp.com/taxonomy", function( data ) {
 });
 
 $.getJSON( "https://cfa-taxonomy.herokuapp.com/not_assigned_topics2", function( data ) {
-	//alert(data);
-	$('#folder_jstree2').jstree({ 'core' : {
+	$('#orphans_jstree').jstree({ 'core' : {
 		'data' : data
 	} });
 	
+	"plugins": ["search", "dnd", "contextmenu"],
+	"search": {
+		"case_sensitive": false,
+		"show_only_matches": true
+	},
 	$("#folder_jstree2").on('select_node.jstree', function(e, data){
 		   data.instance.toggle_node(data.selected);
 	 });
  
 });
+
 </script>
 
 </html>
