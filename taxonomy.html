@@ -15,40 +15,46 @@ li.jstree-leaf > a .jstree-icon { display: none; }
 </head>
 
 <body style="font-family:Arial">
-<!--
-<a href="organizations.php">Organizations</a>&nbsp;
-<a href="taxonomy.php">Taxonomy</a>&nbsp;
-<a href="taxonomy3.php">Taxonomy Tree DB</a>&nbsp;
-<a href="taxonomy2.html">Taxonomy Tree API</a>&nbsp;
-<a href="topics.php">Topics</a>&nbsp;
-<a href="projects.php">Projects</a>&nbsp;
-<a href="https://statusboard.brigade.cloud/api/taxonomy.json">API</a>
--->
 
 <H2><center>Taxonomy</center></H2>
 These are all the topics retrieved by the CfA Index crawler and their manually associated synonyms.
 <br>
 
-<i>Empty folders are because there is a file in the taxonomy project but I didn't find a good use of it.</i>
-<br>
-<br>
-
-<!-- Initialize jsTree -->
 <table width="80%">
 <tr>
 <td width="50%" valign="top">
 This is how items are being classified in the codeforamerica github <a href="https://github.com/codeforamerica/civic-tech-taxonomy" target="new">Taxonomy</a> repo.
 <br>
 This tree is populated from the json returned by the Taxonomy API at <a href="https://cfa-taxonomy.herokuapp.com/taxonomy">https://cfa-taxonomy.herokuapp.com/taxonomy</a>
+<br>
+<i>Empty folders are because there is a file in the taxonomy project but I didn't find a good use of it.</i>
 </td>
 <td width="50%" valign="top">
 These are the items retrieved from the Crawler that have not been classified in the Taxonomy yet.
+<br>
 This tree is populated from the json returned by the Taxonomy API at <a href="https://cfa-taxonomy.herokuapp.com/not_assigned_topics2">https://cfa-taxonomy.herokuapp.com/not_assigned_topics2</a>
 </td>
 </tr>
 <tr>
-<td><hr><input id="search-input" class="search-input" /></td>
-<td><hr><input id="search-input2" class="search-input2" /> Some issue b/c volume of data</td>
+<td><hr>Search <input id="search-input" class="search-input" /></td>
+<!--
+<td>
+<hr>Search <input id="search-input2" class="search-input2" /> some issue b/c volume of data
+</td>
+-->
+<td>
+<hr>
+<div class="input-group">
+	Search <input type="text" class="form-control" placeholder="Search tree .." id="search">
+	<span class="input-group-btn">
+		<button class="btn btn-default" type="button" id="btn-search">Go!</button>
+	</span>
+	<span class="input-group-btn">
+		<button class="btn btn-default" type="button" id="btn-clear-search">Clear</button>
+	</span>
+</div>
+</td>
+
 </tr>
 <tr>
 <td valign="top"><hr><div id="taxonomy_jstree"></div></td>
@@ -64,34 +70,44 @@ This tree is populated from the json returned by the Taxonomy API at <a href="ht
 
 
 $.getJSON( "https://cfa-taxonomy.herokuapp.com/taxonomy", function( data ) {
-	//alert(data);
 	$('#taxonomy_jstree').jstree({ 'core' : {
+		"check_callback": true,
 		'data' : data
 	}, 
 	"plugins": ["search", "dnd", "contextmenu"],
 	"search": {
 		"case_sensitive": false,
-		"show_only_matches": true
+		"show_only_matches": false
 	}});
-	
-	$("#taxonomy_jstree").on('select_node.jstree', function(e, data){
-		   data.instance.toggle_node(data.selected);
-	});
 });
 
 $.getJSON( "https://cfa-taxonomy.herokuapp.com/not_assigned_topics2", function( data ) {
 	$('#orphans_jstree').jstree({ 'core' : {
+		"check_callback": true,
 		'data' : data
 	},
-	"plugins": ["search", "dnd", "contextmenu"],
+	node_customize: {
+		default: function(el, node) {
+			$(el).append("gio")
+		}
+	},	
+	"plugins": ["search", "dnd", "node_customize"],
 	"search": {
 		"case_sensitive": false,
-		"show_only_matches": true
-	}});
-	$("#orphans_jstree").on('select_node.jstree', function(e, data){
-		   data.instance.toggle_node(data.selected);
-	 })
-
+		"show_only_matches": true,
+		"close_opened_onclear": true
+	}}).on('hover_node.jstree',function(e,data){
+		$("#"+data.node.id).prop('title', "Additional info...");
+	});
+	/*
+	.on("select_node.jstree",
+     function(evt, data){
+		console.log("node selected " + data.node);
+		var node_id   = (data.node.id); // element id
+		var num_proj = $("#"+node_id).attr("num_of_projects"); // get value of element attribute
+		$('#data').html(num_proj);
+     });
+	 */
 });
 
 $(document).ready(function () {
@@ -99,12 +115,34 @@ $(document).ready(function () {
 		var searchString = $(this).val();
 		$('#taxonomy_jstree').jstree('search', searchString);
 	});
-	$(".search-input2").keyup(function () {
-		var searchString2 = $(this).val();
-		$('#orphans_jstree').jstree('search', searchString2);
+	//$(".search-input2").keyup(function () {
+	//	var searchString2 = $(this).val();
+	//	$('#orphans_jstree').jstree('search', searchString2);
+	//});
+	$("#btn-search").click(function () {
+		//var searchString2 = $(this).val();
+		var searchString2 = $("#search").val();
+		//alert("search: " + searchString2);
+		//if("" == searchString2) {
+			//$('#orphans_jstree').jstree("clear_search");
+		//} else {
+			$('#orphans_jstree').jstree('search', searchString2);
+		//}
 	});
+	$("#btn-clear-search").click(function () {
+		console.log("clear search");
+		$("#btn-clear-search").val("");
+		$('#orphans_jstree').jstree("clear_search");
+	});	
 });
 
+var to = null;
+$(".search-input2").keyup(function () {
+    if(to) { clearTimeout(to); }
+    to = setTimeout(function() {
+		$('#orphans_jstree').jstree(true).search($('.search-input2').val());
+    }, 250);
+});
 
 </script>
 
