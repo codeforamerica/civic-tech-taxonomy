@@ -13,7 +13,8 @@ Standardized identifiers for categorizing civic technology projects and interest
 - Project Roles
 
 ## Draft User Interface
-[taxonomy](taxonomy.html)
+
+[taxonomy](tools/editor-ui/taxonomy.html)
 
 ## Project goals
 
