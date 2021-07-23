@@ -1,0 +1,46 @@
+name: 'Publish: api-server Docker Container Image'
+
+on:
+  push:
+    branches: [ master ]
+    paths: [ 'tools/api-server/**' ]
+
+
+jobs:
+  publish-api-server:
+    runs-on: ubuntu-latest
+    steps:
+
+    - uses: actions/checkout@v2
+
+    - name: Login to ghcr.io Docker registry
+      uses: docker/login-action@v1
+      with:
+        registry: ghcr.io
+        username: ${{ github.repository_owner }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Compute Docker container image addresses
+      run: |
+        DOCKER_REPOSITORY="ghcr.io/${GITHUB_REPOSITORY,,}"
+        DOCKER_TAG="$(git rev-parse --short HEAD)"
+        echo "DOCKER_REPOSITORY=${DOCKER_REPOSITORY}" >> $GITHUB_ENV
+        echo "DOCKER_TAG=${DOCKER_TAG}" >> $GITHUB_ENV
+        echo "Using: ${DOCKER_REPOSITORY}/*:${DOCKER_TAG}"
+
+    - name: 'Pull latest existing Docker container image: api-server'
+      run: docker pull "${DOCKER_REPOSITORY}/api-server:latest" || true
+
+    - name: 'Build Docker container image: api-server'
+      run: |
+        docker build \
+            --cache-from "${DOCKER_REPOSITORY}/api-server:latest" \
+            --tag "${DOCKER_REPOSITORY}/api-server:latest" \
+            --tag "${DOCKER_REPOSITORY}/api-server:${DOCKER_TAG}" \
+            ./tools/api-server
+
+    - name: Push Docker container image api-server:latest"
+      run: docker push "${DOCKER_REPOSITORY}/api-server:latest"
+
+    - name: Push Docker container image api-server:v*"
+      run: docker push "${DOCKER_REPOSITORY}/api-server:${DOCKER_TAG}"

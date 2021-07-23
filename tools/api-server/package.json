@@ -1,0 +1,17 @@
+{
+  "name": "civic-tech-taxonomy-api",
+  "version": "1.0.0",
+  "description": "The API to access the civic tech taxonomy",
+  "author": "Giovanni Sce <giosce@verizon.net>",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "fs": "0.0.1-security",
+    "ip": "^1.1.5",
+    "mysql": "^2.18.1",
+    "q": "^1.5.1"
+  }
+}
