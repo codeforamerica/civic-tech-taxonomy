@@ -37,6 +37,10 @@ COLLATE='utf8mb4_unicode_ci' ENGINE=InnoDB;
 
 CREATE VIEW taxonomy_tags_synonyms AS select `a`.`id` AS `id`,`a`.`display_name` AS `display_name`,`a`.`category` AS `category`,`a`.`subcategory` AS `subcategory`,`b`.`tag_id` AS `tag_id`,`b`.`synonym` AS `synonym` from (`taxonomy_tags` `a` left join `taxonomy_synonyms` `b` on(`b`.`tag_id` = `a`.`id`));
 
+CREATE VIEW projects_topics_view AS select `a`.`topic` AS `topic`,`b`.`id` AS `project_id`,`b`.`name` AS `name`,`b`.`description` AS `description`,`b`.`link_url` AS `link_url`,`b`.`code_url` AS `code_url`,`b`.`last_pushed_within` AS `last_pushed_within`,`b`.`status` AS `status`,`b`.`organization_id` AS `organization_id`,`b`.`toml` AS `toml` from ((`topics` `a` join `projects_topics` on(`a`.`id` = `projects_topics`.`topic_id`)) join `projects` `b` on(`b`.`id` = `projects_topics`.`project_id`)) order by `b`.`name`;
+
+CREATE VIEW not_assigned_synonyms AS select `projects_topics_view`.`topic` AS `topic`,`projects_topics_view`.`project_id` AS `project_id`,`projects_topics_view`.`name` AS `name`,`projects_topics_view`.`description` AS `description`,`projects_topics_view`.`link_url` AS `link_url`,`projects_topics_view`.`code_url` AS `code_url`,`projects_topics_view`.`last_pushed_within` AS `last_pushed_within`,`projects_topics_view`.`status` AS `status`,`projects_topics_view`.`organization_id` AS `organization_id`,`projects_topics_view`.`toml` AS `toml` from `projects_topics_view` where !(`projects_topics_view`.`topic` in (select `taxonomy_synonyms`.`synonym` from `taxonomy_synonyms`)) and !(`projects_topics_view`.`topic` in (select `taxonomy_tags`.`id` from `taxonomy_tags`));
+
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
 /*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;
