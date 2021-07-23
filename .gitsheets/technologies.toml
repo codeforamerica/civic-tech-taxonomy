@@ -1,5 +1,5 @@
 [gitsheet]
-root = "technologies"
+root = "taxonomies/technologies"
 path = "${{ id }}"
 
 [gitsheet.fields.id]
