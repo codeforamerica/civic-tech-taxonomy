@@ -39,41 +39,41 @@ var pool = mysql.createPool({debug: true,
 
 app.get('/topics_count', cors(), function (req, res) {
 	query = 'select * from projects_topics_count';
-	
+
 	topic = req.query.topic;
 	console.log('topic: ' + topic);
 	if (topic != undefined) {
 		query += " where topic = '" + topic + "'";
 	}
-	
+
 	query += " order by count desc";
-	
+
 	console.log('query: ' + query);
-	
+
 	pool.query(query, function (err, rows, fields) {
 	  if (err) throw err
 
 	  res.type('json');
-	  res.end(JSON.stringify(rows));	  
+	  res.end(JSON.stringify(rows));
 	})
 })
 
 app.get('/topics_projects', cors(), function (req, res) {
 	query = "select * from projects_topics_view";
-	
+
 	topic = req.query.topic;
 	console.log('topic: ' + topic);
 	if (topic != undefined) {
 		query += " where topic = '" + topic + "'";
 	}
-	
+
 	query += " order by topic, name";
-	
+
 	console.log('query: ' + query);
 	pool.query(query, function (err, rows, fields) {
 	  if (err) throw err
 
-	  res.end(JSON.stringify(rows));	  
+	  res.end(JSON.stringify(rows));
 	})
 })
 
@@ -81,15 +81,15 @@ app.get('/topics_projects', cors(), function (req, res) {
 app.get('/taxonomy', cors(), function (req, res) {
 	query = "select category, display_name, id, synonym"
 		  + " from taxonomy_tags_synonyms";
-	
+
 	category = req.query.category;
 	if (category != undefined) {
 		query += " where category = '" + category + "'";
 	}
-	
+
 	query += " order by category, display_name, synonym";
 	//query += " limit 10";
-	
+
 	console.log('query: ' + query);
 	pool.query(query, function (err, rows, fields) {
 	  if (err) throw err
@@ -110,7 +110,7 @@ app.get('/taxonomy', cors(), function (req, res) {
 			  it = "";
 		  }
 		  if(it != row.display_name) {
-			it = row.display_name;  
+			it = row.display_name;
 			item = {text: row.display_name, id:row.id};
 			if(row.synonym != null) {
 				item.children = new Array();
@@ -118,28 +118,28 @@ app.get('/taxonomy', cors(), function (req, res) {
 			}
 			categ.children.push(item);
 		  } else { // same item so should be synonyms
-			item.children.push(row.synonym);	  
+			item.children.push(row.synonym);
 		  }
 	  }
 	  console.table(categories);
-	  
+
 	  taxonomy = new Object();
 	  taxonomy.categories = categories;
-	  
+
 	  //res.end(JSON.stringify(taxonomy));
-	  res.end(JSON.stringify(categories));	  
+	  res.end(JSON.stringify(categories));
 	})
 })
 
 app.get('/categories', cors(), function (req, res) {
 	query = "select category, count(*) as number_of_items from taxonomy_tags"
 		  + " group by category order by category";
-		
+
 	console.log('query: ' + query);
 	pool.query(query, function (err, rows, fields) {
 	  if (err) throw err
 
-	  res.end(JSON.stringify(rows));	  
+	  res.end(JSON.stringify(rows));
 	})
 })
 
@@ -147,7 +147,7 @@ app.get('/categories', cors(), function (req, res) {
 app.get('/not_assigned_topics', cors(), function (req, res) {
 	query = "select * from not_assigned_synonyms"
 		  + " order by name, topic";
-		
+
 	console.log('query: ' + query);
 	pool.query(query, function (err, rows, fields) {
 	  if (err) throw err
@@ -172,7 +172,7 @@ app.get('/not_assigned_topics', cors(), function (req, res) {
 app.get('/not_assigned_topics2', cors(), function (req, res) {
 	query = "select * from not_assigned_synonyms"
 		  + " order by topic, name";
-		
+
 	console.log('query: ' + query);
 	pool.query(query, function (err, rows, fields) {
 	  if (err) throw err
@@ -213,12 +213,11 @@ app.use(cors())
 //app.use('/doc', swaggerUi.serve, swaggerUi.setup(swaggerFile))
 
 // when shutdown signal is received, do graceful shutdown
-/*
-process.on( 'SIGINT', function(){
-  http_instance.close( function(){
-    console.log( 'gracefully shutting down :)' );
-	connection.end()
-    process.exit();
-  });
+process.on('SIGINT', function () {
+	server.close( function () {
+		pool.end(function (err) {
+			console.log( 'gracefully shutting down :)' );
+			process.exit();
+		});
+	});
 });
-*/
