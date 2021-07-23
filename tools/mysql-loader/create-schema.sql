@@ -41,6 +41,8 @@ CREATE VIEW projects_topics_view AS select `a`.`topic` AS `topic`,`b`.`id` AS `p
 
 CREATE VIEW not_assigned_synonyms AS select `projects_topics_view`.`topic` AS `topic`,`projects_topics_view`.`project_id` AS `project_id`,`projects_topics_view`.`name` AS `name`,`projects_topics_view`.`description` AS `description`,`projects_topics_view`.`link_url` AS `link_url`,`projects_topics_view`.`code_url` AS `code_url`,`projects_topics_view`.`last_pushed_within` AS `last_pushed_within`,`projects_topics_view`.`status` AS `status`,`projects_topics_view`.`organization_id` AS `organization_id`,`projects_topics_view`.`toml` AS `toml` from `projects_topics_view` where !(`projects_topics_view`.`topic` in (select `taxonomy_synonyms`.`synonym` from `taxonomy_synonyms`)) and !(`projects_topics_view`.`topic` in (select `taxonomy_tags`.`id` from `taxonomy_tags`));
 
+CREATE VIEW projects_topics_count AS select `a`.`topic` AS `topic`,count(0) AS `count` from (`topics` `a` join `projects_topics` on(`a`.`id` = `projects_topics`.`topic_id`)) group by `a`.`topic`;
+
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
 /*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;
