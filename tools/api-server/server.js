@@ -200,6 +200,19 @@ app.get('/not_assigned_topics2', cors(), function (req, res) {
 	})
 })
 
+app.get('/organizations_projects', cors(), function (req, res) {
+	query = "select * from organizations_projects_count order by name"
+		  + " order by name";
+
+	console.log('query: ' + query);
+	pool.query(query, function (err, rows, fields) {
+	  if (err) throw err
+
+	  res.end(JSON.stringify(rows));
+	})
+})
+
+
 var server = app.listen(PORT, function () {
    var host = server.address().address
    var port = server.address().port
