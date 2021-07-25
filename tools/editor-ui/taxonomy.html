@@ -69,7 +69,7 @@ This tree is populated from the json returned by the Taxonomy API at <a href="ht
 <script type="text/javascript">
 
 
-$.getJSON( "https://cfa-taxonomy.herokuapp.com/taxonomy", function( data ) {
+$.getJSON( "https://api.taxonomy.sandbox.k8s.brigade.cloud/taxonomy", function( data ) {
 	$('#taxonomy_jstree').jstree({ 'core' : {
 		"check_callback": true,
 		'data' : data
@@ -81,7 +81,7 @@ $.getJSON( "https://cfa-taxonomy.herokuapp.com/taxonomy", function( data ) {
 	}});
 });
 
-$.getJSON( "https://cfa-taxonomy.herokuapp.com/not_assigned_topics2", function( data ) {
+$.getJSON( "https://api.taxonomy.sandbox.k8s.brigade.cloud/not_assigned_topics2", function( data ) {
 	$('#orphans_jstree').jstree({ 'core' : {
 		"check_callback": true,
 		'data' : data
