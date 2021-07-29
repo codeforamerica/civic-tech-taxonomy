@@ -79,7 +79,7 @@ app.get('/topics_projects', cors(), function (req, res) {
 
 
 app.get('/taxonomy', cors(), function (req, res) {
-	query = "select category, display_name, id, synonym"
+	query = "select category, subcategory, display_name, id, synonym"
 		  + " from taxonomy_tags_synonyms";
 
 	category = req.query.category;
@@ -87,41 +87,62 @@ app.get('/taxonomy', cors(), function (req, res) {
 		query += " where category = '" + category + "'";
 	}
 
-	query += " order by category, display_name, synonym";
-	//query += " limit 10";
+	query += " order by category, subcategory, display_name, synonym";
 
 	console.log('query: ' + query);
 	pool.query(query, function (err, rows, fields) {
 	  if (err) throw err
 
 	  var cat = "";
+	  var subcat = "";
+	  var subcateg = null;
 	  var categories = new Array();
+	  var subcategories = new Array();
 	  var c = 0;
-	  var it = "";
+	  var sc = 0;
+	  var item_name = "";
 	  for(var row of rows) {
-		  //console.log("Row: " + row.display_name);
+		  //console.log("Row: " + row.display_name + " " + row.category + " " + row.subcategory);
 		  if(cat != row.category) {
+			  subcat = "";
+			  subcateg = null;
 			  cat = row.category;
+			  //console.log("New category: " + cat);
 			  categ = new Object();
 			  categ.text = cat;
 			  categories[c] = categ;
 			  categ.children = new Array();
 			  c = c+1;
-			  it = "";
+			  item_name = "";
 		  }
-		  if(it != row.display_name) {
-			it = row.display_name;
+		  if(row.subcategory != null && subcat != row.subcategory) {
+			  subcat = row.subcategory;
+			  //console.log("New subcategory: " + subcat);
+			  subcateg = new Object();
+			  subcateg.text = subcat;
+			  subcategories[sc] = categ;
+			  subcateg.children = new Array();
+			  categ.children.push(subcateg);
+			  sc = sc+1;
+			  item_name = "";
+		  }
+		  if(item_name != row.display_name) {
+			item_name = row.display_name;
 			item = {text: row.display_name, id:row.id};
 			if(row.synonym != null) {
 				item.children = new Array();
 				item.children.push(row.synonym);
 			}
-			categ.children.push(item);
+			if(subcateg != null) {
+				subcateg.children.push(item);
+			} else {
+				categ.children.push(item);
+			}
 		  } else { // same item so should be synonyms
 			item.children.push(row.synonym);
 		  }
 	  }
-	  console.table(categories);
+	  //console.log(JSON.stringify(categories));
 
 	  taxonomy = new Object();
 	  taxonomy.categories = categories;
@@ -223,7 +244,6 @@ var server = app.listen(PORT, function () {
 
 app.use(cors())
 
-//app.use('/doc', swaggerUi.serve, swaggerUi.setup(swaggerFile))
 
 // when shutdown signal is received, do graceful shutdown
 process.on('SIGINT', function () {
