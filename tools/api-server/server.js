@@ -106,19 +106,15 @@ app.get('/taxonomy', cors(), function (req, res) {
 			  subcateg = null;
 			  cat = row.category;
 			  //console.log("New category: " + cat);
-			  categ = new Object();
-			  categ.text = cat;
+			  categ = { text: cat, children: [] };
 			  categories[c] = categ;
-			  categ.children = new Array();
 			  c = c+1;
 			  item_name = "";
 		  }
 		  if(row.subcategory != null && subcat != row.subcategory) {
 			  subcat = row.subcategory;
 			  //console.log("New subcategory: " + subcat);
-			  subcateg = new Object();
-			  subcateg.text = subcat;
-			  subcateg.children = new Array();
+			  subcateg = { text: subcat, children: [] };
 			  categ.children.push(subcateg);
 			  item_name = "";
 		  }
