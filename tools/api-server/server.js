@@ -97,9 +97,7 @@ app.get('/taxonomy', cors(), function (req, res) {
 	  var subcat = "";
 	  var subcateg = null;
 	  var categories = new Array();
-	  var subcategories = new Array();
 	  var c = 0;
-	  var sc = 0;
 	  var item_name = "";
 	  for(var row of rows) {
 		  //console.log("Row: " + row.display_name + " " + row.category + " " + row.subcategory);
@@ -120,10 +118,8 @@ app.get('/taxonomy', cors(), function (req, res) {
 			  //console.log("New subcategory: " + subcat);
 			  subcateg = new Object();
 			  subcateg.text = subcat;
-			  subcategories[sc] = categ;
 			  subcateg.children = new Array();
 			  categ.children.push(subcateg);
-			  sc = sc+1;
 			  item_name = "";
 		  }
 		  if(item_name != row.display_name) {
