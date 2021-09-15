@@ -1,271 +1,271 @@
 
 <html>
-<head>
-<title>CfA Taxonomy Editor</title>
+	<head>
+	<title>CfA Taxonomy Editor</title>
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/themes/default/style.min.css" />
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/jstree.min.js"></script>
-<script src="https://requirejs.org/docs/release/2.3.5/minified/require.js"></script>	
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/themes/default/style.min.css" />
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jstree/3.2.1/jstree.min.js"></script>
+	<script src="https://requirejs.org/docs/release/2.3.5/minified/require.js"></script>
 
-<style type="text/css">	
-li.jstree-leaf > a .jstree-icon { display: none; }
-</style>
+	<style type="text/css">
+	li.jstree-leaf > a .jstree-icon { display: none; }
+	</style>
 
-</head>
+	</head>
 
-<body style="font-family:Arial">
+	<body style="font-family:Arial">
 
-<H2><center>Taxonomy Editor</center></H2>
-These are all the topics retrieved by the CfA Index crawler and their manually associated synonyms.
-<br>
-This is a draft/prototype, <a href="javascript:todo();">here</a> are some things to do.
-<hr>
-<table width="80%">
-<tr>
-<td width="50%" valign="top">
-This is how items are being classified in the codeforamerica github <a href="https://github.com/codeforamerica/civic-tech-taxonomy" target="new">Taxonomy</a> repo.
-<br>
-This tree is populated from the json returned by the Taxonomy API at <a href="https://api.taxonomy.sandbox.k8s.brigade.cloud/taxonomy">https://api.taxonomy.sandbox.k8s.brigade.cloud/taxonomy</a>
-<br>
-<i>Empty folders are because there is a file in the taxonomy project but ww didn't find a good use of it yet.</i>
-</td>
-<td width="10%"></td>
-<td width="50%" valign="top">
-These are the items retrieved from the Crawler that have not been classified in the Taxonomy yet.
-<br>
-Here the <b>folders are the tags</b> to categorize, the leafs are the projects from where they came from.
-The user should drag the folders to the Taxonomy tree.
-<br>
-This tree is populated from the json returned by the Taxonomy API at <a href="https://api.taxonomy.sandbox.k8s.brigade.cloud/not_assigned_topics2">https://api.taxonomy.sandbox.k8s.brigade.cloud/not_assigned_topics2</a>
-</td>
-</tr>
-<tr>
-<td>
-<hr>Search <input id="search-input" class="search-input" /> <!-- <button id="btn-save-json" type="button">Save Tree</button>-->
-</td>
-<td></td>
-<td>
-<hr>
-<div class="input-group">
-	Search <input type="text" class="form-control" placeholder="Search tree .." id="search">
-	<span class="input-group-btn">
-		<button class="btn btn-default" type="button" id="btn-search">Go!</button>
-	</span>
-	<span class="input-group-btn">
-		<button class="btn btn-default" type="button" id="btn-clear-search">Clear</button>
-	</span>
-</div>
-<!-- <button id="btn-save-json2" type="button">View Tree</button> -->
-</td>
+	<H2><center>Taxonomy Editor</center></H2>
+	These are all the topics retrieved by the CfA Index crawler and their manually associated synonyms.
+	<br>
+	This is a draft/prototype, <a href="javascript:todo();">here</a> are some things to do.
+	<hr>
+	<table width="80%">
+	<tr>
+	<td width="50%" valign="top">
+	This is how items are being classified in the codeforamerica github <a href="https://github.com/codeforamerica/civic-tech-taxonomy" target="new">Taxonomy</a> repo.
+	<br>
+	This tree is populated from the json returned by the Taxonomy API at <a href="https://api.taxonomy.sandbox.k8s.brigade.cloud/taxonomy">https://api.taxonomy.sandbox.k8s.brigade.cloud/taxonomy</a>
+	<br>
+	<i>Empty folders are because there is a file in the taxonomy project but ww didn't find a good use of it yet.</i>
+	</td>
+	<td width="10%"></td>
+	<td width="50%" valign="top">
+	These are the items retrieved from the Crawler that have not been classified in the Taxonomy yet.
+	<br>
+	Here the <b>folders are the tags</b> to categorize, the leafs are the projects from where they came from.
+	The user should drag the folders to the Taxonomy tree.
+	<br>
+	This tree is populated from the json returned by the Taxonomy API at <a href="https://api.taxonomy.sandbox.k8s.brigade.cloud/not_assigned_topics2">https://api.taxonomy.sandbox.k8s.brigade.cloud/not_assigned_topics2</a>
+	</td>
+	</tr>
+	<tr>
+	<td>
+	<hr>Search <input id="search-input" class="search-input" /> <!-- <button id="btn-save-json" type="button">Save Tree</button>-->
+	</td>
+	<td></td>
+	<td>
+	<hr>
+	<div class="input-group">
+		Search <input type="text" class="form-control" placeholder="Search tree .." id="search">
+		<span class="input-group-btn">
+			<button class="btn btn-default" type="button" id="btn-search">Go!</button>
+		</span>
+		<span class="input-group-btn">
+			<button class="btn btn-default" type="button" id="btn-clear-search">Clear</button>
+		</span>
+	</div>
+	<!-- <button id="btn-save-json2" type="button">View Tree</button> -->
+	</td>
 
-</tr>
-<tr>
-<td valign="top"><hr><div id="taxonomy_jstree"></div></td>
-<td></td>
-<td valign="top"><hr><div id="orphans_jstree"></div></td>
-</tr>
-</table>
+	</tr>
+	<tr>
+	<td valign="top"><hr><div id="taxonomy_jstree"></div></td>
+	<td></td>
+	<td valign="top"><hr><div id="orphans_jstree"></div></td>
+	</tr>
+	</table>
 
-<br>
+	<br>
 
-</body>
+	</body>
 
-<script type="text/javascript">
+	<script type="text/javascript">
 
 
-$.getJSON( "https://api.taxonomy.sandbox.k8s.brigade.cloud/taxonomy", function( data ) {
-	$('#taxonomy_jstree').jstree({ 'core' : {
-		"check_callback": true,
-		"multiple": false,
-		"data" : data
-	}, 
-	"plugins": ["search", "dnd", "contextmenu"],
-	"search": {
-		"case_sensitive": false,
-		"show_only_matches": false
-	}})
-	.on("hover_node.jstree",function(e,data){
-		if(data.node.parent != "#") {
-			$("#"+data.node.id).prop("title", data.node.id);
-		}
-	})	
-	.bind("move_node.jstree", function (e, data) {
-	  // try to prevent to dnd to another tree
-      console.log(data);
-      if(data.rslt.ot != data.rslt.rt) {
-        console.log("Node was moved to a different tree-instance");
-      } else {
-        console.log("Node was moved inside the same tree-instance");
-      }
-   });
-});
-
-$.getJSON( "https://api.taxonomy.sandbox.k8s.brigade.cloud/not_assigned_topics2", function( data ) {
-	
-	data.some(function(obj){
-		//obj.text += " " + obj.num_of_projects;
-		obj.children[0].data = new Object();
-		obj.children[0].data.description = obj.children[0].description;
-		obj.children[0].data.url = obj.children[0].code_url;
-		obj.children[0].data.num_of_projects = obj.num_of_projects;
-	});
-	
-	$('#orphans_jstree').jstree({ 'core' : {
-		"check_callback": true,
-		/*
-		orphans tree callback - node: id,text,icon,parent,parents,children,children_d,data,state,li_attr,a_attr,original,type
-		orphans tree callback - more: dnd,ref,pos,origin,is_multi,is_foreign
-		*/
-		/*
-		try to disable dnd to some place
-        "check_callback" : function (operation, node, node_parent, node_position, more) {
-            if (operation === 'move_node' && node.parent !== node_parent.id) {
-                return false;
-            }
-            return true;
+	$.getJSON( "https://api.taxonomy.sandbox.k8s.brigade.cloud/taxonomy", function( data ) {
+		$('#taxonomy_jstree').jstree({ 'core' : {
+			"check_callback": true,
+			"multiple": false,
+			"data" : data
 		},
-			*/	
-		"multiple": false,
-		'data' : data
-	},
-	node_customize: {
-		default: function(el, node) {
-			$(el).append("gio")
-		}
-	},	
-	"plugins": ["search", "dnd", "node_customize", "types"],
-	"search": {
-		"case_sensitive": false,
-		"show_only_matches": true,
-		"close_opened_onclear": true
-	}})
-	.on("hover_node.jstree",function(e,data){
-		$("#"+data.node.id).prop("title", data.node.original.num_of_projects + " projects use this tag.");
-	})
-	.on("select_node.jstree",
-     function(evt, data){
-		
-		var node = data.node;
-		console.log(node.data);
-		if(node.data != null) {
-			var description = node.data.description;
-			var url = node.data.url;					
-			let params = "scrollbars=no,resizable=no,status=no,location=no,toolbar=no,menubar=no,width=350,height=120,left=100,top=100";
-			let newWin = window.open("Project Details", "Project Details", params);
-			newWin.document.write(description + "\n" + "<a target='new' href='"+url+"#readme'>"+url+"</a>");
-		}
-     });
-	 
-});
-
-//Just use the before callback to prevent the select on non leaf nodes.
-$("#orphan_jstree").bind("before.jstree", function (e, data) {
-  if(data.func === "select_node" && !data.inst.is_leaf(data.args[0]))
-  {
-	data.inst.toggle_node(data.args[0]);
-	e.stopImmediatePropagation();
-	return false;
-  }
-});
-
-
-$("#taxonomy_jstree").bind("move_node.jstree", function (e, data) {
-  console.log(e);
-   if(data.rslt.ot != data.rslt.rt) {
-      console.log("Node was moved to a different tree-instance");
-   } else {
-      console.log("Node was moved inside the same tree-instance");
-   }
-});
-
-$(document).ready(function () {
-	$(".search-input").keyup(function () {
-		var searchString = $(this).val();
-		$('#taxonomy_jstree').jstree('search', searchString);
+		"plugins": ["search", "dnd", "contextmenu"],
+		"search": {
+			"case_sensitive": false,
+			"show_only_matches": false
+		}})
+		.on("hover_node.jstree",function(e,data){
+			if(data.node.parent != "#") {
+				$("#"+data.node.id).prop("title", data.node.id);
+			}
+		})
+		.bind("move_node.jstree", function (e, data) {
+		  // try to prevent to dnd to another tree
+		  console.log(data);
+		  if(data.rslt.ot != data.rslt.rt) {
+			console.log("Node was moved to a different tree-instance");
+		  } else {
+			console.log("Node was moved inside the same tree-instance");
+		  }
+	   });
 	});
-	
-	$(".search").keypress(function () {
-	    var keycode = (event.keyCode ? event.keyCode : event.which);
-		if(keycode == "13") {
-			var searchString2 = $(this).val();
+
+	$.getJSON( "https://api.taxonomy.sandbox.k8s.brigade.cloud/not_assigned_topics2", function( data ) {
+
+		data.some(function(obj){
+			//obj.text += " " + obj.num_of_projects;
+			obj.children[0].data = new Object();
+			obj.children[0].data.description = obj.children[0].description;
+			obj.children[0].data.url = obj.children[0].code_url;
+			obj.children[0].data.num_of_projects = obj.num_of_projects;
+		});
+
+		$('#orphans_jstree').jstree({ 'core' : {
+			"check_callback": true,
+			/*
+			orphans tree callback - node: id,text,icon,parent,parents,children,children_d,data,state,li_attr,a_attr,original,type
+			orphans tree callback - more: dnd,ref,pos,origin,is_multi,is_foreign
+			*/
+			/*
+			try to disable dnd to some place
+			"check_callback" : function (operation, node, node_parent, node_position, more) {
+				if (operation === 'move_node' && node.parent !== node_parent.id) {
+					return false;
+				}
+				return true;
+			},
+				*/
+			"multiple": false,
+			'data' : data
+		},
+		node_customize: {
+			default: function(el, node) {
+				$(el).append("gio")
+			}
+		},
+		"plugins": ["search", "dnd", "node_customize", "types"],
+		"search": {
+			"case_sensitive": false,
+			"show_only_matches": true,
+			"close_opened_onclear": true
+		}})
+		.on("hover_node.jstree",function(e,data){
+			$("#"+data.node.id).prop("title", data.node.original.num_of_projects + " projects use this tag.");
+		})
+		.on("select_node.jstree",
+		 function(evt, data){
+
+			var node = data.node;
+			console.log(node.data);
+			if(node.data != null) {
+				var description = node.data.description;
+				var url = node.data.url;
+				let params = "scrollbars=no,resizable=no,status=no,location=no,toolbar=no,menubar=no,width=350,height=120,left=100,top=100";
+				let newWin = window.open("Project Details", "Project Details", params);
+				newWin.document.write(description + "\n" + "<a target='new' href='"+url+"#readme'>"+url+"</a>");
+			}
+		 });
+
+	});
+
+	//Just use the before callback to prevent the select on non leaf nodes.
+	$("#orphan_jstree").bind("before.jstree", function (e, data) {
+	  if(data.func === "select_node" && !data.inst.is_leaf(data.args[0]))
+	  {
+		data.inst.toggle_node(data.args[0]);
+		e.stopImmediatePropagation();
+		return false;
+	  }
+	});
+
+
+	$("#taxonomy_jstree").bind("move_node.jstree", function (e, data) {
+	  console.log(e);
+	   if(data.rslt.ot != data.rslt.rt) {
+		  console.log("Node was moved to a different tree-instance");
+	   } else {
+		  console.log("Node was moved inside the same tree-instance");
+	   }
+	});
+
+	$(document).ready(function () {
+		$(".search-input").keyup(function () {
+			var searchString = $(this).val();
+			$('#taxonomy_jstree').jstree('search', searchString);
+		});
+
+		$(".search").keypress(function () {
+			var keycode = (event.keyCode ? event.keyCode : event.which);
+			if(keycode == "13") {
+				var searchString2 = $(this).val();
+				$('#orphans_jstree').jstree('search', searchString2);
+			}
+		});
+
+		$("#btn-search").click(function () {
+			var searchString2 = $("#search").val();
 			$('#orphans_jstree').jstree('search', searchString2);
-		}
+		});
+
+		$("#btn-clear-search").click(function () {
+			console.log("clear search");
+			$("#search").val("");
+			$('#orphans_jstree').jstree(true).refresh(true);
+			$('#orphans_jstree').jstree("close_all", -1);
+			$('#orphans_jstree').jstree("clear_search");
+		});
 	});
-	
-	$("#btn-search").click(function () {
-		var searchString2 = $("#search").val();
-		$('#orphans_jstree').jstree('search', searchString2);
+
+
+	$(document).on('dnd_stop.vakata', function(e, data) {
+		var ref = $('#orphans_jstree').jstree(true);
+		var node = ref.get_node(data.element);
+		var children = node.children;
+		$("#orphans_jstree").jstree(true).delete_node(children);
 	});
-	
-	$("#btn-clear-search").click(function () {
-		console.log("clear search");
-		$("#search").val("");
-		$('#orphans_jstree').jstree(true).refresh(true);
-		$('#orphans_jstree').jstree("close_all", -1);
-		$('#orphans_jstree').jstree("clear_search");
-	});	
-});
 
-
-$(document).on('dnd_stop.vakata', function(e, data) {
-    var ref = $('#orphans_jstree').jstree(true);
-    var node = ref.get_node(data.element);
-	var children = node.children;
-	$("#orphans_jstree").jstree(true).delete_node(children);
-});
-
-/*
-$(document).on('dnd_start.vakata', function(e, data) {
-    var ref = $('#orphans_jstree').jstree(true);
-    var node = ref.get_node(data.element);
-	console.log(e);
-	//alert(node.type);
-});
-
-$(document).on('dnd_move.vakata', function(e, data) {
-	var t = $(data.event.target);
-	console.log(e);
-	//alert(node.type);
-});
-*/
-var to = null;
-$(".search-input2").keyup(function () {
-    if(to) { clearTimeout(to); }
-    to = setTimeout(function() {
-		$('#orphans_jstree').jstree(true).search($('.search-input2').val());
-    }, 250);
-});
-
-$("#btn-save-json").click(function () {
-	var data = $('#taxonomy_jstree').jstree(true).get_json('#', {flat:true});
-
-	var data2 = new Array();
-	data.some(function(obj){
-		var obj2 = new Object();
-		obj2.name = obj.text;
-		obj2.id = obj.id;
-		obj2.synonyms = new Array();
-		//obj2.synonyms[0] = obj.children[0].text;
-		data2.push(obj2);
+	/*
+	$(document).on('dnd_start.vakata', function(e, data) {
+		var ref = $('#orphans_jstree').jstree(true);
+		var node = ref.get_node(data.element);
+		console.log(e);
+		//alert(node.type);
 	});
-	
-	var mytext = JSON.stringify(data);
-	alert(mytext);
-});
 
-$("#btn-save-json2").click(function () {
-	var data = $('#orphans_jstree').jstree(true).get_json('#', {flat:true});
-	alert(JSON.stringify(data));
-});
+	$(document).on('dnd_move.vakata', function(e, data) {
+		var t = $(data.event.target);
+		console.log(e);
+		//alert(node.type);
+	});
+	*/
+	var to = null;
+	$(".search-input2").keyup(function () {
+		if(to) { clearTimeout(to); }
+		to = setTimeout(function() {
+			$('#orphans_jstree').jstree(true).search($('.search-input2').val());
+		}, 250);
+	});
 
-function todo() {
-	var todo = "Shouldn't be able to d&d from Taxonomy to Orphan tree"
-	+"\n"+"In Taxonomy tree only allow d&d within same parent level 0 (i.e. not from skills to statuses)"
-	+"\n"+"From Orphans tree only d&d into Taxonomy tree";
-	+"\n"+"From Orphans tree only d&d parent nodes";
-	alert(todo);
-}
-</script>
+	$("#btn-save-json").click(function () {
+		var data = $('#taxonomy_jstree').jstree(true).get_json('#', {flat:true});
 
-</html>
+		var data2 = new Array();
+		data.some(function(obj){
+			var obj2 = new Object();
+			obj2.name = obj.text;
+			obj2.id = obj.id;
+			obj2.synonyms = new Array();
+			//obj2.synonyms[0] = obj.children[0].text;
+			data2.push(obj2);
+		});
+
+		var mytext = JSON.stringify(data);
+		alert(mytext);
+	});
+
+	$("#btn-save-json2").click(function () {
+		var data = $('#orphans_jstree').jstree(true).get_json('#', {flat:true});
+		alert(JSON.stringify(data));
+	});
+
+	function todo() {
+		var todo = "Shouldn't be able to d&d from Taxonomy to Orphan tree"
+		+"\n"+"In Taxonomy tree only allow d&d within same parent level 0 (i.e. not from skills to statuses)"
+		+"\n"+"From Orphans tree only d&d into Taxonomy tree";
+		+"\n"+"From Orphans tree only d&d parent nodes";
+		alert(todo);
+	}
+	</script>
+
+	</html>
