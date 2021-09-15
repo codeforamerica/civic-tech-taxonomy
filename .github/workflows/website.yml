@@ -2,8 +2,7 @@ name: Publish Website
 
 on:
   push:
-    branches:
-      - master
+    branches: [ master ]
 
 jobs:
   publish-website:
@@ -15,6 +14,5 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         HAB_LICENSE: accept
       with:
-        ref: master
-        holobranch: docs-site
+        holobranch: gh-pages
         commit-to: gh-pages

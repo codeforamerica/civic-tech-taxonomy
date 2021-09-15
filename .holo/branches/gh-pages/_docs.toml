@@ -1,0 +1,3 @@
+[holomapping]
+holosource = "civic-tech-taxonomy=>docs-site"
+files = "**"
