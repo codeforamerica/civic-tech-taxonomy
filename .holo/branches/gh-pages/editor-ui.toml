@@ -1,0 +1,4 @@
+[holomapping]
+holosource = "civic-tech-taxonomy"
+root = "tools/editor-ui"
+files = "**"
