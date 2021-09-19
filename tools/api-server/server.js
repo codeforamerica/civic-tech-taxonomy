@@ -73,6 +73,7 @@ app.get('/topics_projects', cors(), function (req, res) {
 	pool.query(query, function (err, rows, fields) {
 	  if (err) throw err
 
+	  res.type('json');
 	  res.end(JSON.stringify(rows));
 	})
 })
@@ -139,6 +140,7 @@ app.get('/taxonomy', cors(), function (req, res) {
 	  taxonomy = new Object();
 	  taxonomy.categories = categories;
 
+	  res.type('json');
 	  //res.end(JSON.stringify(taxonomy));
 	  res.end(JSON.stringify(categories));
 	})
@@ -152,6 +154,7 @@ app.get('/categories', cors(), function (req, res) {
 	pool.query(query, function (err, rows, fields) {
 	  if (err) throw err
 
+	  res.type('json');
 	  res.end(JSON.stringify(rows));
 	})
 })
@@ -177,6 +180,7 @@ app.get('/not_assigned_topics', cors(), function (req, res) {
 		  }
 		  project.topics.push(row.topic);
 	  }
+	  res.type('json');
 	  res.end(JSON.stringify(projects));
 	})
 })
@@ -209,6 +213,7 @@ app.get('/not_assigned_topics2', cors(), function (req, res) {
 		  project = {project_id: row.project_id, text: row.name, description: row.description, code_url: row.code_url};
 		  topic.children.push(project);
 	  }
+	  res.type('json');
 	  res.end(JSON.stringify(topics));
 	})
 })
@@ -221,6 +226,7 @@ app.get('/organizations_projects', cors(), function (req, res) {
 	pool.query(query, function (err, rows, fields) {
 	  if (err) throw err
 
+	  res.type('json');
 	  res.end(JSON.stringify(rows));
 	})
 })
