@@ -1,6 +1,7 @@
 swagger: '2.0'
 info:
   description: This is the API documentation and access tool for the Civic Tech Taxonomy.
+    This is based on the project at https://github.com/codeforamerica/civic-tech-taxonomy
   version: 1.0.0
   title: Civic Tech Taxonomy Swagger
   termsOfService: 'http://swagger.io/terms/'
