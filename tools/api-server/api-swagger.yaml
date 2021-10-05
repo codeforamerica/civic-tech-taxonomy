@@ -42,7 +42,7 @@ paths:
           description: The category of data to retrieve
           required: false
           type: string
-          enum: [Issues, Skills, Statuses, Technologies]
+          enum: [Issues, Skills, Statuses, Technologies, Priority-Action-Areas]
       responses:
         '200':
           description: valid response
