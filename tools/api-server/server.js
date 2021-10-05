@@ -232,6 +232,66 @@ app.get('/organizations_projects', cors(), function (req, res) {
 })
 
 
+app.get('/search_taxonomy', cors(), function (req, res) {
+	query = "select distinct synonym as tag, display_name as issue, tag_id as issue_id";
+	query += " from taxonomy_tags_synonyms";
+	
+	search = req.query.search;
+	if(!search || search.length < 3) {
+		console.log("search empty: " + search);
+		throw new Error("Search term of at least 3 characters is mandatory");
+	}
+	
+	query += " where synonym like '%"+search+"%'";
+	query += " order by synonym, display_name";
+
+	console.log('query: ' + query);
+	pool.query(query, function (err, rows, fields) {
+	  if (err) throw err
+
+	  res.type('json');
+	  res.end(JSON.stringify(rows));
+	})
+})
+
+app.get('/search_tags', cors(), function (req, res) {
+	query = "select topic as tag, name as project_name, code_url from not_assigned_synonyms";
+	
+	search = req.query.search;
+	if(!search || search.length < 3) {
+		console.log("search empty: " + search);
+		throw new Error("Search term of at least 3 characters  is mandatory");
+	}
+	
+	query += " where topic like '%"+search+"%'";
+	query += " order by topic, name";
+
+	console.log('query: ' + query);
+	pool.query(query, function (err, rows, fields) {
+	  if (err) throw err
+
+	  var t = "";
+	  var tags = new Array();
+	  var p = 0;
+	  for(var row of rows) {
+		  if(t != row.tag) {
+			t = ""+row.tag;
+			p = 0;
+			tag = {tag: row.tag, num_of_projects: p, projects: new Array()};
+			tags.push(tag);
+		  }
+		  p = p+1;
+		  tag.num_of_projects = p;
+		  project = {name: row.project_name, code_url: row.code_url};
+		  tag.projects.push(project);
+	  }
+	  
+	  res.type('json');
+	  res.end(JSON.stringify(tags));
+	})
+})
+
+
 var server = app.listen(PORT, function () {
    var host = server.address().address
    var port = server.address().port

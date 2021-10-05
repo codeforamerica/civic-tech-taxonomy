@@ -11,6 +11,7 @@ info:
     name: Apache 2.0
     url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
 host: api.taxonomy.sandbox.k8s.brigade.cloud
+
 schemes:
   - http
   - https
@@ -129,13 +130,19 @@ paths:
       produces:
         - application/json
         - application/xml
+      parameters:
+        - name: search
+          in: query
+          description: The term to search for
+          required: true
+          type: string
       responses:
         '200':
           description: valid response
           schema:
             type: array
             items:
-              $ref: '#/definitions/TaxonomyItem'
+              $ref: '#/definitions/TaxonomyItemShort'
         '405':
           description: Invalid input
   /search_tags:
@@ -150,6 +157,12 @@ paths:
       produces:
         - application/json
         - application/xml
+      parameters:
+        - name: search
+          in: query
+          description: The term to search for
+          required: true
+          type: string
       responses:
         '200':
           description: valid response
@@ -182,6 +195,18 @@ definitions:
         type: array
         items:
           type: string
+  TaxonomyItemShort:
+    type: object
+    properties:
+      tag:
+        type: string
+        example: 'Free Speech'
+      issue:
+        type: string
+        example: '1st Amendement'
+      issue_id:
+        type: string
+        example: '1st-amendement'
   Category:
     type: object
     properties:
@@ -196,6 +221,24 @@ definitions:
         type: string
       count:
         type: number
+  Project:
+    type: object
+    properties:
+      id: 
+        type: number
+      name:
+        type: string
+      description:
+        type: string
+      code_url:
+        type: string
+  ProjectShort:
+    type: object
+    properties:
+      name:
+        type: string
+      code_url:
+        type: string
   UncategorizedItem:
     type: object
     properties:
@@ -206,6 +249,4 @@ definitions:
       projects:
         type: array
         items:
-          type: string
-        
-        
+          $ref: '#/definitions/ProjectShort'
