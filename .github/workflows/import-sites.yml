@@ -38,7 +38,9 @@ jobs:
       run: |
         git config user.email "github-bot@brigade.cloud"
         git config user.name "Brigade Bot"
-        git fetch origin refs/heads/sites/v*:refs/heads/sites/*
+
+    - name: Fetch existing branches
+      run: git fetch origin refs/heads/sites/*:refs/heads/sites/*
 
     - name: Import democracylab
       run: script/import democracylab --commit-to=sites/democracylab.org
@@ -55,7 +57,6 @@ jobs:
     - name: Import codeforcary.org
       run: script/import laddr www.codeforcary.org --commit-to=sites/codeforcary.org
 
-    - name: Push results
+    - name: Push updated branches
       if: ${{ always() }}
-      run: |
-        git push origin refs/heads/sites/*
+      run: git push origin refs/heads/sites/*
