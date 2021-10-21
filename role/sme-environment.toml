@@ -1,4 +1,4 @@
 canonical_name = "sme-environment"
 category = "role"
-display_name = "Environment"
+display_name = "SME: Environment"
 subcategory = "Subject Matter Expert"

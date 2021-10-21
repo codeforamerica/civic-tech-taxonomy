@@ -1,5 +1,5 @@
 canonical_name = "propreitary"
 category = "software-license"
-display_name = "Propreitary"
+display_name = "Proprietary"
 parent = "open-source"
 subcategory = "Open Source License"
