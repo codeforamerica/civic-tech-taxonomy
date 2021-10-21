@@ -1,0 +1,61 @@
+name: 'Import: Tracked Site Taxonomies'
+
+on:
+  schedule:
+  - cron: 0 0 * * *
+  push:
+    branches: [ master ]
+  workflow_dispatch:
+
+env:
+  GITHUB_ACTOR: brigade-bot
+  GITHUB_TOKEN: ${{ secrets.BOT_GITHUB_TOKEN }}
+
+jobs:
+  import-sites:
+    runs-on: ubuntu-latest
+    steps:
+
+    - name: Cancel Previous Runs
+      uses: styfle/cancel-workflow-action@0.7.0
+      with:
+        access_token: ${{ github.token }}
+
+    - uses: actions/checkout@v2
+      with:
+        ref: master
+        token: ${{ secrets.BOT_GITHUB_TOKEN }}
+
+    - uses: actions/setup-node@master
+      with:
+        node-version: 14.x
+
+    - name: Install NPM dependencies
+      run: |
+        npm install
+
+    - name: Configure git
+      run: |
+        git config user.email "github-bot@brigade.cloud"
+        git config user.name "Brigade Bot"
+        git fetch origin refs/heads/sites/v*:refs/heads/sites/*
+
+    - name: Import democracylab
+      run: script/import democracylab --commit-to=sites/democracylab.org
+
+    - name: Import matchmaker
+      run: script/import matchmaker --commit-to=sites/codeforsanfrancisco.org
+
+    - name: Import codeforphilly.org
+      run: script/import laddr codeforphilly.org --commit-to=sites/codeforphilly.org
+
+    - name: Import codeforcroatia.org
+      run: script/import laddr codeforcroatia.org --commit-to=sites/codeforcroatia.org
+
+    - name: Import codeforcary.org
+      run: script/import laddr www.codeforcary.org --commit-to=sites/codeforcary.org
+
+    - name: Push results
+      if: ${{ always() }}
+      run: |
+        git push origin refs/heads/sites/*
