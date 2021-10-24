@@ -13,7 +13,6 @@ info:
 host: api.taxonomy.sandbox.k8s.brigade.cloud
 
 schemes:
-  - http
   - https
 tags:
   - name: Taxonomy
