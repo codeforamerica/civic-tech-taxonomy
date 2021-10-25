@@ -1,0 +1,251 @@
+swagger: '2.0'
+info:
+  description: This is the API documentation and access tool for the Civic Tech Taxonomy.
+    This is based on the project at https://github.com/codeforamerica/civic-tech-taxonomy
+  version: 1.0.0
+  title: Civic Tech Taxonomy Swagger
+  termsOfService: 'http://swagger.io/terms/'
+  contact:
+    email: apiteam@swagger.io
+  license:
+    name: Apache 2.0
+    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
+host: api.taxonomy.sandbox.k8s.brigade.cloud
+
+schemes:
+  - https
+tags:
+  - name: Taxonomy
+    description: Various sets of topics according to the Taxonomy
+  - name: Tags
+    description: Various sets of tags retrieved by the Project Index Crawler
+
+paths:
+  /taxonomy:
+    get:
+      tags:
+        - Taxonomy
+      summary: The values within all the Taxonomy categories
+      description: This API returns the items (tags) categorized in the Taxonomy. In the category "Issues" all the categorized tags are the one retrieved from the Project Index Crawler.
+        The items in the other categories are so far mostly conceptual,
+        we are still working to link them to the actual data retrieved by
+        the Project Index Crawler.
+      consumes:
+        - application/json
+        - application/xml
+      produces:
+        - application/json
+        - application/xml
+      parameters:
+        - name: category
+          in: query
+          description: The category of data to retrieve
+          required: false
+          type: string
+          enum: [Issues, Skills, Statuses, Technologies, Priority-Action-Areas]
+      responses:
+        '200':
+          description: valid response
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Taxonomy'
+        '405':
+          description: Invalid input
+
+  /categories:
+    get:
+      tags:
+        - Taxonomy
+      summary: The categories within the Taxonomy
+      description: This API returns all the categories within the Taxonomy and the number of tags within each category.
+      consumes:
+        - application/json
+        - application/xml
+      produces:
+        - application/json
+        - application/xml
+      responses:
+        '200':
+          description: valid response
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Category'
+        '405':
+          description: Invalid input
+  
+  /topics_count:
+    get:
+      tags:
+        - Tags
+      summary: The number of occurence of each tag retrieved from the Project Index Crawler.
+      consumes:
+        - application/json
+        - application/xml
+      produces:
+        - application/json
+        - application/xml
+      responses:
+        '200':
+          description: valid response
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/TopicCount'
+        '405':
+          description: Invalid input
+        
+  /not_assigned_topics2:
+    get:
+      tags:
+        - Tags
+      summary: The tags not yet categorized in the Taxonomy
+      description: All the tags retrieved by the Project Index Crawler that have not yet been categorized within the Taxonomy.
+      consumes:
+        - application/json
+        - application/xml
+      produces:
+        - application/json
+        - application/xml
+      responses:
+        '200':
+          description: valid response
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/UncategorizedItem'
+        '405':
+          description: Invalid input
+  /search_taxonomy:
+    get:
+      tags:
+        - Taxonomy
+      summary: Search the input string in the Taxonomy
+      description: Returns taxonomy items that match the input string (at least 3 characters long).
+      consumes:
+        - application/json
+        - application/xml
+      produces:
+        - application/json
+        - application/xml
+      parameters:
+        - name: search
+          in: query
+          description: The term to search for
+          required: true
+          type: string
+      responses:
+        '200':
+          description: valid response
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/TaxonomyItemShort'
+        '405':
+          description: Invalid input
+  /search_tags:
+    get:
+      tags:
+        - Tags
+      summary: Search the input string in the tags
+      description: Returns tags that match the input string (at least 3 characters long).
+      consumes:
+        - application/json
+        - application/xml
+      produces:
+        - application/json
+        - application/xml
+      parameters:
+        - name: search
+          in: query
+          description: The term to search for
+          required: true
+          type: string
+      responses:
+        '200':
+          description: valid response
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/UncategorizedItem'
+        '405':
+          description: Invalid input                  
+definitions:
+  Taxonomy:
+    type: object
+    properties:
+      text:
+        type: string
+      children:
+        type: array
+        items:
+          $ref: '#/definitions/TaxonomyItem'
+  TaxonomyItem:
+    type: object
+    properties:
+      text:
+        type: string
+        example: '1st Amendement'
+      id:
+        type: string
+        example: '1st-amendement'
+      children:
+        type: array
+        items:
+          type: string
+  TaxonomyItemShort:
+    type: object
+    properties:
+      tag:
+        type: string
+        example: 'Free Speech'
+      issue:
+        type: string
+        example: '1st Amendement'
+      issue_id:
+        type: string
+        example: '1st-amendement'
+  Category:
+    type: object
+    properties:
+      category:
+        type: string
+      number_of_items:
+        type: number
+  TopicCount:
+    type: object
+    properties:
+      topic:
+        type: string
+      count:
+        type: number
+  Project:
+    type: object
+    properties:
+      id: 
+        type: number
+      name:
+        type: string
+      description:
+        type: string
+      code_url:
+        type: string
+  ProjectShort:
+    type: object
+    properties:
+      name:
+        type: string
+      code_url:
+        type: string
+  UncategorizedItem:
+    type: object
+    properties:
+      tag:
+        type: string
+      number_of_projects:
+        type: number
+      projects:
+        type: array
+        items:
+          $ref: '#/definitions/ProjectShort'

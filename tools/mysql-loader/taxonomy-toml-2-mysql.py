@@ -72,6 +72,9 @@ def load_data(dir):
         cursor.execute(sql_save_tags, (id, display_name, category, subcategory))
 
         if synonyms == None:
+          synonyms = dict.get("tags") #for priority-action-areas
+
+        if synonyms == None:
           continue
 
         for synonym in synonyms:
@@ -109,6 +112,11 @@ logging.info("Processed %i files", y)
 i = i + y
 
 directory = '/tmp/civic-tech-taxonomy-master/taxonomies/statuses'
+y = load_data(directory)
+logging.info("Processed %i files", y)
+i = i + y
+
+directory = '/tmp/civic-tech-taxonomy-master/taxonomies/priority-action-areas'
 y = load_data(directory)
 logging.info("Processed %i files", y)
 i = i + y
