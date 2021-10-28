@@ -1,8 +1,13 @@
 display_name = "Food"
 id = "food"
 synonyms = [
+  "farmers-markets",
   "Food",
   "Food and Beverage",
+  "food-banks",
+  "food-insecurity",
+  "food-pantries",
+  "food-pantry-admin",
   "free-food",
   "free-meals",
   "groceries",
