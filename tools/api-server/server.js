@@ -132,7 +132,9 @@ app.get('/taxonomy', cors(), function (req, res) {
 				categ.children.push(item);
 			}
 		  } else { // same item so should be synonyms
-			item.children.push(row.synonym);
+		    if(item.children) {
+			  item.children.push(row.synonym);
+			}
 		  }
 	  }
 	  //console.log(JSON.stringify(categories));
