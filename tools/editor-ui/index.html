@@ -17,27 +17,102 @@
 	<script src="https://requirejs.org/docs/release/2.3.5/minified/require.js"></script>
 
 	<style type="text/css">
-	li.jstree-leaf > a .jstree-icon { display: none; }
+		li.jstree-leaf > a .jstree-icon { display: none; }
+		/*
+		.li {
+		  font-size: 30px;
+		}
+		*/
+
+		body {
+		  margin: 0;
+		  padding: 0;
+		  font-size: 1.25rem;
+		  padding-bottom: 3rem;
+		  font-family: 'Source Sans Pro', 'Segoe UI', 'Roboto', 'Oxygen','Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue','sans-serif';
+		}		
+		
+		.header {
+		  width: 100%;
+		  min-height: 4.15rem;
+		  display: flex;
+		  flex-direction: row;
+		  align-items: center;
+		  justify-content: left;
+		  font-size: 1.2rem;
+		  background-color: #433762;
+		  gap: 30px;
+		  padding-left: 1rem;
+		}
+		
+	  .App-title {
+		white-space: nowrap;
+		font-size: 1.7rem;
+		color: #e5e5e5;
+		font-family: 'Source Sans Pro', 'Segoe UI', 'Helvetica Neue', 'sans-serif';
+	  }
+	  
+	  .link_button a {
+		  border: 2px solid #e5e5e5;
+		  border-radius: 5px;
+		  padding: 0 0.75rem 0.1rem 0.75rem;
+		  background-color: #005980;
+		  color: #e5e5e5;
+		  justify-self: right;
+	  }
+
+    link_button a:hover,
+    link_button a:focus {
+      background-color: #004b6a;
+      color: #e5e5e5;
+    }
+	
 	</style>
 
 	</head>
 
 	
-	<body style="font-family:Arial">
+	<body>
+	
+	<div class="header">
+		<img src="cfa-brigade-logo.svg" alt="Code For America Brigade Network" width="140" height="65">
+		<span class="App-title">Civic Tech Taxonomy</span>
+		<div style="display: flex; justify-content: flex-end; gap: 20px; padding-left: 2rem; padding-right: 0.6rem;">
+		<span class="link_button">
+            <a href="https://projects.brigade.network/projects">Projects List</a>
+        </span>
+		<span class="link_button">
+            <a href="https://projects.brigade.network/brigades">Projects Map</a>
+        </span>
+		<span class="link_button">
+            <a href="https://projects.brigade.network/brigades">PublicCode Editor</a>
+        </span>
+		<span class="link_button">
+            <a href="https://projects.brigade.network/brigades">Taxonomy</a>
+        </span>
+		<span class="link_button">
+            <a href="https://projects.brigade.network/brigades">About</a>
+        </span>
+		</div>
+	</div>
 
-	<H2><center>Taxonomy Viewer</center></H2>
-	These are all the topics retrieved by the CfA Index crawler and their manually associated synonyms.
+	<p style="font-size: smaller; padding: 0.6rem;">
+	These are all the topics retrieved by the Code For America <a href="https://github.com/codeforamerica/brigade-project-index#readme">Index Crawler</a> and their manually associated synonyms.
 	<br>
 	This is a draft/prototype, check the <a href="https://github.com/codeforamerica/civic-tech-taxonomy/issues" target="new">project repo</a> 
 	or the <a href="https://codeforamerica.github.io/civic-tech-taxonomy/" target="new">tool documentation</a> 
-	or the <a href="https://brigade.cloud/projects/civic-tech-taxonomy/" target="new">project documentation</a>if you are interested in learning more or contribute.
+	or the <a href="https://brigade.cloud/projects/civic-tech-taxonomy/" target="new">project documentation</a> if you are interested in learning more or contribute.
+	</p>
 	<hr>
-	<table border=0 width="80%">
+	<table border=0 style="padding: 0.5rem;">
 	<tr>
 	<td valign="top">
-	This is how items are being classified in the codeforamerica github <a href="https://github.com/codeforamerica/civic-tech-taxonomy/tree/master/taxonomies" target="new">Taxonomy repo</a>.
+	This is how items are being classified in the codeforamerica github 
+	<a href="https://github.com/codeforamerica/civic-tech-taxonomy/tree/master/taxonomies" target="new">Taxonomy repo</a>.
 	<br>
-	This tree is populated from the json returned by the Taxonomy API at <a href="https://api.taxonomy.sandbox.k8s.brigade.cloud/taxonomy">https://api.taxonomy.sandbox.k8s.brigade.cloud/taxonomy</a>
+	This tree is populated from the json returned by the 
+	<a href="https://codeforamerica.github.io/civic-tech-taxonomy/editor-ui/swagger.html#/Taxonomy/get_taxonomy">Get Taxonomy API</a>,
+	see more APIs at the <a href="https://codeforamerica.github.io/civic-tech-taxonomy/editor-ui/swagger.html">Taxonomy API Swagger</a>.
 	<br>
 	<br>
 	Categorization is still a working in progress, changes needs to be done via PR in the <a href="https://github.com/codeforamerica/civic-tech-taxonomy/tree/master/taxonomies" target="new">repo</a>
@@ -52,7 +127,7 @@
 	</td>
 	</tr>
 	<tr>
-	<td valign="top"><hr><div id="taxonomy_jstree"></div></td>
+	<td valign="top"><hr><div id="taxonomy_jstree" style="font-size:20px"></div></td>
 	</tr>
 	</table>
 
@@ -62,8 +137,16 @@
 
 	<script type="text/javascript">
 
-
-	$.getJSON( "https://api.taxonomy.sandbox.k8s.brigade.cloud/taxonomy", function( data ) {
+	let taxonomy_url = "https://api.taxonomy.sandbox.k8s.brigade.cloud/taxonomy";
+	let params = (new URL(document.location)).searchParams;
+	let category = params.get("category");
+	if(category) {
+		taxonomy_url += "?category="+category;
+	}
+	
+	console.log(taxonomy_url);
+		
+	$.getJSON(taxonomy_url, function( data ) {
 		$('#taxonomy_jstree').jstree({ 'core' : {
 			"check_callback": false,
 			"multiple": false,
