@@ -25,7 +25,7 @@
 
 	
 	<body style="font-family:Arial">
-
+	
 	<H2><center>Taxonomy Editor</center></H2>
 	These are all the topics retrieved by the Brigade Project Index crawler with many that have been manually associated to Taxonomy Category.
 	<br>
@@ -93,6 +93,18 @@
 			"data" : data
 		},
 		"plugins": ["search", "dnd", "contextmenu"],
+		"dnd" : {
+		  "is_draggable" : function (data) {
+			// only allow d&d of leaf nodes
+			if(data[0].children.length > 0) {
+			  return false;
+			}
+			return true;
+		  }
+		},
+		"contextmenu" : {
+			"items" : customMenu
+		},	
 		"search": {
 			"case_sensitive": false,
 			"show_only_matches": false
@@ -124,7 +136,8 @@
 		});
 
 		$('#orphans_jstree').jstree({ 'core' : {
-			"check_callback": true,
+			// "check_callback": true,
+			"check_callback": checkOperation,
 			/*
 			orphans tree callback - node: id,text,icon,parent,parents,children,children_d,data,state,li_attr,a_attr,original,type
 			orphans tree callback - more: dnd,ref,pos,origin,is_multi,is_foreign
@@ -147,6 +160,15 @@
 			}
 		},
 		"plugins": ["search", "dnd", "node_customize", "types"],
+		"dnd" : {
+		  "is_draggable" : function (data) {
+			// only allow d&d of parent nodes (those are the tags, leafs are projects)
+			if(data[0].children.length == 0) {
+			  return false;
+			}
+			return true;
+		  }
+		},
 		"search": {
 			"case_sensitive": false,
 			"show_only_matches": true,
@@ -172,7 +194,9 @@
 	});
 
 	//Just use the before callback to prevent the select on non leaf nodes.
+	// doesn't seem to do anything
 	$("#orphan_jstree").bind("before.jstree", function (e, data) {
+	  console.log("before envent");
 	  if(data.func === "select_node" && !data.inst.is_leaf(data.args[0]))
 	  {
 		data.inst.toggle_node(data.args[0]);
@@ -191,6 +215,15 @@
 	   }
 	});
 
+	$("#orphans_jstree").bind("move_node.jstree", function (e, data) {
+	  console.log(e);
+	   if(data.rslt.ot != data.rslt.rt) {
+		  console.log("Node was moved to a different tree-instance");
+	   } else {
+		  console.log("Node was moved inside the same tree-instance");
+	   }
+	});
+	
 	$(document).ready(function () {
 		$(".search-input").keyup(function () {
 			var searchString = $(this).val();
@@ -227,14 +260,15 @@
 		$("#orphans_jstree").jstree(true).delete_node(children);
 	});
 
-	/*
+	
 	$(document).on('dnd_start.vakata', function(e, data) {
 		var ref = $('#orphans_jstree').jstree(true);
 		var node = ref.get_node(data.element);
-		console.log(e);
+		//console.log(e);
 		//alert(node.type);
 	});
 
+	/*
 	$(document).on('dnd_move.vakata', function(e, data) {
 		var t = $(data.event.target);
 		console.log(e);
@@ -277,6 +311,39 @@
 		+"\n"+"From Orphans tree only d&d into Taxonomy tree";
 		+"\n"+"From Orphans tree only d&d parent nodes";
 		alert(todo);
+	}
+	
+	function checkOperation(operation, node, parent, position, more) {
+	// checking on orphan tree
+	  // console.log("checkOperation", operation);
+	  if (operation == "copy_node" || operation == "move_node") {
+        return false;
+      }
+	  // current issue when moving nodes within the orphans tree, children gets dropped
+	  // if I prevent delete_node, it is applied on to the taxonomy tree too which instead we want!
+	  // if (operation == "delete_node") {
+        // return false;
+      // }
+      return true;
+    }
+	
+	function customMenu(node)
+	{
+		console.log("contextmenu", node);
+		var items = $.jstree.defaults.contextmenu.items(node);
+
+		if (node.parent === "#") {
+			delete items.create;
+			delete items.rename;
+			delete items.remove;
+			delete items.ccp;
+		}
+		if (node.children.length > 0) {
+			delete items.remove;
+			delete items.ccp;
+		}
+
+		return items;
 	}
 	</script>
 
