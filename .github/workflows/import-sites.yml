@@ -51,9 +51,6 @@ jobs:
     - name: Import codeforphilly.org
       run: script/import laddr codeforphilly.org --commit-to=sites/codeforphilly.org
 
-    - name: Import codeforcroatia.org
-      run: script/import laddr codeforcroatia.org --commit-to=sites/codeforcroatia.org
-
     - name: Import codeforcary.org
       run: script/import laddr www.codeforcary.org --commit-to=sites/codeforcary.org
 
