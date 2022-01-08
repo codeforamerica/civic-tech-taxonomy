@@ -1,0 +1,3 @@
+category = "Campaign tools"
+description = "Tools that allow campaigns to coordinate and semi-automate one-to-one text outreach campaigns. Although they operate in a legal gray-zone, depending where campaigns acquired their target data, peer to peer texting offers the added benefit of conversational replies from an actual human."
+name = "Peer to peer SMS"

@@ -1,0 +1,5 @@
+category = "Artificial Intelligence"
+description = """
+"Learn without explicit programming, using examples, to develop a model that
+can make decisions." - Google.org"""
+name = "Machine learning"

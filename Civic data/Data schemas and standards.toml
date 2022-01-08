@@ -1,0 +1,6 @@
+category = "Civic data"
+description = """
+Formats designed to structure data, which then enables interoperability, analysis, and software development.
+
+To learn more, <a href="https://gds.blog.gov.uk/2020/09/30/podcast-the-data-standards-authority/">listen to this Government Digital Services UK podcast episode about the Data Standards Authority</a>."""
+name = "Data schemas and standards"

@@ -1,0 +1,8 @@
+category = "Data visualization"
+description = """
+Dashboards present and visualize key data, including trends and hotspots, in a single glance. The most common example in this subgenre are municipal dashboards, which display data indicators across a city for operators or citizens to monitor.
+
+Suggested reading:
+
+Heather Froehlich and Michael Correll question if dashboards are "acting not as aids to decision-making but as devices to be passively consumed or observed: spectacles to “take in” rather than tools to guide action"."""
+name = "Dashboards"

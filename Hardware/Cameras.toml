@@ -1,0 +1,10 @@
+category = "Hardware"
+description = """
+Cameras aren’t a new technology, but the computational photography behind the lens is. Civic tech projects include <em>sousveillance</em>, or using the widespread availability of cameras to document antisocial behavior like police brutality and human rights violations.
+
+Civic tech is also concerned about civil liberties, and fighting unnecessary surveillance. See, for example:
+
+<p>WITNESS's <a href="https://www.ohchr.org/Documents/Issues/Opinion/Communications/Witness_1.pdf">Cameras Everywhere report</a> on the challenges and opportunities that the proliferation of cameras across society presents.</p>
+
+<p>Comparitech's report on the amount of <a href="https://www.comparitech.com/blog/vpn-privacy/us-surveillance-camera-statistics/">CCTV surveillance in the biggest US cities</a>.</p>"""
+name = "Cameras"

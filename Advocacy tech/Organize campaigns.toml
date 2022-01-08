@@ -1,0 +1,6 @@
+category = "Advocacy tech"
+description = """
+Tools and suites to help organize campaigns. Includes canvassing, texting, email, and other campaign tools.
+
+For specific campaigns, see our <a href="https://civictech.guide/listing-category/campaign/">Campaigns</a> category. For groups that regularly launch campaigns, see our <a href="https://civictech.guide/listing-category/campaign-orgs/">Campaign Organizations</a> category."""
+name = "Organize campaigns"

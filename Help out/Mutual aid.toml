@@ -1,0 +1,6 @@
+category = "Help out"
+description = """
+As a socially organized species, humans have long provided various forms of formal and informal aid to one another in times of crisis. Our empathy can be triggered by the suffering of others -- particularly others with whom we identify. That empathy can then drive a wide range of pro-social behavior to help others in need.
+
+In Mutual Aid: A Factor of Evolution, Russian scientist Peter Kropotkin critiques capitalist and feudal systems for defining human order through competition alone despite bountiful evidence of cooperation in the face of a hostile natural environment. Kropotkin does not deny that competition occurs in the face of limited resources, but argues that our natural sociable inclinations towards cooperation and mutual support are underserved by focusing exclusively on the self-interested individual."""
+name = "Mutual aid"

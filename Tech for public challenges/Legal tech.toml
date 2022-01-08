@@ -1,0 +1,5 @@
+category = "Tech for public challenges"
+description = """
+<blockquote><span style="color: #ffffff;">When people turn to the internet to find legal help, they can quickly become overwhelmed by the amount of information available, and by uncertainty about which sources are reliable. To make it easier for users to access timely, relevant, and accurate guidance, legal services organizations and court self-help centers in some states have launched legal assistance portals.</span></blockquote>
+<a href="https://www.pewtrusts.org/en/research-and-analysis/fact-sheets/2020/08/what-are-the-essential-elements-of-legal-assistance-portals?utm_campaign=communities_cls_usstatepolicy_______&amp;utm_source=twitter_trusts&amp;utm_medium=social&amp;utm_content=article_newtechtools____linkcard_&amp;utm_term=___">What Are the Essential Elements of Legal Assistance Portals?</a>, <span style="color: #ffffff;">Pew Charitable Trusts</span>"""
+name = "Legal tech"

@@ -1,0 +1,5 @@
+category = "Machine learning"
+description = """
+"Using multiple layers of artificial neurons to create a network that can
+make a decision based on raw input. Applications of deep learning include computer vision and speech recognition." -Google.org"""
+name = "Deep learning"

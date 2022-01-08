@@ -1,0 +1,3 @@
+category = "Mapping"
+description = "The underlying infrastructure that creates, draws, and hosts the maps, such as OpenStreetMap and Google Maps, that you can use."
+name = "Mapping platforms"

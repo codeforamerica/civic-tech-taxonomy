@@ -1,0 +1,3 @@
+category = "Civic data"
+description = 'APIs (application programming interfaces) allow different software to communicate with each other, and in particular, send, receive, and update data. Open government and civic data APIs are an evolution beyond "open data" in that they allow civic technologists to build interoperable apps, instead of just access bulk downloads of open data.'
+name = "Civic data APIs"

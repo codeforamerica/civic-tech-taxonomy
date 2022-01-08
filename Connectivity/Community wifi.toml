@@ -1,0 +1,6 @@
+category = "Connectivity"
+description = """
+Some governments have announced programs and strategies to offer free outdoor public wireless networks. Meanwhile, telecoms continue to sue and lobby to prevent such universal access, by outlawing municipal broadband, for example.
+
+<a href="https://assets.epb.com/media/Lobo%20-%20Ten%20Years%20of%20Fiber%20Infrastructure%20in%20Hamilton%20County%20TN_Published.pdf">A study</a> by Bento J. Lobo, Ph.D. found that Chattanooga, Tennessee's realized economic value of its fiber optic infrastructure (high-speed broadband and smart grid) exceeded $2.69 billion and 9,516 jobs over ten years, exceeding project costs by over $2.20 billion, and includes 40% percent of all jobs created in the county during the study period."""
+name = "Community wifi"

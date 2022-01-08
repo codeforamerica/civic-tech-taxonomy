@@ -1,0 +1,5 @@
+category = "Narrative tech"
+description = """
+"Listening is something people have always done (see every focus group ever). Today, most groups deploy tech to help listen to and monitor online conversations. Listening can include things like traditional and/or social media tracking. Approaches can be low-fi (hashtag analysis) and low or medium cost (Google Analytics and Google Trends). Basic listening doesn’t employ data scraping, machine learning, or network visualization and analysis."
+- Narrative Initiative"""
+name = "Listening"

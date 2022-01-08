@@ -1,0 +1,5 @@
+category = "Media"
+description = """
+Nonprofit newsrooms are a response to the news industry's financial difficulties transitioning to the digital economy. Foundations and other civic-minded investors fund investigative and socially important journalism that democracies depend on, but that can no longer be cross-subsidized by control of advertising channels like classified ads. (Entries coming soon - help us populate this section by submitting a project). For further reading, check out <a href="https://mediaimpactfunders.org/wp-content/uploads/2021/07/MIF_CommunityFoundationsReport_v5.pdf">Media Impact Funders' report, Community Foundations
+& Media</a>."""
+name = "Nonprofit newsrooms"

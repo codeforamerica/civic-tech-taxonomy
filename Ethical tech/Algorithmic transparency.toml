@@ -1,0 +1,3 @@
+category = "Ethical tech"
+description = 'These projects open "black box" algorithms up to expert and/or public audit by sharing inputs, rules, and other components of how the system makes its decisions.'
+name = "Algorithmic transparency"

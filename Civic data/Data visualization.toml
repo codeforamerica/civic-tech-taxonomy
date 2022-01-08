@@ -1,0 +1,8 @@
+category = "Civic data"
+description = """
+Tools and platforms that visually present information and facilitate understanding of it, such as dashboards. See <a href="https://datavizcatalogue.com/index.html">The Data Viz Catalog</a> for a catalog of types of data visualizations.
+
+Suggested reading:
+
+<a href="https://cup.columbia.edu/book/better-data-visualizations/9780231193115?utm_source=Digest&amp;utm_campaign=7fe1727fd3-RSS_EMAIL_CAMPAIGN&amp;utm_medium=email&amp;utm_term=0_d90a01c7ff-7fe1727fd3-87658181">Better Data Visualizations</a>. Over 500 examples and strategies for effective visual communication."""
+name = "Data visualization"

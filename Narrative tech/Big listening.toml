@@ -1,0 +1,8 @@
+category = "Narrative tech"
+description = """
+"There are tools that monitor public digital conversations. Those that we classify as “big listening” technologies also help us separate signal from noise, identify themes, and better understand how conversations respond to events, influencers and communications strategies. These tools give us insight into the “why” of a conversation. They can also model the networks in which narratives operate.
+
+These tools are often expensive (Crimson Hexagon/Consumer Research) and purpose-built (usually not for social change). They can also be free but come with a significant learning curve (MIT’s Media Cloud)."
+
+- The Narrative Initiative"""
+name = "Big listening"

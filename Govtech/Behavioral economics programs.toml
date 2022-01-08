@@ -1,0 +1,5 @@
+category = "Govtech"
+description = """
+"Nudging in public policy continues to face concerns related to manipulation, paternalism, and the removal of choice. However, as Sunstein and other proponents argued, all government programs are at some level applying choice architecture and nudging. Setting defaults and program design choices more deliberately, guided by science, can improve service delivery and increase the well-being of citizens. But it is important to appreciate that critics remain. Therefore, providing transparency and accountability for behavioral interventions is essential to sustaining or building trust in government. Nudges and other interventions inspired by the behavioral sciences need to be publicly disclosed and debated, as is the case for public policies more generally."
+- Zeina Afif for The World Bank, http://blogs.worldbank.org/developmenttalk/nudge-units-where-they-came-and-what-they-can-do"""
+name = "Behavioral economics programs"

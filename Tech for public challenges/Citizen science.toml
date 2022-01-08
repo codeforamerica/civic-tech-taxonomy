@@ -1,0 +1,9 @@
+category = "Tech for public challenges"
+description = """
+Citizen science is the practice where regular people can get involved in the scientific process, usually through improved access to cheaper hardware, like sensors, cameras, and computers, and through methods like open innovation and crowdsourcing.
+
+Vox: <a href="https://www.vox.com/future-perfect/22177247/citizen-science-amateur-backyard-birding-astronomy-covid-pandemic">Citizen science is booming during the pandemic</a>
+From backyard astronomy to birding, amateurs have been busy collecting data — and making real discoveries.
+
+See also our category on <a href="https://civictech.guide/listing-category/sensors/">sensors</a>."""
+name = "Citizen science"

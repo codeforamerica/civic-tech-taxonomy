@@ -1,0 +1,10 @@
+category = "Emerging Tech report"
+description = """
+<div class="wpb_text_column wpb_content_element vc_custom_1598541566580">
+<div class="wpb_wrapper">
+
+<span style="color: #ffffff;">This is a database of 46 emerging technology organizations identified in the process of creating the </span><span style="color: #3366ff;"><a style="color: #3366ff;" href="https://civictech.guide/emtech">Pathways Through the Portal</a></span><span style="color: #ffffff;"> report. These organizations were either discovered during our original research or were directly suggested by one or more of the 24 field leaders we interviewed for the report.</span>
+
+</div>
+</div>"""
+name = "Emerging Tech Organizations"

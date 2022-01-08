@@ -1,0 +1,8 @@
+category = "Bureaucracy tech"
+description = """
+Standards and protocols for managing citizen or resident identity in a digital manner.
+<blockquote>A recent report from <a href="https://www.juniperresearch.com/home">Juniper Research</a> found that the number of digital identity apps in use globally will exceed 6.2 billion by 2025, from just over 1 billion today. Civic identity apps are expected to account for almost 90 percent of these, with the lasting impact of the pandemic being one of the major drivers.</blockquote>
+- <a href="https://cities-today.com/angeleno-account-provides-digital-key-to-las-city-services/">Sarah Wray in Cities Today</a>
+
+<a href="https://www.accessnow.org/issue/digital-identity/">See also the privacy pushback on government implementation of digital identity systems from Access Now and partners</a>"""
+name = "Identity"
