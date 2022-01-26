@@ -1,0 +1,4 @@
+canonical_name = "event-manager"
+category = "role"
+display_name = "Event Manager"
+subcategory = "Operations"

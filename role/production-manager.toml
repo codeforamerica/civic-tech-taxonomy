@@ -1,0 +1,4 @@
+canonical_name = "production-manager"
+category = "role"
+display_name = "Production Manager"
+subcategory = "Marketing"
