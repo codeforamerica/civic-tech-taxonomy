@@ -4,6 +4,7 @@ Standardized identifiers for categorizing civic technology projects and interest
 
 - [Project documentation](https://codeforamerica.github.io/civic-tech-taxonomy/)
 - [Discuss on Discourse: Common projects taxonomy](https://discourse.codeforamerica.org/t/common-projects-taxonomy/308)
+- [Initial research on existing taxonomies](https://docs.google.com/document/d/1ATKsYsXa6wdQAWv_GxR8i8yF4bmGPYeWO5jJjKZQHDQ/edit)
 
 ## Taxonomy sets needed
 
